@@ -5,8 +5,8 @@ val coroutinesVersion: String by rootProject
 val junit5Version: String by project
 val semVer: String? by project
 
-val GITHUB_USERNAME: String by rootProject
-val GITHUB_TOKEN: String by rootProject
+val GITHUB_USERNAME: String? by rootProject
+val GITHUB_TOKEN: String? by rootProject
 
 group = "org.jacodb"
 project.version = semVer ?: "1.0-SNAPSHOT"
@@ -47,8 +47,8 @@ subprojects {
         maven{
             url = uri("https://maven.pkg.github.com/UnitTestBot/jacodb")
             credentials {
-                username = GITHUB_USERNAME
-                password = GITHUB_TOKEN
+                username = GITHUB_USERNAME ?: System.getenv("GITHUB_USERNAME")
+                password = GITHUB_TOKEN ?: System.getenv("GITHUB_TOKEN")
             }
         }
     }
