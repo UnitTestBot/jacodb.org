@@ -1,0 +1,60 @@
+@import "../../utils/colors.css";
+@import "../../utils/fonts.css";
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 770px) {
+  .actions {
+    flex-direction: column;
+  }
+}
+
+.topContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 4.5rem;
+  background-image: radial-gradient(
+    circle,
+    var(--light-gree-bg) -20%,
+    var(--dark-green-bg) 80%
+  );
+}
+
+.howWorksLink {
+  color: var(--white-color-text);
+  font-weight: var(--how-works-btn-font-weight);
+}
+
+.ulButtons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  margin-bottom: 2rem;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 750px) {
+  .ulButtons {
+    flex-direction: column;
+  }
+}
+
+.examples {
+  display: grid;
+  gap: 6rem;
+  place-items: center;
+}
+
+@media screen and (min-width: 1200px) {
+  .examples {
+    gap: 12rem;
+  }
+}
