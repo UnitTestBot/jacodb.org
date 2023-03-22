@@ -1,112 +1,72 @@
-const path = require("path");
-const { isNil } = require("lodash");
+const { cleanDoclets } = require('gatsby-transformer-react-docgen/doclets');
+const path = require('path');
+const remarkSlug = require('remark-slug');
+
+const defaultDescriptions = require('./src/defaultPropDescriptions');
 
 module.exports = {
   siteMetadata: {
-    title: `JacoDB`,
-    description: `JacoDB library`,
-    author: `JacoDB`,
-    backend_host: `https://jacodb.org`, // `http://127.0.0.1:10000`,
-    github_utbot: `https://github.com/UnitTestBot/jacodb`,
+    title: 'JacoDB',
+    titleTemplate: '%s · JacoDB Documentation',
+    author: 'UnitTestBot contributors',
+    // description: 'The most popular front-end framework, rebuilt for React.',
+    url: 'https://jacodb.org',
+    browsers: [
+      'last 4 Chrome versions',
+      'last 4 Firefox versions',
+      'last 2 Edge versions',
+      'last 2 Safari versions',
+    ],
   },
-
   plugins: [
-    `gatsby-plugin-preact`,
-    "gatsby-theme-docz",
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-image`,
+    'gatsby-plugin-sorted-assets',
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-plugin-mdx',
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-transformer-remark`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/utbot-logo-without-text.png`, // This path is relative to the root of the site.
-      },
-    },
-     {
-      resolve: "gatsby-plugin-alias-imports",
-      options: {
-        alias: {
-          docz: path.resolve(__dirname, "src/docz-proxy.js"),
-          "@docz": require.resolve("docz"),
+        defaultLayouts: {
+          default: require.resolve('./src/layouts/ApiLayout'),
         },
+        remarkPlugins: [remarkSlug],
       },
     },
     {
-      resolve: "gatsby-plugin-lunr",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        languages: [
-          {
-            name: "en",
-            filterNodes: node =>
-                !isNil(node.frontmatter) && !isNil(node.frontmatter.name),
-          },
-        ],
-        fields: [
-          { name: "name", store: true, attributes: { boost: 20 } },
-          { name: "description", store: true, attributes: { boost: 10 } },
-          { name: "content", store: true, attributes: { boost: 15 } },
-          { name: "route", store: true },
-        ],
-        // A function for filtering nodes. () => true by default
-        filterNodes: node =>
-            !isNil(node.frontmatter) && !isNil(node.frontmatter.name),
-        // How to resolve each field's value for a supported node type
-        resolvers: {
-          // For any node of type MarkdownRemark, list how to resolve the fields' values
-          MarkdownRemark: {
-            name: node => node.frontmatter.name,
-            description: node => node.frontmatter.description,
-            content: node => node.rawMarkdownBody,
-            route: node => node.frontmatter.route,
-          },
-        },
+        path: path.resolve(__dirname, './src'),
+        name: 'source',
       },
     },
     {
-      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      resolve: 'gatsby-transformer-react-docgen',
       options: {
-        // Fields to index
-        fields: [`name`, `description`, `content`, `route`],
-        // How to resolve each field`s value for a supported node type
-        resolvers: {
-          // For any node of type MarkdownRemark, list how to resolve the fields` values
-          MarkdownRemark: {
-            name: node => node.frontmatter.name,
-            description: node => node.frontmatter.description,
-            content: node => node.rawMarkdownBody,
-            route: node => node.frontmatter.route,
-          },
-        },
-        // Optional filter to limit indexed nodes
-        // filter: (node, getNode) => node.frontmatter.tags !== "exempt",
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `markdown`,
-        path: `${__dirname}/src/docs/`,
-      },
-    },
-    `gatsby-plugin-gatsby-cloud`,
+        resolver: require('./resolveHocComponents'),
+        handlers: [
+          function defaultDescriptionsHandler(docs) {
+            docs._props.forEach((_, name) => {
+              if (defaultDescriptions[name]) {
+                let prop = docs.getPropDescriptor(name);
+                let dflt = defaultDescriptions[name];
 
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+                if (dflt && !cleanDoclets(prop.description))
+                  prop.description = `${dflt}\n${prop.description}`;
+              }
+            });
+          },
+        ],
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: ['gatsby-remark-prismjs'],
+      },
+    },
+    'gatsby-plugin-catch-links',
+    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-astroturf',
+      options: { extension: '.module.scss' },
+    },
+    `gatsby-plugin-react-helmet`,
   ],
 };

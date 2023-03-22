@@ -1,7 +1,4 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/ssr-apis/
- */
+// prevent FontAwesome icons' flash from a very large one down to a properly sized one
+require('@fortawesome/fontawesome-svg-core/styles.css');
 
-// You can delete this file if you're not using it
+exports.wrapPageElement = require('./src/wrap-page');
