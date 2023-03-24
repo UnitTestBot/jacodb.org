@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { css } from 'astroturf';
 import SideNav from './SideNav';
-import Toc, { TocProvider } from './Toc';
+import Toc, {TocProvider} from './Toc';
 
 const styles = css`
   @import '../css/theme.scss';

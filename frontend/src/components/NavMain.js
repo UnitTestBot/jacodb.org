@@ -16,7 +16,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 //   variant: 'dark',
 //   role: 'banner',
 // })`
-//   @import '../css/theme.scss';
+//   @import '../css/theme.scss';ø
 
 //   composes: text-light justify-content-center from global;
 //   min-height: 4rem;
@@ -76,17 +76,12 @@ const StyledDropdown = styled(Dropdown)`
 
 const NAV_LINKS = [
   {
-    link: '/',
-    title: 'Home',
-    exact: true,
-  },
-  {
     link: '/getting-started/introduction',
     title: 'Getting Started',
   },
   {
-    link: '/components/alerts',
-    title: 'Components',
+    link: '/swagger-ui/index.html',
+    title: 'Demo',
   },
 ];
 
@@ -103,7 +98,7 @@ function NavMain({ activePage }) {
             Skip to content
           </SkipToContentLink>
           <Navbar.Brand href="/">
-            <span>JA:CO</span>
+            <img src={require('/src/assets/logo.svg').default} alt={'JacoDB'} className={'logo-class'} height={30} />
           </Navbar.Brand>
 
           <Nav role="navigation" id="top" className="d-none d-md-flex">

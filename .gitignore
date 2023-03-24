@@ -1,0 +1,6 @@
+/.gradle
+/frontend/.cache
+/frontend/.yarn
+/frontend/node_modules
+build
+.idea

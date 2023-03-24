@@ -1,0 +1,113 @@
+import CodeBlock from '../../components/CodeBlock';
+
+# Control flow graph API
+
+A control flow graph of the method is represented as a `JcGraph` object. To create method' `JcGraph`, you can invoke the `graph` function of a three-address instruction list:
+<CodeBlock language={"kotlin"} codeText={`
+    val instructionList = method.instructionList()
+    val graph = method.flowGraph()
+`}/>
+
+## `JcGraph`
+
+An intermediate representation of `JcGraph` uses the resolved type information (i.e. `JcType`
+hierarchy) and classpath information, therefore it requires a classpath instance.
+Similar to `JcRawInstList`, `JcGraph` stores a list of method instructions. However, it
+also tries to resolve all the execution paths in the method. `JcGraph` operates with
+`JcInst` class hierarchy (which is similar to `JcRawInst` in many cases) and provides the following API:
+* `entry: JcInst` &mdash; Get the entry point of a method: there can be only one entry point.
+* `exits: List<JcInst>` &mdash; Get all the "normal" exit points of a method, i.e. all the return and throw
+  instructions.
+* `throwExits: Map<JcType, List<JcInst>>` &mdash; All the potential exception exit points of a method.
+* `ref(inst: JcInst): JcInstRef` &mdash; Get the `JcInstRef` for an instruction. It is a lightweight wrapper that
+  allows to reference an instruction anytime you need.
+* `inst(ref: JcInstRef): JcInst` &mdash; Convert `JcInstRef` into a `JcInst`.
+* `previous(inst: JcInst): JcInst` &mdash; Get the previous instruction in the list.
+* `next(inst: JcInst): JcInst` &mdash; Get the next instruction in the list.
+* `successors(inst: JcInst): Set<JcInst>` &mdash; Get all the successors of an instruction
+  in a CFG. **Does not include any exception control flow**.
+* `predecessors(inst: JcInst): Set<JcInst>` &mdash; Get all the predecessors of an instruction
+  in a CFG. **Does not include any exception control flow**.
+* `throwers(inst: JcInst): Set<JcInst>` &mdash; Get all the instructions that may throw an
+  exception caught by `inst`. Represents an exception control flow of
+  a method. Returns an empty set for all instructions except `JcCatchInst`.
+* `catchers(inst: JcInst): Set<JcCatchInst>` &mdash; Get all the instructions that may catch an
+  exception thrown by `inst`. Represents an exception control flow of
+  a method.
+* `exceptionExits(inst: JcInst): Set<JcClassType>` &mdash; Get all the exception types that
+  an instruction can throw and a method will not catch.
+* `blockGraph(): JcBlockGraph` &mdash; Create a basic block representation of a CFG.
+* `iterator(): Iterator<JcInst>` &mdash; An iterator over the instructions of a graph.
+
+## `JcBlockGraph`
+
+`JcBlockGraph` is a basic block API for CFG. It operates with `JcBasicBlock` instances — each
+basic block just represents an interval of instructions with the following properties:
+* Instructions of a basic block are executed consecutively during
+  the normal execution (i.e. when no exceptions are thrown).
+* All the instructions of a basic block have the same exception handlers, i.e. calling
+  `jcGraph.catchers(inst)` for each instruction of a basic block returns the same result.
+
+`JcBlockGraph` provides the following API:
+* `entry: JcBasicBlock` &mdash; Entry of a method. There can be only one entry.
+* `exits: List<JcBasicBlock>` &mdash; Exits of a method.
+* `instructions(block: JcBasicBlock): List<JcInst>` &mdash; Get the instructions of a basic
+  block.
+* `predecessors(block: JcBasicBlock): Set<JcBasicBlock>` &mdash; Get all the predecessors of a
+  basic block in a CFG. **Does not include any exception control flow**.
+* `successors(block: JcBasicBlock): Set<JcBasicBlock>` &mdash; Get all the successors of a
+  basic block in a CFG. **Does not include any exception control flow**.
+* `throwers(block: JcBasicBlock): Set<JcBasicBlock>` &mdash; Get all the basic blocks that may throw an
+  exception caught by `block`. Represents an exception control flow of
+  a method. Returns an empty set for all blocks except the ones that start with `JcCatchInst`.
+* `catchers(block: JcBasicBlock): Set<JcBasicBlock>` &mdash; Get all the basic blocks that may catch an
+  exception thrown by `block`. Represents an exception control flow of a method.
+
+We also provide an API to visualize `JcGraph` and `JcBlockGraph`:
+* `JcGraph.view(dotCmd: String, viewerCmd: String, viewCatchConnections: Boolean = false)` &mdash;
+  Generate an SVG file using DOT (`dotCmd` requires a path to a DOT executable) and view
+  it using `viewerCmd` program (specify a browser executable). The `viewCatchConnections` flag
+  defines whether a `throw...catch` connections are to be displayed in the graph.
+* `JcBlockGraph.view(dotCmd: String, viewerCmd: String)` &mdash; Similar, but it displays
+  `JcBlockGraph`.
+
+CFG API operates on `JcInst` instructions. `JcInst` is similar to `JcRawInst` with some
+small differences. The main difference is that `JcInst` uses `JcType` instances to represent
+types. Another difference is that `JcInst` does not need labels to represent connections
+between instructions (as they are stored in `JcGraph`). In all other cases, `JcInst` hierarchy
+(including `JcExpr` and `JcValue`) matches largely with `JcRawInst` hierarchy
+(including `JcRawExpr` and `JcRawValue`).
+
+One more thing worth noting is that `JcGraph` represents an immutable structure and provides no API for modifying it. That is made on purpose, because modifying CFG
+requires a user to be aware of all the connections inside a graph. The user should correctly manage
+these connections when changing the CFG. However, one can always create a new copy of
+`JcGraph` with all the necessary modifications.
+
+## Examples
+
+You can find an example of CFG modification in the `StringConcatSimplifier` class: it creates new
+`JcGraph` in which all the `invokedynamic` string concatenation instructions are
+replaced with simple `String.concat` method call.
+
+`ReachingDefinitionsAnalysis` class is an example of using basic block API. It performs
+a standard reaching definition analysis for basic blocks using a simple worklist algorithm.
+
+## Visitor API
+
+As for the three-address instruction list, we provide a _visitor_ API for traversing and
+modifying `JcGraph`. _Visitors_ have a standard interface — they can be invoked using an
+`accept` method on instructions and expressions:
+<CodeBlock language={"kotlin"} codeText={`
+val a = jcInst.accept(MyInstVisitor())
+val b = jcExpr.accept(MyExprVisitor())
+`}/>
+
+We also provide "functional"-like extensions for applying _visitors_ to `JcGraph`:
+* `filter(visitor: JcInstVisitor<Boolean>): JcGraph`
+* `filterNot(visitor: JcInstVisitor<Boolean>): JcGraph`
+* `map(visitor: JcInstVisitor<JcInst>): JcGraph`
+* `mapNotNull(visitor: JcInstVisitor<JcInst?>): JcGraph`
+* `flatMap(visitor: JcInstVisitor<Collection<JcInst>>): JcGraph`
+* `apply(visitor: JcInstVisitor<Unit>): JcGraph`
+* `applyAndGet(visitor: T, getter: (T) -> R): R`
+* `collect(visitor: JcInstVisitor<T>): Collection<T>`

@@ -7,9 +7,7 @@ export default function withLayout(Component) {
     let Layout = DefaultLayout;
     if (
       pathname.startsWith('/getting-started') ||
-      pathname.startsWith('/layout') ||
-      pathname.startsWith('/components') ||
-      pathname.startsWith('/utilities')
+      pathname.startsWith('/api-ref')
     ) {
       Layout = ApiLayout;
     }

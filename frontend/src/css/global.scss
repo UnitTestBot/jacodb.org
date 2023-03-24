@@ -1,6 +1,7 @@
 @import './theme.scss';
 @import './algolia.scss';
 @import './carbonads.scss';
+@import 'prism.module';
 
 html {
   -webkit-font-smoothing: antialiased;
@@ -17,4 +18,276 @@ code {
   background-color: transparentize($note, 0.75);
   color: $text;
   padding: 0.1rem;
+}
+
+.logo-class {
+  filter: invert(100%);
+}
+
+@import '../css/theme.scss';
+
+.nav {
+  position: sticky;
+  top: 4rem;
+  height: calc(100vh - 4rem);
+  background-color: #f7f7f7;
+}
+
+.main {
+  order: 1;
+  padding: 2rem 4rem;
+
+  @include media-breakpoint-down(sm) {
+    padding: 1rem 0.83rem;
+  }
+
+  & > h2:not(:first-child) {
+    margin-top: 3rem;
+  }
+
+  > h3 {
+    margin-top: 1.5rem;
+  }
+
+  > ul li,
+  > ol li {
+    margin-bottom: 0.25rem;
+  }
+
+  > table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+
+    @include media-breakpoint-down(sm) {
+      display: block;
+      overflow-x: auto;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    > ul,
+    > ol,
+    > p {
+      max-width: 80%;
+    }
+  }
+}
+
+.heading {
+
+  position: relative;
+  scroll-margin-top: 5rem;
+}
+
+.block {
+  padding: 20px; // Matching padding in <Editor>.
+  border-radius: 8px;
+  margin: 0 -1rem 3rem;
+
+  :global(.card) & {
+    margin: 0;
+    border-radius: 0 0 5px 5px;
+  }
+}
+
+
+.styled-panel {
+  $top: 4rem;
+
+  order: 2;
+  position: sticky;
+  top: $top;
+  height: calc(100vh - #{$top});
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 0.875rem;
+  overflow-y: auto;
+
+  & > ul {
+    padding-left: 0;
+    border-left: 1px solid $divider;
+
+    & ul {
+      padding-left: 1rem;
+    }
+  }
+}
+
+.styled-li {
+
+  & a {
+    display: block;
+    padding: 0.125rem 1.5rem;
+    color: transparentize($text, 0.4);
+
+    &:hover {
+      color: $primary;
+      text-decoration: none;
+    }
+  }
+}
+
+.link-to-source {
+  font-size: 1rem;
+  padding: 0 0.5rem;
+}
+
+.styled-navbar {
+
+  min-height: 4rem;
+  background-color: $darker;
+  z-index: 1;
+
+  @include media-breakpoint-up(md) {
+    position: sticky;
+    top: 0rem;
+    z-index: 1040;
+  }
+}
+
+.styled-nav-link {
+  @import '../css/theme.scss';
+
+  & + & {
+    margin-left: $spacer;
+  }
+
+  &:global(.active) {
+    font-width: 700;
+  }
+
+}
+
+.styled-side-panel {
+  $top: 4rem;
+
+  background-color: #f7f7f7;
+
+  @include media-breakpoint-up(md) {
+    position: sticky;
+    top: $top;
+    z-index: 1000;
+    height: calc(100vh - #{$top});
+    background-color: #f7f7f7;
+    border-right: 1px solid $divider;
+  }
+
+  & > * + * {
+    border-top: 1px solid $divider;
+  }
+
+}
+
+.mast-head {
+
+  background-color: $dark;
+  padding: 0;
+  color: white;
+  padding-bottom: 0.5rem;
+
+}
+
+.styled-content {
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 450px;
+  margin: 0 auto;
+  max-width: 800px;
+
+  @media (max-width: 800px) {
+    padding: 0 40px;
+    text-align: center;
+  }
+
+}
+
+.styled-heading {
+  color: $brand;
+  font-weight: bold;
+  font-size: 3.2rem;
+  margin: 2rem 0;
+}
+
+.styled-sub-heading {
+  line-height: 2;
+  font-size: 1.6rem;
+
+}
+
+.styled-feature-card {
+
+  font-weight: 400;
+  line-height: 1.6;
+
+  & h2 {
+    font-size: 1.6rem;
+    color: $subtle;
+    font-weight: 300;
+    margin-bottom: 0.6rem;
+  }
+
+}
+
+.styled-menu-button {
+
+  line-height: 1;
+  color: #212529;
+}
+
+.styled-overflow-wrapper {
+
+  @include media-breakpoint-up(md) {
+    display: flex !important;
+    height: 100% !important;
+    flex-direction: column;
+    max-height: calc(100vh - 8.5rem);
+  }
+
+}
+
+.styled-toc-link {
+  &.active,
+  &:global(.active) {
+    font-weight: 500;
+    color: $text !important;
+  }
+
+  &.active {
+    margin-top: 1rem;
+
+    & + * {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    color: transparentize($text, 0.25);
+    transition: color 0.2s ease-out;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    color: $subtle-on-dark;
+  }
+}
+
+.styled-toc-sub-link {
+  font-size: 90%;
+  padding-top: 0.25rem;
+}
+
+.skip-to-content {
 }

@@ -103,12 +103,20 @@ const TocSubLink = styled(TocLink)`
 `;
 
 const gettingStarted = [
-  'introduction'
+  'introduction',
+  'types-classes',
+  'available-features',
+  'benchmarks'
+];
+
+const apiRef = [
+  'api-reference',
+  'control-flow-graph'
 ];
 
 
 const nameOverrides = {
-  'why': 'Why JacoDB'
+  'types-classes': 'Types and Classes'
 };
 
 function NavSection({ heading, location: { pathname }, items, path }) {
@@ -185,6 +193,12 @@ class SideNav extends React.Component {
                 path="/getting-started"
                 location={location}
                 items={gettingStarted}
+              />
+              <NavSection
+                heading="Documentation"
+                path="/api-ref"
+                location={location}
+                items={apiRef}
               />
               <NavSection
                 heading="Migrating"
