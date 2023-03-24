@@ -29,25 +29,9 @@ export default withLayout(
                     </div>
 
                     <Container>
-                        <Row>
-                            <Col md={4} className={classNames('styled-feature-card', 'px-4', 'py-3')}>
-                                <h2>Java/Kotlin API</h2>
-                            </Col>
-
-                            <Col md={4} className={classNames('styled-feature-card', 'px-4', 'py-3')}>
-                                <h2>Persisted and reusable</h2>
-                            </Col>
-
-                            <Col md={4} className={classNames('styled-feature-card', 'px-4', 'py-3')}>
-                                <h2>Fast and async</h2>
-                            </Col>
-                        </Row>
-                    </Container>
-
-                    <Container>
 
                         JacoDB is a library that allows you to get information about Java bytecode outside the JVM
-                        process and to store it in a database. While Java Reflection` makes it possible to inspect code
+                        process and to store it in a database. While Java Reflection makes it possible to inspect code
                         at runtime, Java Compilation Database does the same for bytecode stored in a file system.
                         <p/>
 
@@ -62,6 +46,21 @@ export default withLayout(
                             <li> persistence: reusing data between restarts</li>
                             <li> fast start-up </li>
                         </ul>
+                    </Container>
+                    <Container>
+                        <Row>
+                            <Col md={4} className={classNames('styled-feature-card', 'px-4', 'py-3')}>
+                                <h2>Java/Kotlin API</h2>
+                            </Col>
+
+                            <Col md={4} className={classNames('styled-feature-card', 'px-4', 'py-3')}>
+                                <h2>Persisted and reusable</h2>
+                            </Col>
+
+                            <Col md={4} className={classNames('styled-feature-card', 'px-4', 'py-3')}>
+                                <h2>Fast and async</h2>
+                            </Col>
+                        </Row>
                     </Container>
                 </main>
             );
