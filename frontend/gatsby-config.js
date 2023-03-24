@@ -7,7 +7,7 @@ const defaultDescriptions = require('./src/defaultPropDescriptions');
 module.exports = {
   siteMetadata: {
     title: 'JacoDB',
-    titleTemplate: '%s · JacoDB Documentation',
+    titleTemplate: '%s · Documentation',
     author: 'UnitTestBot contributors',
     // description: 'The most popular front-end framework, rebuilt for React.',
     url: 'https://jacodb.org',

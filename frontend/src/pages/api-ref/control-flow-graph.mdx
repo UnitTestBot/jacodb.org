@@ -8,7 +8,7 @@ A control flow graph of the method is represented as a `JcGraph` object. To crea
     val graph = method.flowGraph()
 `}/>
 
-## `JcGraph`
+## JcGraph
 
 An intermediate representation of `JcGraph` uses the resolved type information (i.e. `JcType`
 hierarchy) and classpath information, therefore it requires a classpath instance.
@@ -39,7 +39,7 @@ also tries to resolve all the execution paths in the method. `JcGraph` operates 
 * `blockGraph(): JcBlockGraph` &mdash; Create a basic block representation of a CFG.
 * `iterator(): Iterator<JcInst>` &mdash; An iterator over the instructions of a graph.
 
-## `JcBlockGraph`
+## JcBlockGraph
 
 `JcBlockGraph` is a basic block API for CFG. It operates with `JcBasicBlock` instances — each
 basic block just represents an interval of instructions with the following properties:

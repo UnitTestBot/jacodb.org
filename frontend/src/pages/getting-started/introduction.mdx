@@ -3,14 +3,15 @@ import CodeBlock from '../../components/CodeBlock';
 ## Introduction
 
 Add this lines to dependencies block in build.gradle.kts:
-<CodeBlock language={'kotlin'} codeText={`
+```kotlin
     implementation(group = "org.jacodb", name = "jacodb-api", version = jacodbVersion)
     implementation(group = "org.jacodb", name = "jacodb-core", version = jacodbVersion)
     implementation(group = "org.jacodb", name = "jacodb-analysis", version = jacodbVersion)
-`} />
+```
 
 Add this lines to dependencies block in pom.xml:
-<CodeBlock language={'xml'} codeText={`
+```xml
+    <dependencies>
         <dependency>
             <groupId>org.jacodb</groupId>
             <artifactId>jacodb-core</artifactId>
@@ -23,20 +24,6 @@ Add this lines to dependencies block in pom.xml:
             <groupId>org.jacodb</groupId>
             <artifactId>jacodb-analysis</artifactId>
         </dependency>
-`} />
+    </dependencies>
+```
 
-## Contribution guide
-
-General flow for contributing code:
-
-1. Create your own fork of the code.
-2. Clone the forked repository to your local machine.
-3. Implement changes.
-5. Test your code:
-* Before creating the pull request perform the tests you find necessary for your code changes.
-* When implementing something new, it's great to find real users and ask them to try out your feature — to prove
-the necessity and quality of your suggestion.
-6. Create the pull request, and you'll see if the automated tests pass on GitHub. Your reviewer will possibly recommend
-you more tests.
-7. Please choose [@lehvolk](https://github.com/lehvolk) as a reviewer. He will reassign your PR to someone else from the core team, if necessary.
-We do our best in reviewing, but we can hardly specify the exact timeout for it. Be sure that we'll certainly answer your pull request!

@@ -203,7 +203,7 @@ class SideNav extends React.Component {
               <NavSection
                 heading="Migrating"
                 location={location}
-                path="/migrating"
+                path="/migration"
               />
               <NavSection heading="About" location={location} path="/about" />
             </TableOfContents>

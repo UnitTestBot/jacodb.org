@@ -76,8 +76,17 @@ const StyledDropdown = styled(Dropdown)`
 
 const NAV_LINKS = [
   {
+    link: '/',
+    title: 'Home',
+    exact: true,
+  },
+  {
     link: '/getting-started/introduction',
     title: 'Getting Started',
+  },
+  {
+    link: '/api-ref/api-reference',
+    title: 'Documentation',
   },
   {
     link: '/swagger-ui/index.html',
@@ -97,9 +106,6 @@ function NavMain({ activePage }) {
           <SkipToContentLink href="#rb-docs-content" tabIndex="0">
             Skip to content
           </SkipToContentLink>
-          <Navbar.Brand href="/">
-            <img src={require('/src/assets/logo.svg').default} alt={'JacoDB'} className={'logo-class'} height={30} />
-          </Navbar.Brand>
 
           <Nav role="navigation" id="top" className="d-none d-md-flex">
             {NAV_LINKS.map(({ link, title, exact }) => (

@@ -10,6 +10,7 @@ import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-jsx';
+import 'prismjs/components/prism-java';
 import 'prismjs/components/prism-kotlin';
 import 'prismjs/components/prism-mermaid';
 

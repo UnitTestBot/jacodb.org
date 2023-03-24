@@ -185,8 +185,6 @@ code {
   background-color: $dark;
   padding: 0;
   color: white;
-  padding-bottom: 0.5rem;
-
 }
 
 .styled-content {
@@ -197,7 +195,7 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 450px;
+  min-height: 350px;
   margin: 0 auto;
   max-width: 800px;
 
@@ -212,13 +210,6 @@ code {
   color: $brand;
   font-weight: bold;
   font-size: 3.2rem;
-  margin: 2rem 0;
-}
-
-.styled-sub-heading {
-  line-height: 2;
-  font-size: 1.6rem;
-
 }
 
 .styled-feature-card {
