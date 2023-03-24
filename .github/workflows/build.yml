@@ -37,16 +37,9 @@ jobs:
       - uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.4.2
-      - name: Build and run tests
+      - name: Build
         run: |
           gradle clean build --no-daemon --info
         env:
           GITHUB_USERNAME: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v1
-        if: always()
-        with:
-          files: "**/build/test-results/**/*.xml"
-          check_name: "jdk 11 test results"

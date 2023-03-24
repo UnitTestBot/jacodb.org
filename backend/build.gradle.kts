@@ -9,6 +9,8 @@ plugins {
 }
 
 dependencies {
+    implementation(project(":frontend"))
+
     implementation(group = "org.jacodb", name = "jacodb-api", version = jacodbVersion)
     implementation(group = "org.jacodb", name = "jacodb-core", version = jacodbVersion)
 
@@ -27,7 +29,10 @@ dependencies {
     annotationProcessor(group = "org.springframework.boot", name = "spring-boot-configuration-processor")
 }
 
-
 tasks.named<BootJar>("bootJar") {
+//    dependsOn("copySite")
+    from(rootProject.file("frontend/build/generated-resources"))
     archiveFileName.set("jacodb-site.jar")
 }
+
+tasks

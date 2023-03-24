@@ -9,8 +9,6 @@
   "bugs": {
     "url": "https://github.com/UnitTestBot/jacodb/issues"
   },
-  "license": "MIT",
-  "author": "Jason Quense",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/UnitTestBot/jacodb.git"
@@ -18,7 +16,7 @@
   "scripts": {
     "start": "yarn develop",
     "develop": "gatsby develop",
-    "build": "gatsby build",
+    "build": "yarn install && gatsby clean && gatsby build",
     "deploy": "gatsby build --prefix-paths && yarn push-docs"
   },
   "importSort": {
