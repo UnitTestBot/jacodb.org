@@ -10,7 +10,7 @@ node {
 tasks.register<Copy>("buildAndPrepareSite") {
     dependsOn("yarn_build")
     from("public")
-    into("build/generated-resources/main/static/")
+    into("build/generated-resources/static/")
 }
 
 tasks.jar.configure {
