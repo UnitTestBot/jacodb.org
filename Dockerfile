@@ -4,8 +4,9 @@ WORKDIR /usr/src/
 
 ARG JAR_FILE
 
-RUN mkdir -p /usr/src/{logs,downloading}
+RUN mkdir /usr/src/logs \
+         && mkdir /usr/src/downloading
 
 COPY ${JAR_FILE} .
 
-CMD ["java","-jar","jacodb-org.jar"]
+CMD ["java","-jar","jacodb-site.jar"]
