@@ -14,7 +14,7 @@ export default withLayout(
             return (
                 <main id="rb-docs-content">
                     <div className={classNames('mast-head', 'mb-4')}>
-                        <div className={classNames('styled-content')} style={{paddingLeft: '15%'}}>
+                        <div className={classNames('styled-content')} style={{paddingLeft: '10%'}}>
                             <h1 className={'styled-heading'}>
                                 <img src={require('/src/assets/logo.svg')} alt={'JacoDB'} className={'logo-class'}/>
                             </h1>
