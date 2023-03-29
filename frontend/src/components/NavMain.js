@@ -68,17 +68,15 @@ const StyledNavLink = styled(Nav.Link)`
   }
 `;
 
-const StyledDropdown = styled(Dropdown)`
-  @import '../css/theme.scss';
-
-  margin-right: $spacer;
-`;
-
 const NAV_LINKS = [
   {
     link: '/',
-    title: 'Home',
+    title: 'JC Home',
     exact: true,
+    style: {
+      color: '#ffc107',
+      fontWeight: 600
+    }
   },
   {
     link: '/getting-started/introduction',
@@ -108,13 +106,14 @@ function NavMain({ activePage }) {
           </SkipToContentLink>
 
           <Nav role="navigation" id="top" className="d-none d-md-flex">
-            {NAV_LINKS.map(({ link, title, exact }) => (
+            {NAV_LINKS.map(({ link, title, exact , style}) => (
               <StyledNavLink
                 key={link}
                 href={link}
                 active={
                   exact ? activePage === link : activePage.startsWith(link)
                 }
+                style={style}
               >
                 {title}
               </StyledNavLink>

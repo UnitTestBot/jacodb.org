@@ -205,7 +205,7 @@ class SideNav extends React.Component {
                 location={location}
                 path="/migration"
               />
-              <NavSection heading="About" location={location} path="/about" />
+              <NavSection heading="Maintainers" location={location} path="/about" />
             </TableOfContents>
           </OverflowWrapper>
         </Collapse>

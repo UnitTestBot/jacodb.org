@@ -18,6 +18,12 @@ module.exports = {
   plugins: [
     'gatsby-plugin-sorted-assets',
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `src/assets/favicon-32x32.png`,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-mdx',
       options: {
         defaultLayouts: {

@@ -44,19 +44,41 @@ Run
 
 | Benchmark                                                                                                                            | Repeats  | Avg time per operation  |
 |--------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------|
-| [runtime](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L53)                              | 5        | 827 ms                  |
-| [runtime + guava](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L58)                      | 5        | 733 ms                  |
-| [runtime + project dependencies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L63)       | 5        | 1839 ms                 |
-| [runtime + IDEA community dependecies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L68) | 5        | 10091 ms                |
+| [runtime](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L61)                              | 5        | 827 ms                  |
+| [runtime + guava](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L66)                      | 5        | 733 ms                  |
+| [runtime + project dependencies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L71)       | 5        | 1839 ms                 |
+| [runtime + IDEA community dependecies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L76) | 5        | 10091 ms                |
+
+### SootUp
+
+Run
+<CodeBlock codeText={`
+./gradlew sootupBenchmark
+`}/>
+
+| Benchmark                                                                                                                            | Repeats  | Avg time per operation  |
+|--------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------|
+| [runtime](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L39)                              | 5          | 0.048 ms                  |
+| [runtime + guava](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L44)                      | 5        | 19 ms                  |
+| [runtime + project dependencies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L49)       | 5        | 3182 ms                 |
+| [runtime + IDEA community dependecies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L54) | 5        | failled with OOM        |
 
 
-### Soot comparison and differences
 
+### Comparison and differences
+
+##### Soot
 Soot just read all jar files and stores bytecode in memory. Jcdb works in a bit different way. Jcdb read available .class from jars and build folders in a parallel and as a result
 is faster in a situation when there are a lot of jar files (because of parallel execution). Keep in mind that Jcdb has a huge job processed
 in a background while almost all api is ready (hierarchy and usages requires background activity to be finished).
 
-Jcdb performance for background activities without `Usages` feature:
+##### SootUp
+
+SootUp just ignores runtime libraries. That describes that startup time with only runtime consumes almost zero time. Bigger projects produces much slower results.
+
+##### JacoDB
+
+JacoDB do some jobs in background while almost all api is usable. Here are results for background activities without `Usages` feature:
 
 <CodeBlock codeText={`
     ./gradlew awaitBackgroundBenchmark
