@@ -25,11 +25,18 @@ import io.swagger.v3.oas.models.servers.Server
 import org.jacodb.api.Hook
 import org.jacodb.api.JcDatabase
 import org.jacodb.impl.JcSettings
+import org.jacodb.impl.http.resources.SitemapController
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.autoconfigure.web.servlet.error.ErrorViewResolver
+import org.springframework.context.ApplicationContext
 import org.springframework.context.ApplicationContextInitializer
 import org.springframework.context.ConfigurableApplicationContext
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import org.springframework.web.servlet.ModelAndView
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 
 open class HttpHook(
@@ -102,5 +109,24 @@ open class Application {
                         SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic")
                     )
             )
+    }
+}
+
+
+@Configuration
+open class WebConfig : WebMvcConfigurer {
+
+    override fun addViewControllers(registry: ViewControllerRegistry) {
+        SitemapController.urls.forEach {
+            registry.addViewController(it).setViewName("forward:$it/index.html")
+        }
+        registry.addViewController("/404").setViewName("forward:/404/index.html")
+    }
+
+    @Bean
+    open fun errorViewResolver(context: ApplicationContext): ErrorViewResolver {
+        return ErrorViewResolver { _, status, _ ->
+            ModelAndView("/" + status.value())
+        }
     }
 }

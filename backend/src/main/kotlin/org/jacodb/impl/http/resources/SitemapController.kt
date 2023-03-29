@@ -14,18 +14,21 @@ import javax.xml.bind.annotation.XmlRootElement
 
 @Controller
 class SitemapController {
-    private val urls = listOf(
-        "/",
-        "/migration",
-        "/about",
-        "/getting-started/introduction",
-        "/getting-started/control-flow-graph",
-        "/getting-started/available-features",
-        "/getting-started/benchmarks",
-        "/getting-started/types-classes",
-        "/api-ref/api-reference",
-        "/api-ref/control-flow-graph",
-    )
+    companion object {
+        val urls = listOf(
+            "/",
+            "/migration",
+            "/about",
+            "/getting-started/introduction",
+            "/getting-started/control-flow-graph",
+            "/getting-started/available-features",
+            "/getting-started/benchmarks",
+            "/getting-started/types-classes",
+            "/api-ref/api-reference",
+            "/api-ref/control-flow-graph",
+        )
+    }
+
     private val domain = "https://jacodb.org"
 
     @GetMapping("/sitemap.xml")

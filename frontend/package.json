@@ -16,8 +16,8 @@
   "scripts": {
     "start": "yarn develop",
     "develop": "gatsby develop",
-    "build": "yarn install && gatsby clean && gatsby build",
-    "deploy": "gatsby build --prefix-paths && yarn push-docs"
+    "clean": "gatsby clean",
+    "build": "yarn install && gatsby clean && gatsby build"
   },
   "importSort": {
     ".js": {

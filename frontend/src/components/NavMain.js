@@ -10,6 +10,7 @@ import styled from 'astroturf';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord } from '@fortawesome/free-brands-svg-icons/faDiscord';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
+import pkg from "../../package.json";
 
 // const Banner = styled(Navbar).attrs({
 //   as: 'header',
@@ -120,6 +121,10 @@ function NavMain({ activePage }) {
             ))}
           </Nav>
           <Nav className="ms-auto pe-md-5">
+            <StyledNavLink
+                href="https://github.com/UnitTestBot/jacodb/releases"
+                target="_blank"
+                rel="noopener noreferrer">version: {pkg.version}</StyledNavLink>
             <OverlayTrigger
               placement="bottom"
               delay={{ show: 200 }}
