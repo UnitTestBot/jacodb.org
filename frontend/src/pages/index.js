@@ -18,7 +18,7 @@ export default withLayout(
                             <h1 className={'styled-heading'}>
                                 <img src={require('/src/assets/logo.svg')} alt={'JacoDB'} className={'logo-class'}/>
                             </h1>
-                            <p className={classNames('styled-sub-heading', 'lead')}>
+                            <p className={classNames('styled-sub-heading', 'lead')} style={{textAlign: 'center'}}>
                                 Analysing Java bytecode with pleasure
                             </p>
                         </div>
