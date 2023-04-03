@@ -25,15 +25,16 @@ Benchmark runs across different scopes of java bytecode with following meanings:
 `}/>
 
 
-| Benchmark                                                                                                                                 | Repeats  | Avg time per operation  |
-|-------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------|
-| [runtime](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L36)                                   | 5        | 741 ms                  |
-| [runtime + guava](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L76)                           | 5        | 740 ms                  |
-| [runtime + project dependencies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L55)            | 5        | 1034 ms                 |
-| [runtime + IDEA community dependecies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L97)      | 5        | 2324 ms                 |
-| [runtime + Usages](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L45)                        | 5        | 896 ms                  |
-| [runtime + guava + Usages](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L86)                | 5        | 929 ms                  |
-| [runtime + project dependencies + Usages](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L65) | 5        | 1298 ms                 |
+| Benchmark                                                                                                                                                                     | Repeats  | Avg time per operation  |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------|
+| [runtime](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L36)                                   | 5        | 1064 ms                  |
+| [runtime + guava](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L76)                           | 5        | 1090 ms                  |
+| [runtime + project dependencies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L55)            | 5        | 1551 ms                 |
+| [runtime + IDEA community dependecies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L97)      | 5        | 9054 ms                 |
+| [runtime + Usages](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L45)                          | 5        | 1790 ms                  |
+| [runtime + guava + Usages](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L86)                  | 5        | 2590 ms                  |
+| [runtime + project dependencies + Usages](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L65)   | 5        | 2915 ms                 |
+| [runtime + IDEA community + Usages](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L114)        | 5        | 9798 ms                 |
 
 ### Soot
 
@@ -42,26 +43,35 @@ Run
 ./gradlew sootBenchmark
 `}/>
 
-| Benchmark                                                                                                                            | Repeats  | Avg time per operation  |
-|--------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------|
-| [runtime](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L61)                              | 5        | 827 ms                  |
-| [runtime + guava](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L66)                      | 5        | 733 ms                  |
-| [runtime + project dependencies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L71)       | 5        | 1839 ms                 |
-| [runtime + IDEA community dependecies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L76) | 5        | 10091 ms                |
+| Benchmark                                                                                                                                                                | Repeats  | Avg time per operation |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|------------------------|
+| [runtime](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L61)                              | 5        | 20985 ms               |
+| [runtime + guava](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L66)                      | 5        | 23323 ms               |
+| [runtime + project dependencies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L71)       | 5        | 24027 ms               |
+| [runtime + IDEA community dependecies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L76) | 5        | 30286 ms               |
 
 ### SootUp
 
-Run
+Runs with `createInDemandView`
 <CodeBlock codeText={`
 ./gradlew sootupBenchmark
 `}/>
 
-| Benchmark                                                                                                                            | Repeats  | Avg time per operation  |
-|--------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------|
-| [runtime](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L39)                              | 5          | 0.048 ms                  |
-| [runtime + guava](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L44)                      | 5        | 19 ms                  |
-| [runtime + project dependencies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L49)       | 5        | 3182 ms                 |
-| [runtime + IDEA community dependecies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L54) | 5        | failled with OOM        |
+| Benchmark                                                                                                                                                                    | Repeats  | Avg time per operation|
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-----------------------|
+| [runtime](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L39)                                  | 5        | 0.23 ms               |
+| [runtime + guava](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L44)                        | 5        | 1 ms                  |
+| [runtime + project dependencies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L49)         | 5        | 60 ms                 |
+| [runtime + IDEA community dependecies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L54)   | 5        | 167                   |
+
+Runs with `createFullView` consumed almost all of 16Gb RAM memory (failed with OOM on 12Gb).
+
+| Benchmark                                                                                                                                                                    | Repeats  | Avg time per operation    |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|---------------------------|
+| [runtime](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L39)                                  | 5        | 0.23 ms                   |
+| [runtime + guava](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L44)                        | 5        | 89 ms                     |
+| [runtime + project dependencies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L49)         | 5        | 4247 ms                   |
+| [runtime + IDEA community dependecies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L54)   | 5        | 114 723 ms (fails on 12Gb)|
 
 
 
@@ -85,11 +95,11 @@ JacoDB do some jobs in background while almost all api is usable. Here are resul
 `}/>
 
 
-| Benchmark                                                                                                                                                                      | Repeats  | Avg time per operation  |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------|
-| [runtime: wait for background jobs](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbAwaitBackgroundBenchmarks.kt#L59)                               | 5        | 3182 ms                 |
-| [runtime + project dependencies: wait for background jobs](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbAwaitBackgroundBenchmarks.kt#L72)        | 5        | 6696 ms                 |
-| [runtime + IDEA community dependencies: wait for background jobs](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbAwaitBackgroundBenchmarks.kt#L86) | 2        | 76734 ms                |
+| Benchmark                                                                                                                                                                                                          | Repeats  | Avg time per operation |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|------------------------|
+| [runtime: wait for background jobs](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbAwaitBackgroundBenchmarks.kt#L59)                               | 5        | 3182 ms                |
+| [runtime + project dependencies: wait for background jobs](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbAwaitBackgroundBenchmarks.kt#L72)        | 5        | 129849 ms              |
+| [runtime + IDEA community dependencies: wait for background jobs](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbAwaitBackgroundBenchmarks.kt#L86) | 2        | 76734 ms               |
 
 For `Idea Community` code base result sqlite database file size is ~3.5Gb
 
