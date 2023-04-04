@@ -62,7 +62,7 @@ Runs with `createInDemandView`
 | [runtime](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L39)                                  | 5        | 0.23 ms               |
 | [runtime + guava](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L44)                        | 5        | 1 ms                  |
 | [runtime + project dependencies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L49)         | 5        | 60 ms                 |
-| [runtime + IDEA community dependecies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L54)   | 5        | 167                   |
+| [runtime + IDEA community dependecies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L54)   | 5        | 167 ms                |
 
 Runs with `createFullView` consumed almost all of 16Gb RAM memory (failed with OOM on 12Gb).
 
@@ -98,8 +98,8 @@ JacoDB do some jobs in background while almost all api is usable. Here are resul
 | Benchmark                                                                                                                                                                                                          | Repeats  | Avg time per operation |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|------------------------|
 | [runtime: wait for background jobs](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbAwaitBackgroundBenchmarks.kt#L59)                               | 5        | 3182 ms                |
-| [runtime + project dependencies: wait for background jobs](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbAwaitBackgroundBenchmarks.kt#L72)        | 5        | 129849 ms              |
-| [runtime + IDEA community dependencies: wait for background jobs](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbAwaitBackgroundBenchmarks.kt#L86) | 2        | 76734 ms               |
+| [runtime + project dependencies: wait for background jobs](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbAwaitBackgroundBenchmarks.kt#L72)        | 5        | 14737 ms               |
+| [runtime + IDEA community dependencies: wait for background jobs](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbAwaitBackgroundBenchmarks.kt#L86) | 2        | 137528 ms              |
 
 For `Idea Community` code base result sqlite database file size is ~3.5Gb
 
