@@ -151,10 +151,15 @@ code {
 
   & + & {
     margin-left: $spacer;
+    color: rgb(255, 255, 255, 0.55);
   }
 
   &:global(.active) {
-    font-width: 700;
+    color: rgb(255, 255, 255) !important;
+  }
+
+  &:hover {
+    color: rgb(255, 255, 255) !important;
   }
 
 }
@@ -278,5 +283,17 @@ code {
   padding-top: 0.25rem;
 }
 
-.skip-to-content {
+.version-number {
+  padding-right: 24px;
+}
+
+.version-number-link {
+  @media (min-width: 1000px) {
+    position: absolute;
+    right: 100px;
+  }
+}
+
+.styled-header-toggler {
+  background: white !important;
 }

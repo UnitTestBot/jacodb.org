@@ -8,7 +8,7 @@ export default withLayout(
     class HomePage extends React.Component {
         render() {
             return (
-                <main id="rb-docs-content">
+                <main id="jc-docs-content">
                     <div className={'mb-4'}>
                         <div className={classNames('styled-content')}>
                             <h1>

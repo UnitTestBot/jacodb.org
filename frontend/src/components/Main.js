@@ -75,7 +75,7 @@ function Main({ children, ...props }) {
             md={9}
             xl={8}
             as="main"
-            id="rb-docs-content"
+            id=""
             className={styles.main}
           >
             {children}
