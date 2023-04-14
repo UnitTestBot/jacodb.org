@@ -1,364 +1,365 @@
 ## Settings
 
-JcSettings is used for creating instance of `JacoDB` instance.
+The `JcSettings` class is used for creating a JacoDB instance.
 
 #### useJavaRuntime(file)
 
-Use custom (not current process) java runtime for bytecode analysis.
+Use custom Java runtime (not the current process) for bytecode analysis.
 
-There are two shortcuts `JcSettings#useProcessJavaRuntime` for using current process runtime (default option) and `JcSettings#useJavaHomeRuntime` for using Java runtime from JAVA_HOME environment variable
+There are two shortcuts: `JcSettings#useProcessJavaRuntime` is for using current process runtime (the default option), and
+`JcSettings#useJavaHomeRuntime` is for using Java runtime from the JAVA_HOME environment variable.
 
-
-| parameter | type | description                           |
-|-----------|------|---------------------------------------|
-| runtime   | File | Required. File points to java runtime |
-
+| parameter | type   | description                              |
+|-----------|--------|------------------------------------------|
+| runtime   | `File` | Required. `File` points to Java runtime. |
 
 #### persistent(location, clearOnStart)
 
-Specify storing data properties
+Specify properties for storing data.
 
-| parameter    | type     | description                                                                                                  |
-|--------------|----------|--------------------------------------------------------------------------------------------------------------|
-| location     | string   | Optional. Location on file system to store Sqlite database file. Sqlite will be in-memory if null specified |
-| clearOnStart | boolean  | Force Sqlite database to cleanup stored data on startup. false by default                                    |
-
+| parameter    | type     | description                                                                                                        |
+|--------------|----------|--------------------------------------------------------------------------------------------------------------------|
+| location     | string   | Optional. Location on a file system to store the SQLite database file. If `null`, the SQLite database is in-memory.|
+| clearOnStart | boolean  | Forces SLQlite database to clean up stored data on startup. `false` by default.                                    |
 
 #### loadByteCode(files)
 
-Which files to load on startup
+Specify the files to load on startup.
 
-| parameter | type            | description                             |
-|-----------|-----------------|-----------------------------------------|
-| files     | list of `File`  | jars or folders with compiled java code |
-
+| parameter | type            | description                                   |
+|-----------|-----------------|-----------------------------------------------|
+| files     | list of `File`  | JAR files or folders with compiled Java code. |
 
 #### watchFileSystem()
 
-Should database look for filesystem changes
+Specify if a database should monitor filesystem changes.
 
-| parameter | type    | description                                                         |
-|-----------|---------|---------------------------------------------------------------------|
-| delay     | integer | Optional. 10_000 by default. Watch interval for file system changes |
+| parameter | type    | description                                                               |
+|-----------|---------|---------------------------------------------------------------------------|
+| delay     | integer | Optional. 10 000 by default. An interval for watching filesystem changes. |
 
 #### installFeatures(features)
 
-Which features jacodb will use
+Specify the features JacoDB should use.
 
-| parameter | type                | description                                                          |
-|-----------|---------------------|----------------------------------------------------------------------|
-| features  | Array of JcFeatures | List of features. Features cannot be installed after jcdb is created |
+| parameter | type                 | description                                                    |
+|-----------|----------------------|----------------------------------------------------------------|
+| features  | array of `JcFeature` | Features cannot be installed upon creating a JacoDB instance.  |
 
 
 ## JcDatabase
 
-`JcDatabase` instance created based on settings. If instance is not needed yet then `close` method should be called.
+A `JcDatabase` instance is created based on settings. If an instance is not needed, the `close` method should be
+called.
 
 #### Properties
 
-| property       | type                         | description                                                      |
-|----------------|------------------------------|------------------------------------------------------------------|
-| locations      | List of `JcByteCodeLocation` | List of locations processed by database                          |
-| persistence    | `JCDBPersistence`            | persistence which brings ability to read/write to database       |
-| runtimeVersion | `JavaRuntimeVersion`         | version of java runtime which is used for this `JacoDB` instance |
+| property       | type                         | description                                                              |
+|----------------|------------------------------|--------------------------------------------------------------------------|
+| locations      | list of `JcByteCodeLocation` | A list of locations processed by a databas                               |
+| persistence    | `JCDBPersistence`            | Persistence allowing to perform _read/write_ operations with a database. |
+| runtimeVersion | `JavaRuntimeVersion`         | A Java runtime version used for the current JacoDB instance.             |
 
 
 #### classpath(dirOrJars)
 
-Creates classpath instances. Not processed bytecode locations will be processed before `JcClasspath` instance will be created.
-All JVM runtime locations are included by default.
+Create classpath instances. Unprocessed bytecode locations are processed before a `JcClasspath` instance is created.
+All the JVM runtime locations are included by default.
 
-| parameter  | type            | description                                                      |
-|------------|-----------------|------------------------------------------------------------------|
-| dirOrJars  | List of `File`  | List of files with bytecode to be loaded included into classpath |
+| parameter  | type            | description                                                          |
+|------------|-----------------|----------------------------------------------------------------------|
+| dirOrJars  | list of `File`  | A list of bytecode-containing files to be included into a classpath. |
 
 #### load(dirOrJars)
 
-Load specified bytecode locations into database
+Load specified bytecode locations into a database.
 
-| parameter  | type            | description                                                  |
-|------------|-----------------|--------------------------------------------------------------|
-| dirOrJars  | List of `File`  | List of files with bytecode to be loaded in current instance |
+| parameter  | type            | description                                                               |
+|------------|-----------------|---------------------------------------------------------------------------|
+| dirOrJars  | list of `File`  | A list of bytecode-containing files to be loaded to the current instance. |
 
 
 #### refresh()
 
-Refreshes state of `JacoDB` instance and state of file systen. Should be called to clean up jars/folders that loaded versions are out of data and which are not used by any classpaths created by `JacoDB` instance
+Refresh the state of a JacoDB instance as well as the state of a filesystem. Clean up the JAR files or
+folders, that are out of data and are not included in a JacoDB instance classpath.
 
 #### rebuildFeatures()
 
-Rebuild indexes for features installed in `JacoDB`
+Rebuild indexes for the features installed in JacoDB.
 
 #### awaitBackgroundJobs()
 
-Await background jobs
+Await background jobs.
 
 #### close()
 
-Is used to clean up resources used by `JacoDB` instance
+Clean up resources used by a JacoDB instance.
 
 ## Classpath
 
-Declares scope of `JcByteCodeLocation` for resolving class references.
+Declare the scope of `JcByteCodeLocation` for resolving class references.
 
 #### Properties
 
-| property  | type                           | description                             |
-|-----------|-------------------------------|-----------------------------------------|
-| locations | List of `JcByteCodeLocation`  | List of locations attached to classpath |
-| db        | `JacoDB`                        | database instance                       |
+| property  | type                          | description                                  |
+|-----------|-------------------------------|----------------------------------------------|
+| locations | list of `JcByteCodeLocation`  | A list of locations included in a classpath. |
+| db        | `JacoDB`                      | A database instance.                         |
 
 
 findClassOrNull(name: String): JcClassOrInterface?
 
 #### findClassOrNull(name)
 
-Find class with bytecode (i.e arrays, primitives are not supported by this method).
+Find a bytecode-containing class (arrays and primitives are not supported for this method).
 
-| parameter | type   | description                            |
-|-----------|--------|----------------------------------------|
-| name      | string | name of the class (`java.lang.String`) |
+| parameter | type   | description                             |
+|-----------|--------|-----------------------------------------|
+| name      | string | A name of a class (`java.lang.String`). |
 
 #### findTypeOrNull(name)
 
-Find type by name. Arrays, primitives are supported:
-- arrays have [] in the end like `java.lang.String[]`
-- primitive has human readable names (checkout `PredefiendPrimitives`)
+Find a type by a name. Arrays and primitives are supported:
+- arrays have `[]` in the end like `java.lang.String[]`
+- primitives have human-readable names (check `PredefiendPrimitives`)
 
-| parameter | type   | description                                                        |
-|-----------|--------|--------------------------------------------------------------------|
-| name      | string | name of the type (`java.lang.String[]`, `int` or `java.util.List`) |
+| parameter | type   | description                                                  |
+|-----------|--------|--------------------------------------------------------------|
+| name      | string | Type name (`java.lang.String[]`, `int` or `java.util.List`). |
 
 ## Classes
 
 
 ### JcClassOrInterface
-Represent bytecode from `.class` file
+Represent bytecode from a `.class` file.
 
-| property        | type                         | description                                |
-|-----------------|------------------------------|--------------------------------------------|
-| classpath       | `JcClasspath`                | classpath                                  |
-| access          | int                          | access flag of class                       |
-| name            | string                       | human readable class name                  |
-| simpleName      | string                       | simple name                                |
-| signature       | string                       | signature from bytecode                    |
-| declaredFields  | List of `JcField`            | List of declared fields                    |
-| declaredMethods | List of `JcMethod`           | List of declared methods                   |
-| isAnonymous     | boolean                      | is anonymous class                         |
-| superClass      | `JcClassOrInterface`         | super class or null for `java.lang.Object` |
-| interfaces      | List of `JcClassOrInterface` | interfaces                                 |
-| outerMethod     | `JcMethod`                   | outer method if any                        |
-| outerClass      | `JcClassOrInterface`         | outer class if any                         |
-| innerClasses    | List of `JcClassOrInterface` | inner classes if any                       |
-| annotations     | List of `JcAnnotation`       | list of annotations                        |
+| property        | type                         | description                                   |
+|-----------------|------------------------------|-----------------------------------------------|
+| classpath       | `JcClasspath`                | A classpath.                                  |
+| access          | int                          | An access flag of a class.                    |
+| name            | string                       | A human-readable class name.                  |
+| simpleName      | string                       | A simple name.                                |
+| signature       | string                       | A signature from bytecode.                    |
+| declaredFields  | list of `JcField`            | A list of declared fields.                    |
+| declaredMethods | list of `JcMethod`           | A list of declared methods.                   |
+| isAnonymous     | boolean                      | Specifies if the class is anonymous.          |
+| superClass      | `JcClassOrInterface`         | Super class or `null` for `java.lang.Object`. |
+| interfaces      | list of `JcClassOrInterface` | Interfaces.                                   |
+| outerMethod     | `JcMethod`                   | An outer method if any.                       |
+| outerClass      | `JcClassOrInterface`         | An outer class if any.                        |
+| innerClasses    | list of `JcClassOrInterface` | Inner classes if any.                         |
+| annotations     | list of `JcAnnotation`       | A list of annotations.                        |
 
 #### bytecode()
 
-return ASM ClassNode for this class
+Return ASM `ClassNode` for this class.
 
 ### JcMethod
 
-Represent method of `JcClassOrInterface`
+Represent `JcClassOrInterface` method.
 
-| property        | type                         | description                             |
-|-----------------|------------------------------|-----------------------------------------|
-| enclosingClass  | `JcClassOrInterface`         | enclosing class                         |
-| access          | int                          | access flag of method                   |
-| name            | string                       | human readable class name               |
-| signature       | string                       | signature from bytecode                 |
-| description     | string                       | jvm description of method               |
-| returnType      | string                       | string with return type name            |
-| parameters      | List of `JcParameter`        | parameters                              |
-| exceptions      | List of `JcClassOrInterface` | exceptions that can be throws by method |
-| annotations     | List of `JcAnnotation`       | list of annotations                        |
+| property        | type                         | description                          |
+|-----------------|------------------------------|--------------------------------------|
+| enclosingClass  | `JcClassOrInterface`         | An enclosing class.                  |
+| access          | int                          | An access flag of a method.          |
+| name            | string                       | A human-readable class name.         |
+| signature       | string                       | A signature from bytecode.           |
+| description     | string                       | A JVM description of a method.       |
+| returnType      | string                       | A string with a return type name.    |
+| parameters      | list of `JcParameter`        | Parameters.                          |
+| exceptions      | list of `JcClassOrInterface` | Exceptions that a method can throw.  |
+| annotations     | list of `JcAnnotation`       | A list of annotations.               |
 
 #### bytecode()
 
-return ASM MethodNode for this method
+Return ASM `MethodNode` for this method.
 
 ### JcField
 
-Represent field of `JcClassOrInterface`
+Represent a `JcClassOrInterface` field.
 
-| property       | type                 | description                    |
-|----------------|----------------------|--------------------------------|
-| enclosingClass | `JcClassOrInterface` | enclosing class                |
-| access         | int                  | access flag of method          |
-| name           | string               | human readable class name      |
-| signature      | string               | method signature from bytecode |
-| type           | string               | string with type of field      |
-| annotations    | List of `JcAnnotation`       | list of annotations                        |
+| property       | type                  | description                        |
+|----------------|-----------------------|------------------------------------|
+| enclosingClass | `JcClassOrInterface`  | An enclosing class.                |
+| access         | int                   | An access flag of a method.        |
+| name           | string                | A human-readable class name.       |
+| signature      | string                | A method signature from bytecode.  |
+| type           | string                | A string with a field type.        |
+| annotations    | list of `JcAnnotation`| A list of annotations.             |
 
 ### JcParameter
 
-Represent method parameter
+Represent a method parameter.
 
-| property    | type                   | description                     |
-|-------------|------------------------|---------------------------------|
-| method      | `JcMethod`             | enclosing method                |
-| access      | int                    | access flag of method           |
-| name        | string                 | parameter name of present       |
-| type        | string                 | string with parameter type name |
-| index       | int                    | index of parameter in method    |
-| annotations | List of `JcAnnotation` | list of annotations             |
+| property    | type                   | description                          |
+|-------------|------------------------|--------------------------------------|
+| method      | `JcMethod`             | An enclosing method.                 |
+| access      | int                    | An access flag of a method.          |
+| name        | string                 | A parameter name.                    |
+| type        | string                 | A string with a parameter type name. |
+| index       | int                    | An index of a method parameter.      |
+| annotations | list of `JcAnnotation` | A list of annotations.               |
 
 ### JcAnnotation
 
-Represent annotation
+Represent an annotation.
 
-| property | type                 | description                                          |
-|----------|----------------------|------------------------------------------------------|
-| jcClass  | `JcClassOrInterface` | annotation class. may be null                        |
-| visible  | boolean              | access flag of method                                |
-| values   | Map\<String\, Object\>  | values of annotation according to java specification |
+| property | type                    | description                                        |
+|----------|-------------------------|----------------------------------------------------|
+| jcClass  | `JcClassOrInterface`    | An annotation class. May be `null`.                |
+| visible  | boolean                 | An access flag of a method.                        |
+| values   | map\<String\, Object\>  | Annotation values according to Java specification. |
 
 
 #### matches(className)
 
-Return true if className equals annotation class.
+Return `true` if `className` equals to an annotation class.
 
 ## Types
 
 ### JcClassType
 
-| property         | type                    | description                                    |
-|------------------|-------------------------|------------------------------------------------|
-| classpath        | `JcClasspath`           | classpath                                      |
-| jcClass          | `JcClassOrInterface`    | class                                          |
-| name             | string                  | human readable class name                      |
-| typeArguments    | List of `JcRefType`     | generics substitution                          |
-| declaredFields   | List of `JcTypedField`  | List of declared typed fields                  |
-| declaredMethods  | List of `JcTypedMethod` | List of declared typed methods                 |
-| fields           | List of `JcTypedField`  | all visible typed fields from whole hierarchy  |
-| methods          | List of `JcTypedMethod` | all visible typed methods from whole hierarchy |
-| superType        | `JcClassType`           | super class or null for `java.lang.Object`     |
-| interfaces       | List of `JcClassType`   | interfaces                                     |
-| outerMethod      | `JcMethod`              | outer typed method if any                      |
-| outerType        | `JcClassType`           | outer type if any                              |
-| innerType        | List of `JcClassType`   | inner types if any                             |
+| property         | type                     | description                                     |
+|------------------|--------------------------|-------------------------------------------------|
+| classpath        | `JcClasspath`            | A classpath.                                    |
+| jcClass          | `JcClassOrInterface`     | A class.                                        |
+| name             | string                   | A human-readable class name.                    |
+| typeArguments    | list of `JcRefType`      | Generic substitution.                           |
+| declaredFields   | list of `JcTypedField`   | A list of declared typed fields.                |
+| declaredMethods  | list of `JcTypedMethod`  | A list of declared typed methods.               |
+| fields           | list of `JcTypedField`   | All visible typed fields from the hierarchy.    |
+| methods          | lList of `JcTypedMethod` | All visible typed methods from the hierarchy.   |
+| superType        | `JcClassType`            | A super class or `null` for `java.lang.Object`. |
+| interfaces       | list of `JcClassType`    | Interfaces.                                     |
+| outerMethod      | `JcMethod`               | An outer typed method if any.                   |
+| outerType        | `JcClassType`            | An outer type if any.                           |
+| innerType        | list of `JcClassType`    | Inner types if any.                             |
 
 ### JcTypedMethod
 
-Represent typed method of `JcClassType`
+Represent a typed `JcClassType` method.
 
-| property         | type                        | description               |
-|------------------|-----------------------------|---------------------------|
-| name             | string                      | human readable class name |
-| returnType       | `JcType`                    | return type name          |
-| typeParameters   | List of `JcTypedParameter`  | list of typed parameters  |
-| typeArguments    | List of `JcRefType`         | generics substitution     |
-| enclosingType    | `JcClassOrInterface`        | enclosing type            |
+| property         | type                        | description                  |
+|------------------|-----------------------------|------------------------------|
+| name             | string                      | A human-readable class name. |
+| returnType       | `JcType`                    | A return type name.          |
+| typeParameters   | list of `JcTypedParameter`  | A list of typed parameters.  |
+| typeArguments    | list of `JcRefType`         | Generic substitution.        |
+| enclosingType    | `JcClassOrInterface`        | An enclosing type.           |
 
 ### JcTypedField
 
-Represent field of `JcClassType`
+Represent a `JcClassType` field.
 
-| property        | type             | description               |
-|-----------------|------------------|---------------------------|
-| field           | `JcField`        | enclosing field           |
-| name            | string           | human readable class name |
-| type            | `JcType`         | type of field             |
-| enclosingType   | `JcClassType`    | enclosing type            |
+| property        | type             | description                  |
+|-----------------|------------------|------------------------------|
+| field           | `JcField`        | An enclosing field.          |
+| name            | string           | A human-readable class name. |
+| type            | `JcType`         | A field type.                |
+| enclosingType   | `JcClassType`    | An enclosing type.           |
 
 ### JcTypedParameter
 
-Represent typed method parameter
+Represent a typed method parameter.
 
-| property | type       | description                     |
-|----------|------------|---------------------------------|
-| method   | `JcMethod` | enclosing method                |
-| name     | string     | parameter name of present       |
-| type     | `JcType`   | parameter type                  |
+| property | type       | description              |
+|----------|------------|--------------------------|
+| method   | `JcMethod` | An enclosing method.     |
+| name     | string     | A parameter name.        |
+| type     | `JcType`   | A parameter type.        |
 
 
 ## Features
 
-`JcFeature` is an additional feature which can collect data from bytecode, persist it in database and use it to find some specific places.
+`JcFeature` is an additional feature which can collect data from bytecode, persist it in database and use it to find specific places.
 `JcFeature` has parameterization of request/response types.
 
 ### JcFeature
 
-Lifecycle of feature:
-- before indexing step. Can be used for preparing database scheme or similar
-- indexing
-- flushing indexed data to persistence storage
-- after indexing step. Can be used to setup database specific indexes.
-- update index if bytecode location is outdated and removed.
+A feature lifecycle:
+- Pre-indexing — can be used to prepare a database scheme, for example.
+- Indexing.
+- Flushing indexed data to a persistent storage.
+- Post-indexing step — can be used to set up the database-specific indexes.
+- Updating indexes (if a bytecode location is outdated and removed).
 
 #### onSignal(signal)
 
-Call on each step of lifecycle with respected signal
+Call on each step of a lifecycle with respected signal.
 
-| property | type       | description                                                         |
-|----------|------------|---------------------------------------------------------------------|
-| signal   | `JcSignal` | one of `BeforeIndexing`, `AfterIndexing`, `LocationRemoved`, `Drop` |
+| property | type       | description                                                     |
+|----------|------------|-----------------------------------------------------------------|
+| signal   | `JcSignal` | `BeforeIndexing`, `AfterIndexing`, `LocationRemoved`, or `Drop` |
 
 
 #### newIndexer(jcdb, location)
 
-return new indexer for specific location
+Return a new indexer for a specific location.
 
-| property | type                 | description                     |
-|----------|----------------------|---------------------------------|
-| jcdb     | `JacoDB`               | database                        |
-| location | `RegisteredLocation` | location that should be indexed |
+| property | type                 | description               |
+|----------|----------------------|---------------------------|
+| jcdb     | `JacoDB`             | A database.               |
+| location | `RegisteredLocation` | A location to be indexed. |
 
 #### query(classpath, request)
 
-Query index and return `Sequence` with results
+Query index and return `Sequence` with results.
 
-| property  | type           | description      |
-|-----------|----------------|------------------|
-| classpath | `JcClasspath`  | classpath        |
-| request   | Any            | request to index |
+| property  | type           | description            |
+|-----------|----------------|------------------------|
+| classpath | `JcClasspath`  | A classpath.           |
+| request   | any            | A request to an index. |
 
 
 ### ByteCodeIndexer
 
-Indexer of bytecode.
+A bytecode indexer.
 
 #### index(node)
 
-Called for each ClassNode processed by `JacoDB`. **Bytecode locations are processed in parallel. There is no strict order of processing locations.**
+It is called for each `ClassNode` processed with JacoDB. **Bytecode locations are processed in parallel. Processing
+locations has no strict order.**
 
-| property | type        | description                             |
-|----------|-------------|-----------------------------------------|
-| node     | `ClassNode` | ASM class node with method instructions |
+| property | type        | description                                 |
+|----------|-------------|---------------------------------------------|
+| node     | `ClassNode` | An ASM class node with method instructions. |
 
 #### flush(jooq)
 
-Flush collected data for location into storage
+Flush location data to a storage.
 
-| property | type         | description                                                              |
-|----------|--------------|--------------------------------------------------------------------------|
-| jooq     | `DSLContext` | [Jooq](https://www.jooq.org/) - orm framework used by persistence engine |
+| property | type         | description                                                                    |
+|----------|--------------|--------------------------------------------------------------------------------|
+| jooq     | `DSLContext` | [Jooq](https://www.jooq.org/) — an ORM framework used by a persistence engine. |
 
 ## Available features
 
 ### Hierarchy
 
-Suitable for search class hierarchies. There are two features for calculating hierarchy: one is build upon persistence of bytecode another one uses (small enough) in-memory tree called InMemoryHierarchy.
+Allows to search for class hierarchies. There are two features for finding a hierarchy: the first one is built upon
+bytecode persistence, the second one uses an in-memory tree called `InMemoryHierarchy`.
 
 #### findSubClasses(jcClass,allHierarchy)
 
-Finds all classes in Classpath that are subclasses of `jcClass`
+Find all classes in `Classpath` that are subclasses of `jcClass`.
 
 | parameter    | type                                | description                                 |
-|--------------|-------------------------------------|---------------------------------------------|
-| jcClass      | `JcClassOrInterface` or class name  | base class                                  |
-| allHierarchy | boolean                             | if true then will be return whole hierarchy |
+|--------------|-------------------------------------|---------------------------------|
+| jcClass      | `JcClassOrInterface` or class name  | A base class.                   |
+| allHierarchy | boolean                             | If true, returns the hierarchy. |
 
 #### findOverrides(method)
 
-Finds all methods in Classpath that override specified method
+Find all methods in `Classpath` that override a specified method.
 
-| parameter     | type          | description                         |
-|---------------|---------------|-------------------------------------|
-| method        | `JcMethod`    | base method to search for overrides |
+| parameter     | type          | description                                    |
+|---------------|---------------|------------------------------------------------|
+| method        | `JcMethod`    | A base method whose overrides should be found. |
 
 #### Examples
 
-find classes that implements `java.lang.Runnable`:
+Find classes that implement `java.lang.Runnable`:
 
 ```kotlin
     val db = jacodb {
@@ -375,39 +376,38 @@ find classes that implements `java.lang.Runnable`:
 
 ### Usages (aka Call Graph)
 
-Suitable to find fields and methods usages.
-
+Allows to find field and method usages.
 
 #### findUsages(method)
 
-Finds usages of `method` in `JcClasspath`
+Find method usages in `JcClasspath`.
 
-| parameter    | type        | description              |
-|--------------|-------------|--------------------------|
-| method       | `JcMethod`  | method to search usages  |
+| parameter    | type        | description                             |
+|--------------|-------------|-----------------------------------------|
+| method       | `JcMethod`  | A method whose usages should be found.  |
 
 
 #### findUsages(field, mode)
 
-Finds usages of `field` in `JcClasspath`
+Find field usages in `JcClasspath`.
 
-| parameter | type      | description                             |
-|-----------|-----------|-----------------------------------------|
-| field     | `JcField` | base method to search for overrides     |
-| method    | enum      | search for `READ`s or `WRITE`s of field |
+| parameter | type      | description                                         |
+|-----------|-----------|-----------------------------------------------------|
+| field     | `JcField` | A base method whose overrides should be found.      |
+| method    | enum      | Searching for _read/write_ operations with a field. |
 
 
 #### findBuilders(jcClass)
 
-Finds all methods that instantiate instance of specified class
+Find all methods instantiating a specified class.
 
-| parameter  | type                   | description                |
-|------------|------------------------|----------------------------|
-| jcClass    | `JcClassOrInterface`   | class to search            |
+| parameter  | type                   | description                    |
+|------------|------------------------|--------------------------------|
+| jcClass    | `JcClassOrInterface`   | A class specified for search.  |
 
 #### Examples
 
-find usages of
+Find usages:
 
 ```kotlin
     val db = jacodb {
@@ -424,17 +424,17 @@ find usages of
 
 ### Builders (experimental)
 
-Find methods that may be used for created particular class instance with priorities.
-Heuristics used for this feature:
-- public method
-- method return type should be directly this class or one of subclasses
-- method parameters should not reference this class in any way (i.e we are looking for class A, then A, ListA, B extends A are prohibited)
+Find and prioritize methods that may be used for a particular class instance. The feature
+heuristics are:
+- the method is public
+- the method's return type should correspond to the given class or one of its subclasses
+- method parameters should not reference the given class in any way (i.e., we are looking for _class A_, then _A_, _ListA_, _B extends A_ are prohibited)
 
 Priorities are:
-- static class with no parameters
-- static class with parameters
-- non-static class with name `build`
-- all other
+1. Static class with no parameters
+2. Static class with parameters
+3. Non-static class with a `build` name
+4. Other
 
 #### Examples
 

@@ -2,7 +2,7 @@ import CodeBlock from '../../components/CodeBlock';
 
 # Control flow graph API
 
-A control flow graph of the method is represented as a `JcGraph` object. To create method' `JcGraph`, you can invoke the `graph` function of a three-address instruction list:
+A control flow graph for a method is represented as a `JcGraph` object. To create `JcGraph` for a given method, you can invoke the `graph` function of a three-address instruction list:
 <CodeBlock language={"kotlin"} codeText={`
     val instructionList = method.instructionList()
     val graph = method.flowGraph()
@@ -10,13 +10,13 @@ A control flow graph of the method is represented as a `JcGraph` object. To crea
 
 ## JcGraph
 
-An intermediate representation of `JcGraph` uses the resolved type information (i.e. `JcType`
-hierarchy) and classpath information, therefore it requires a classpath instance.
-Similar to `JcRawInstList`, `JcGraph` stores a list of method instructions. However, it
-also tries to resolve all the execution paths in the method. `JcGraph` operates with
-`JcInst` class hierarchy (which is similar to `JcRawInst` in many cases) and provides the following API:
+An intermediate representation of `JcGraph` uses the resolved type information (i.e., the `JcType` hierarchy) and
+classpath information, therefore it requires a classpath instance. Similar to `JcRawInstList`, `JcGraph` stores a
+list of method instructions. However, it also tries to resolve all the execution paths in the method. `JcGraph`
+operates with the `JcInst` class hierarchy (which is often similar to `JcRawInst`) and provides the following API:
+
 * `entry: JcInst` &mdash; Get the entry point of a method: there can be only one entry point.
-* `exits: List<JcInst>` &mdash; Get all the "normal" exit points of a method, i.e. all the return and throw
+* `exits: List<JcInst>` &mdash; Get all the "normal" exit points of a method, i.e., all the `return` and `throw`
   instructions.
 * `throwExits: Map<JcType, List<JcInst>>` &mdash; All the potential exception exit points of a method.
 * `ref(inst: JcInst): JcInstRef` &mdash; Get the `JcInstRef` for an instruction. It is a lightweight wrapper that
@@ -32,8 +32,7 @@ also tries to resolve all the execution paths in the method. `JcGraph` operates 
   exception caught by `inst`. Represents an exception control flow of
   a method. Returns an empty set for all instructions except `JcCatchInst`.
 * `catchers(inst: JcInst): Set<JcCatchInst>` &mdash; Get all the instructions that may catch an
-  exception thrown by `inst`. Represents an exception control flow of
-  a method.
+  exception thrown by `inst`. Represents an exception control flow of a method.
 * `exceptionExits(inst: JcInst): Set<JcClassType>` &mdash; Get all the exception types that
   an instruction can throw and a method will not catch.
 * `blockGraph(): JcBlockGraph` &mdash; Create a basic block representation of a CFG.
@@ -43,13 +42,14 @@ also tries to resolve all the execution paths in the method. `JcGraph` operates 
 
 `JcBlockGraph` is a basic block API for CFG. It operates with `JcBasicBlock` instances — each
 basic block just represents an interval of instructions with the following properties:
+
 * Instructions of a basic block are executed consecutively during
-  the normal execution (i.e. when no exceptions are thrown).
-* All the instructions of a basic block have the same exception handlers, i.e. calling
+  the normal execution (i.e., when no exceptions are thrown).
+* All the instructions of a basic block have the same exception handlers, i.e., calling
   `jcGraph.catchers(inst)` for each instruction of a basic block returns the same result.
 
-`JcBlockGraph` provides the following API:
-* `entry: JcBasicBlock` &mdash; Entry of a method. There can be only one entry.
+`JcBlockGraph` provides the following API:,
+* `entry: JcBasicBlock` &mdash; An entry of a method. There can be only one entry.
 * `exits: List<JcBasicBlock>` &mdash; Exits of a method.
 * `instructions(block: JcBasicBlock): List<JcInst>` &mdash; Get the instructions of a basic
   block.
@@ -71,7 +71,7 @@ We also provide an API to visualize `JcGraph` and `JcBlockGraph`:
 * `JcBlockGraph.view(dotCmd: String, viewerCmd: String)` &mdash; Similar, but it displays
   `JcBlockGraph`.
 
-CFG API operates on `JcInst` instructions. `JcInst` is similar to `JcRawInst` with some
+CFG API operates on `JcInst` instructions. `JcInst` is similar to `JcRawInst` with
 small differences. The main difference is that `JcInst` uses `JcType` instances to represent
 types. Another difference is that `JcInst` does not need labels to represent connections
 between instructions (as they are stored in `JcGraph`). In all other cases, `JcInst` hierarchy
@@ -87,7 +87,7 @@ these connections when changing the CFG. However, one can always create a new co
 
 You can find an example of CFG modification in the `StringConcatSimplifier` class: it creates new
 `JcGraph` in which all the `invokedynamic` string concatenation instructions are
-replaced with simple `String.concat` method call.
+replaced with a simple `String.concat` method call.
 
 `ReachingDefinitionsAnalysis` class is an example of using basic block API. It performs
 a standard reaching definition analysis for basic blocks using a simple worklist algorithm.

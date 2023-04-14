@@ -3,20 +3,20 @@ import CodeBlock from '../../components/CodeBlock';
 
 ### Environment
 
-|           |                                                |
-|-----------|------------------------------------------------|
-| OS        | Windows 10 Pro                                 |
-| Processor | 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz |
-| RAM       | 16,0 GB                                        |
-| Disk      | SSD                                            |
+|           |                                                 |
+|-----------|-------------------------------------------------|
+| OS        | Windows 10 Pro                                  |
+| Processor | 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80 GHz |
+| RAM       | 16 GB                                           |
+| Storage   | SSD                                             |
 
-Benchmark runs across different scopes of java bytecode with following meanings:
-- runtime - only java runtime without any additional dependencies
-- runtime + guava - java runtime with one jar for guava
-- runtime + project classpath - java runtime with all visible dependencies of `JacoDB` project
-- runtime + Idea community - java runtime with all visible dependencies of `IDEA community` project
+Benchmark runs across different scopes of Java bytecode:
+- _runtime_ — Java runtime with no additional dependencies
+- _runtime + guava_ — Java runtime with one JAR file for `guava`
+- _runtime + project classpath_ — Java runtime with all visible dependencies of the JacoDB project
+- _runtime + Idea community_ — Java runtime with all visible dependencies of an IntelliJ IDEA Community project
 
-`JacoDB` benchmarks also include scheme when `Usages` feature is installed
+JacoDB benchmarks also include a scheme with the `Usages` feature installed.
 
 ### JacoDB
 
@@ -64,7 +64,7 @@ Runs with `createInDemandView`
 | [runtime + project dependencies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L49)         | 5        | 60 ms                 |
 | [runtime + IDEA community dependecies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L54)   | 5        | 167 ms                |
 
-Runs with `createFullView` consumed almost all of 16Gb RAM memory (failed with OOM on 12Gb).
+Runs with `createFullView` consumed almost all of 16 GB RAM memory (failed with the OOM error on 12 GB).
 
 | Benchmark                                                                                                                                                                    | Repeats  | Avg time per operation    |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|---------------------------|
@@ -78,17 +78,21 @@ Runs with `createFullView` consumed almost all of 16Gb RAM memory (failed with O
 ### Comparison and differences
 
 ##### Soot
-Soot just read all jar files and stores bytecode in memory. Jcdb works in a bit different way. Jcdb read available .class from jars and build folders in a parallel and as a result
-is faster in a situation when there are a lot of jar files (because of parallel execution). Keep in mind that Jcdb has a huge job processed
-in a background while almost all api is ready (hierarchy and usages requires background activity to be finished).
+The [Soot](https://github.com/soot-oss/soot) framework just reads all the JAR files and stores bytecode in memory.
+Unlike Soot, JacoDB reads the available `.class` from the JAR files and builds folders in parallel. As a result, it is faster when
+dealing with multiple JAR files (due to parallel execution). Note, that JacoDB performs a lot of tasks in
+background while almost all the API is ready for use (hierarchy and usages require the background activity to be
+finished).
 
 ##### SootUp
 
-SootUp just ignores runtime libraries. That describes that startup time with only runtime consumes almost zero time. Bigger projects produces much slower results.
+The [SootUp](https://github.com/soot-oss/SootUp) framework ignores runtime libraries. That is why the startup time
+for the “runtime only” condition is almost equal to zero.
 
 ##### JacoDB
 
-JacoDB do some jobs in background while almost all api is usable. Here are results for background activities without `Usages` feature:
+JacoDB performs tasks in background while almost all the API is ready for use. Here are the results for performing
+the background activities without the `Usages` feature:
 
 <CodeBlock codeText={`
     ./gradlew awaitBackgroundBenchmark
@@ -101,7 +105,7 @@ JacoDB do some jobs in background while almost all api is usable. Here are resul
 | [runtime + project dependencies: wait for background jobs](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbAwaitBackgroundBenchmarks.kt#L72)        | 5        | 14737 ms               |
 | [runtime + IDEA community dependencies: wait for background jobs](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbAwaitBackgroundBenchmarks.kt#L86) | 2        | 137528 ms              |
 
-For `Idea Community` code base result sqlite database file size is ~3.5Gb
+For the IntelliJ IDEA Community code base, the size of the resulting SQLite database file is ~3.5 GB.
 
 
 
