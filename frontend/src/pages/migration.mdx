@@ -23,8 +23,8 @@ Terminology:
 * whether they have been changed since having been processed before,
 * whether they are being processed right now as they have not been processed already.
 As a result, the code should try to reuse a classpath instance. After that, we recommend to call the `close` method as JacoDB is able to delete the processed resources which seem to be out of date with regard to the file system.
-3. If there is a chance that the code calls for class hierarchies, then it's better to install the `InMemoryHierarchy` feature.
-4. Use persisted data in the file system if your code base is huge enough or if living after the process restart is possible.
+3. If there is a chance that the code calls for class hierarchies, then it is better to install the `InMemoryHierarchy` feature.
+4. Use persisted data in the file system if your code base is huge enough or if living upon the process restart is possible.
 5. Install only those features that are required for this database.
 
 # Operations

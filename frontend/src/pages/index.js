@@ -26,9 +26,9 @@ export default withLayout(
 
                     <Container>
 
-                        JacoDB is a library that allows you to get information about Java bytecode outside the JVM
+                        JacoDB (Java Compilation Database) is a library that allows you to get information about Java bytecode outside the JVM
                         process and to store it in a database. While Java Reflection makes it possible to inspect code
-                        at runtime, Java Compilation Database does the same for bytecode stored in a file system.
+                        at runtime, JacoDB does the same for bytecode stored in a file system.
                         <p/>
 
                         Implementation principles:
@@ -36,9 +36,9 @@ export default withLayout(
 
                         <ul>
                             <li> asynchronous, thread-safe and extendable API</li>
-                            <li> immutability where it's possible </li>
-                            <li> allow binding to specific Java runtime version (starting with Java 1.8)</li>
-                            <li> java bytecode processing and analyzing (starting with Java 1.8)</li>
+                            <li> immutability where possible </li>
+                            <li> binding to a specific Java runtime version (since Java 1.8)</li>
+                            <li> Java bytecode processing and analyzing (since Java 1.8)</li>
                             <li> persistence: reusing data between restarts</li>
                             <li> fast start-up </li>
                         </ul>

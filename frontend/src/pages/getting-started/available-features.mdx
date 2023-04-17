@@ -2,7 +2,7 @@ import CodeBlock from '../../components/CodeBlock';
 
 ## Overview
 
-Feature is an interface which provide ability to store and query additional information based on bytecode. Feature can be installed only when instance of `JacoDB` is created.
+Feature is an interface allowing to store and query additional information based on bytecode. Feature can be installed only upon creating the `JacoDB` instance.
 
 Java
 <CodeBlock language="java" codeText={`
@@ -25,19 +25,19 @@ Kotlin
 
 ### InMemoryHierarchy
 
-By default `JacoDB` stores information about class hierarchy in sql database (table `ClassHierarchies` with columns: class_id, super_id, is_interface).
-This brings ability to retrieve whole hierarchy for particular class with recursive sql query. Recursive queries are quite common and quite slow.
+By default, JacoDB stores information about class hierarchy in an SQL database (the `ClassHierarchies` table with
+the columns: `class_id`, `super_id`, `is_interface`). It allows us to retrieve the hierarchy for a particular class
+with a recursive SQL query. Recursive queries are rather common and rather slow.
 
-`InMemoryHierarchy` - solves performance problem op built-in solution. It's introduce in-memory cache which fast searching. 
+`InMemoryHierarchy` solves a performance problem of a built-in solution. It introduces a fast-search in-memory cache.
 
-Overhead for memory is O(number of classes).
-For own project with about 50K classes (including runtime) memory consumption for such cache is ~6,5Mb of heap memory.
+Memory overhead is O(number of classes). For the project with about 50K classes (including runtime) memory
+consumption for such a cache is ~6.5 Mb of heap memory.
 
 ### Usages
 
-Brings ability to find out places where methods and fields are used.
-
-It's recommended to install `InMemoryHierarchy` for performance purposes
+You can find places where methods and fields are used.
+For better performance, install `InMemoryHierarchy`.
 
 Java
 <CodeBlock language="java" codeText={`
@@ -68,15 +68,16 @@ Kotlin
     cp.findUsages(field, FieldUsageMode.READ) // sequence of fields which reads field value
 `}/>
 
-`Usages` indexer goes through all instructions and collect method calls or fields access and store it into table: 
+The `Usages` indexer goes through all instructions, collects information on method calls or field access, and
+stores it in a table:
 
-| Column name             | Column description                                                            |
-|-------------------------|-------------------------------------------------------------------------------|
-| callee_class_symbol_id  | callee class name unique identifier                                           |
-| callee_name_symbol_id   | method/field name unique identifier                                           |
-| callee_desc_hash        | null for field usage. `Sip` hash of method bytecode `description` for methods |
-| opcode                  | instruction operation code                                                    |
-| caller_class_symbols_id | caller class name unique identifier                                           |
-| caller_method_offsets   | method numbers for this usage                                                 |
-| location_id             | location identifier                                                           |
+| Column name             | Column description                                                             |
+|-------------------------|--------------------------------------------------------------------------------|
+| callee_class_symbol_id  | a unique identifier for the callee class name                                  |
+| callee_name_symbol_id   | a method/field name unique identifier                                          |
+| callee_desc_hash        | null for field usage; `Sip` hash of method bytecode, `description` for methods |
+| opcode                  | instruction operation code                                                     |
+| caller_class_symbols_id | a unique identifier for the caller class name                                  |
+| caller_method_offsets   | method numbers for this usage                                                  |
+| location_id             | a location identifier                                                          |
 

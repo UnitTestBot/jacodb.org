@@ -12,7 +12,7 @@ import pkg from "../../package.json";
 const NAV_LINKS = [
     {
         link: '/',
-        title: 'JC Home',
+        title: 'Home',
         exact: true,
         style: {
             color: '#ffc107',
