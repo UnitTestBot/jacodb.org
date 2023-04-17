@@ -107,9 +107,6 @@ Declare the scope of `JcByteCodeLocation` for resolving class references.
 | locations | list of `JcByteCodeLocation`  | A list of locations included in a classpath. |
 | db        | `JacoDB`                      | A database instance.                         |
 
-
-findClassOrNull(name: String): JcClassOrInterface?
-
 #### findClassOrNull(name)
 
 Find a bytecode-containing class (arrays and primitives are not supported for this method).
@@ -394,7 +391,7 @@ Find field usages in `JcClasspath`.
 | parameter | type      | description                                         |
 |-----------|-----------|-----------------------------------------------------|
 | field     | `JcField` | A base method whose overrides should be found.      |
-| method    | enum      | Searching for _read/write_ operations with a field. |
+| mode      | enum      | Searching for _read/write_ operations with a field. |
 
 
 #### findBuilders(jcClass)
