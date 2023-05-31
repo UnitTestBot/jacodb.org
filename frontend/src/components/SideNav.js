@@ -114,6 +114,10 @@ const apiRef = [
   'instructions-and-graphs'
 ];
 
+const analysisRef = [
+  'overview',
+];
+
 
 const nameOverrides = {
   'types-classes': 'Types and Classes'
@@ -199,6 +203,12 @@ class SideNav extends React.Component {
                 path="/api-ref"
                 location={location}
                 items={apiRef}
+              />
+              <NavSection
+                heading="Analysis"
+                path="/analysis"
+                location={location}
+                items={analysisRef}
               />
               <NavSection
                 heading="Migrating"

@@ -28,6 +28,10 @@ const NAV_LINKS = [
         title: 'Documentation',
     },
     {
+        link: '/analysis/overview',
+        title: 'Analysis',
+    },
+    {
         link: '/swagger-ui/index.html',
         title: 'Demo',
     },
