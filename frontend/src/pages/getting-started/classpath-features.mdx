@@ -1,0 +1,52 @@
+import CodeBlock from '../../components/CodeBlock';
+import JavaKotlinCodeBlock from "../../components/JavaKoltinCodeBlock";
+
+# Features
+
+Features are used for building view based on real-world `JcClasspath` bytecode. All features should be passed for creating classpath
+
+<JavaKotlinCodeBlock javaCode={`
+    JcClasspath cp = db.asyncClasspath(files,
+        Arrays.asList(new AppendMainMethodToAllClasses())
+    ).get();
+`} kotlinCode={`
+    val cp = db.classpath(files, AppendMainMethodToAllClasses())
+`}/>
+
+## JcClasspathFeature
+
+Based class for all features. There are only two methods:
+- `on(event)` feature can implement custom logic receiving events from other features
+- `event(result, input)` produces event for other features.
+
+Basic scenario is caching when one extension found something and cache can handle this
+
+## JcClasspathExtFeature
+
+Could be used for mocking or caching
+- `tryFindClass(classpath, name): Optional<JcClassOrInterface>?`
+- `tryFindType(classpath, name): Optional<JcType>?`
+
+Returned values should conform this logic:
+
+- not empty `Optional` for founded class/type
+- empty `Optional` for class/type that is not exist in classpath
+- null for case when we do not know
+
+## JcClassExtFeature
+
+Could be used for patching classes with new fields/methods
+- `fieldsOf(clazz)` - return list of additional fields for particular class. null by default
+- `methodsOf(clazz)`- return list of additional methods for particular class. null by default
+- `extensionValuesOf(clazz)`- return map of addiotnal information for particular class.
+
+`extensionValuesOf` could expose specific information about classes. For example some specific information from Kotlin
+or Scala compilers
+
+## JcInstExtFeature
+
+- `transformRawInstList(method: JcMethod, list)` - transforming raw instruction list
+- `transformInstList(method, list)` - transforming instruction list. Raw instructions will remain the same in this case
+
+
+## JcMethodExtFeature

@@ -1,27 +1,24 @@
-import CodeBlock from '../../components/CodeBlock';    
+import JavaKotlinCodeBlock from "../../components/JavaKoltinCodeBlock";
 
 ## Overview
 
 Feature is an interface allowing to store and query additional information based on bytecode. Feature can be installed only upon creating the `JacoDB` instance.
 
-Java
-<CodeBlock language="java" codeText={`
+<JavaKotlinCodeBlock
+    javaCode={`
     var db = JacoDb.async(new JcSettings()
         .useProcessJRE()
         .persistent("/tmp/compilation-db/\${System.currentTimeMillis()}") // persist data
         .installFeatures(Usages.INSTANCE, InMemoryHierarchy.INSTANCE)
     ).get();
-`}/>
-
-Kotlin
-<CodeBlock language="kotlin" codeText={`
+    `}
+    kotlinCode={`
     val db = jacodb {
         useProcessJRE()
         persistent("/tmp/compilation-db/\${System.currentTimeMillis()}") // persist data
         installFeatures(Usages, InMemoryHierarchy)
-    }
-`}/>
-
+    }`
+    }/>
 
 ### InMemoryHierarchy
 
@@ -39,8 +36,8 @@ consumption for such a cache is ~6.5 Mb of heap memory.
 You can find places where methods and fields are used.
 For better performance, install `InMemoryHierarchy`.
 
-Java
-<CodeBlock language="java" codeText={`
+<JavaKotlinCodeBlock
+    javaCode={`
     var db = JacoDb.async(new JcSettings()
         .useProcessJRE()
         .persistent("/tmp/compilation-db/\${System.currentTimeMillis()}") // persist data
@@ -51,10 +48,8 @@ Java
     var cp = db.asyncClasspath(allClasspath).get();
     cp.findUsages(method); // sequence of methods which calls method
     cp.findUsages(field, FieldUsageMode.READ); // sequence of fields which reads field value
-`}/>
-
-Kotlin
-<CodeBlock language="kotlin" codeText={`
+`}
+    kotlinCode={`
     val db = jacodb {
         useProcessJRE()
         load(allClasspath)

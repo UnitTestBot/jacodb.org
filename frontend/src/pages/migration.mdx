@@ -1,4 +1,4 @@
-# Soot migration
+import SootComparison from "../components/SootComparison";
 
 Terminology:
 
@@ -31,20 +31,16 @@ As a result, the code should try to reuse a classpath instance. After that, we r
 
 ### create storage
 
-###### Soot
-        
-```java
-    // points to specific runtime version
-    G.v().initJdk(new G.JreInfo(location, version));
-    Options options = Options.v();
-    options.set_soot_classpath(files);
-    Scene.v().loadNecessaryClasses();
-    PackManager.v().runPacks();
-```
-
-###### JacoDB(Java)
-
-```java
+<SootComparison
+    sootCode={`
+        // points to specific runtime version
+        G.v().initJdk(new G.JreInfo(location, version));
+        Options options = Options.v();
+        options.set_soot_classpath(files);
+        Scene.v().loadNecessaryClasses();
+        PackManager.v().runPacks();
+    `}
+    javaCode={`
     var db = JacoDB.async(new JcSettings()
         // points to specific runtime version
         .useJavaRuntime(runtimeFolder)
@@ -54,11 +50,8 @@ As a result, the code should try to reuse a classpath instance. After that, we r
         .persistent("/home/user/jcdb.db", false)
     ).get();
     var classpath = db.asyncClasspath(listOf(jar1)).get();
-```
-
-###### JacoDB(Kotlin)
-
-```kotlin
+`}
+    kotlinCode={`
     val db = jacodb {
         // points to specific runtime version
         useJavaRuntime(runtimeFolder)
@@ -68,137 +61,107 @@ As a result, the code should try to reuse a classpath instance. After that, we r
         persistent(location = "/home/user/jcdb.db", clearOnStart = false)
     }
     val classpath = db.classpath(listOf(jar1))
-```
+`}
+/>
 
 ### find class
 
-###### Soot
-
-```java
-    SootClass clazz = Scene.v().getSootClass("java.lang.String");
-```
-###### JacoDB(Java)
-
-```java
-    var clazz = classpath.findClassOrNull("java.lang.String")
-```
-
-###### JacoDB(Kotlin)
-
-```kotlin
-    val clazz = classpath.findClassOrNull("java.lang.String")
-```
-
+<SootComparison
+    sootCode={`
+        SootClass clazz = Scene.v().getSootClass("java.lang.String");
+    `}
+    javaCode={`
+        var clazz = classpath.findClassOrNull("java.lang.String")
+    `}
+    kotlinCode={`
+        val clazz = classpath.findClassOrNull("java.lang.String")
+    `}
+/>
 
 ### Get 3-address bytecode representation
 
-###### Soot
-
-```java
-    SootClass clazz = Scene.v().getSootClass("java.lang.String");
-    clazz.getMethod("length", Lists.emptyList()).retrieveActiveBody()
-```
-###### JacoDB(Java)
-
-```java
+<SootComparison
+    sootCode={`
+        SootClass clazz = Scene.v().getSootClass("java.lang.String");
+        clazz.getMethod("length", Lists.emptyList()).retrieveActiveBody()
+    `}
+    javaCode={`
     var clazz = classpath.findClassOrNull("java.lang.String");
-    Api.findMethodOrNull(clazz, "length").instructionList();
-```
-
-###### JacoDB(Kotlin)
-
-```kotlin
-    val clazz = classpath.findClassOrNull("java.lang.String") ?: throw  IllegalStateException()
-    classpath.findMethodOrNull("length").instructionList()
-```
+    JcClasses.findDeclaredMethodOrNull(clazz, "length", null).getInstructionList();
+`}
+    kotlinCode={`
+    val clazz = classpath.findClass("java.lang.String")
+    classpath.findMethodOrNull("length").instructionList
+`}
+/>
 
 ### Get control flow graph
 
-###### Soot
-
-```java
-    new ClassicCompleteUnitGraph(sootMethod.getActiveBody());
-```
-
-###### JacoDB(Java)
-
-```java
-    var cfg = jcMethod.instructionList().graph()
-```
-
-###### JacoDB(Kotlin)
-
-```kotlin
-    val cfg = jcMethod.instructionList().graph()
-```
-
+<SootComparison
+    sootCode={`
+        new ClassicCompleteUnitGraph(sootMethod.getActiveBody());
+    `}
+    javaCode={`
+    var cfg = jcMethod.flowGraph()
+`}
+    kotlinCode={`
+        val cfg = jcMethod.flowGraph()
+`}
+/>
 
 ### Hierarchy
 
-###### Soot
-
-```java
+<SootComparison
+    sootCode={`
     Hierarchy h = new Hierarchy();
     h.getDirectSubclassesOf(clazz);
     h.getDirectSubinterfacesOf(clazz);
-```
-###### JacoDB(Java)
-
-```java
+`}
+    javaCode={`
     var db = JacoDB.async(new JcSettings()
         .install(InMemoryHierarchy.INSTANCE)
     ).get();
     val ext = classpath.asyncHierarchy().get();
     ext.findSubClasses(clazz, allHierarchy = true)
-    ext.findOverrides(method)
-```
-
-###### JacoDB(Kotlin)
-```kotlin
-    val db = jacodb {
-        // highly recommend to install this extension
-        install(InMemoryHierarchy)
+    ext.findOverrides(method)`
     }
-
-    val ext = classpath.hierarchyExt()
-    ext.findSubClasses(clazz, allHierarchy = true)
-    ext.findOverrides(method)
-```
+    kotlinCode={`
+        val db = jacodb {
+            // highly recommend to install this extension
+            install(InMemoryHierarchy)
+        }
+        val ext = classpath.hierarchyExt()
+        ext.findSubClasses(clazz, allHierarchy = true)
+        ext.findOverrides(method)
+`}
+/>
 
 ### Call graph/Usages
 
-###### Soot
-
-```java
+<SootComparison
+    sootCode={`
     CallGraph cg = new CallGraph();
     cg.edgesInto(edge);
     cg.edgesOutOf(edge);
-```
-
-###### JacoDB(Java)
-
-```java
+    `}
+    javaCode={`
     var db = JacoDB.async(new JcSettings()
         // highly recommend to install InMemoryHierarchy extension
         .install(InMemoryHierarchy.INSTANCE, Usages.INSTANCE)
     ).get();
-
     var ext = classpath.asyncUsages();
     ext.findUsages(field, FieldUsageMode.READ);
     ext.findUsages(field, FieldUsageMode.WRITE);
     ext.findUsages(method);
-```
-
-###### JacoDB(Kotlin)
-
-```kotlin
+    `}
+    kotlinCode={`
     val db = jacodb {
         // highly recommend to install InMemoryHierarchy extension
         install(Usages, InMemoryHierarchy)
     }
-
     val ext = classpath.usagesExt()
     ext.findUsages(field, FieldUsageMode.READ)
     ext.findUsages(field, FieldUsageMode.WRITE)
     ext.findUsages(method)
-```
+`}
+/>

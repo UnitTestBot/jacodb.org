@@ -105,13 +105,13 @@ const TocSubLink = styled(TocLink)`
 const gettingStarted = [
   'introduction',
   'types-classes',
-  'available-features',
-  'benchmarks'
+  'database-features',
+  'classpath-features'
 ];
 
 const apiRef = [
   'api-reference',
-  'control-flow-graph'
+  'instructions-and-graphs'
 ];
 
 
@@ -134,8 +134,8 @@ function NavSection({ heading, location: { pathname }, items, path }) {
         {heading}
       </TocLink>
 
-      {items && active && (
-        <Nav activeKey={pathname} onSelect={() => {}} className="d-block">
+      {items && (
+        <Nav activeKey={pathname} onSelect={() => {}} className="d-block child-nav-item">
           {items.map((name) => (
             <Nav.Item key={`${path}/${name}/`}>
               <TocSubLink href={`${path}/${name}/`}>
@@ -204,6 +204,11 @@ class SideNav extends React.Component {
                 heading="Migrating"
                 location={location}
                 path="/migration"
+              />
+              <NavSection
+                heading="Benchmarks"
+                location={location}
+                path="/benchmarks"
               />
               <NavSection heading="Maintainers" location={location} path="/about" />
             </TableOfContents>

@@ -64,7 +64,7 @@ function NavMain({activePage}) {
                                 overlay={<Tooltip id="t-github">Github</Tooltip>}
                             >
                                 <Nav.Link
-                                    href="https://github.com/UnitTestBot/jacodb"
+                                    href={`https://github.com/UnitTestBot/jacodb/releases/tag/v${pkg.version}`}
                                     target="_blank"
                                     className={"styled-nav-link version-number-link"}
                                     rel="noopener noreferrer"
