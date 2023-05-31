@@ -26,6 +26,7 @@ class SitemapController {
             "/getting-started/types-classes",
             "/api-ref/api-reference",
             "/api-ref/instructions-and-graphs",
+            "/analysis/overview",
         )
     }
 
