@@ -65,7 +65,7 @@ class DemoApplication : CliktCommand(name = "JCDB demo application") {
     private val refresh by option("--refresh", help = "do explicit refresh of the database")
         .flag(default = true)
 
-    private val location by option("--location", help = "location dor database")
+    private val location by option("--location", help = "location for database")
         .default("./jcdb-demo.db")
 
     override fun run() {

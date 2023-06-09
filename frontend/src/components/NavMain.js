@@ -24,7 +24,7 @@ const NAV_LINKS = [
         title: 'Getting Started',
     },
     {
-        link: '/api-ref/api-reference',
+        link: '/docs/index.html',
         title: 'Documentation',
     },
     {

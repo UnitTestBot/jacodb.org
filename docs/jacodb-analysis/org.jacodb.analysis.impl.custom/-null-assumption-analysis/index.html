@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>NullAssumptionAnalysis</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>jacodb</span>            </a>    </div>
+    <div>1.1-SNAPSHOT
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="jacodb-analysis::org.jacodb.analysis.impl.custom/NullAssumptionAnalysis///PointingToDeclaration//1000453906">
+  <div class="breadcrumbs"><a href="../../index.html">jacodb-analysis</a><span class="delimiter">/</span><a href="../index.html">org.jacodb.analysis.impl.custom</a><span class="delimiter">/</span><span class="current">NullAssumptionAnalysis</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Null</span><wbr><span>Assumption</span><wbr><span><span>Analysis</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">NullAssumptionAnalysis</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">graph<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-graph/index.html">JcGraph</a></span></span><span class="token punctuation">)</span> : <a href="../-backward-flow-analysis/index.html">BackwardFlowAnalysis</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst/index.html">JcInst</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="../-null-analysis-map/index.html">NullAnalysisMap</a><span class="token operator">&gt; </span></div><p class="paragraph">An inter-procedural nullness assumption analysis that computes for each location and each value in a method if the value (before or after that location) is treated as definitely null, definitely non-null or neither. This information could be useful in deciding whether to insert code that accesses a potentially null object.</p><p class="paragraph">If the original program assumes a value is non-null, then adding a use of that value will not introduce any NEW nullness errors into the program. This code may be buggy, or just plain wrong. It has not been checked.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section-body">
+      <h2 class="tabbedcontent">Constructors</h2>
+      <div class="table" data-togglable="Constructors"><a data-name="1232628153%2FConstructors%2F1000453906" anchor-label="NullAssumptionAnalysis" id="1232628153%2FConstructors%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue TabbedContent">
+            <div class=""><span class="inline-flex">
+                <div><a href="-null-assumption-analysis.html"><span>Null</span><wbr><span>Assumption</span><wbr><span><span>Analysis</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1232628153%2FConstructors%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-null-assumption-analysis.html"><span class="token function">NullAssumptionAnalysis</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">graph<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-graph/index.html">JcGraph</a></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="-1796384534%2FFunctions%2F1000453906" anchor-label="copy" id="-1796384534%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="copy.html"><span><span>copy</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1796384534%2FFunctions%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="copy.html"><span class="token function">copy</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">source<span class="token operator">: </span><a href="../-null-analysis-map/index.html">NullAnalysisMap</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">dest<span class="token operator">: </span><a href="../-null-analysis-map/index.html">NullAnalysisMap</a></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1344297645%2FFunctions%2F1000453906" anchor-label="ins" id="1344297645%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1344297645%2FFunctions%2F1000453906"><span><span>ins</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1344297645%2FFunctions%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#1344297645%2FFunctions%2F1000453906"><span class="token function">ins</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">s<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst/index.html">JcInst</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-null-analysis-map/index.html">NullAnalysisMap</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1886762844%2FFunctions%2F1000453906" anchor-label="isAssumedNonNullBefore" id="1886762844%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="is-assumed-non-null-before.html"><span>is</span><wbr><span>Assumed</span><wbr><span>Non</span><wbr><span>Null</span><wbr><span><span>Before</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1886762844%2FFunctions%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-assumed-non-null-before.html"><span class="token function">isAssumedNonNullBefore</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inst<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst/index.html">JcInst</a><span class="token punctuation">, </span></span><span class="parameter ">value<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-value/index.html">JcValue</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns <code class="lang-kotlin">true</code> if the analysis could determine that value is always treated as non-null after and including the statement s.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1370497937%2FFunctions%2F1000453906" anchor-label="isAssumedNullBefore" id="1370497937%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="is-assumed-null-before.html"><span>is</span><wbr><span>Assumed</span><wbr><span>Null</span><wbr><span><span>Before</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1370497937%2FFunctions%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-assumed-null-before.html"><span class="token function">isAssumedNullBefore</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inst<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst/index.html">JcInst</a><span class="token punctuation">, </span></span><span class="parameter ">value<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-value/index.html">JcValue</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns <code class="lang-kotlin">true</code> if the analysis could determine that <code class="lang-kotlin">value</code> is always treated as null after and including the instruction inst.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1660939824%2FFunctions%2F1000453906" anchor-label="merge" id="-1660939824%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="merge.html"><span><span>merge</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1660939824%2FFunctions%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="merge.html"><span class="token function">merge</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">in1<span class="token operator">: </span><a href="../-null-analysis-map/index.html">NullAnalysisMap</a><span class="token punctuation">, </span></span><span class="parameter ">in2<span class="token operator">: </span><a href="../-null-analysis-map/index.html">NullAnalysisMap</a><span class="token punctuation">, </span></span><span class="parameter ">out<span class="token operator">: </span><a href="../-null-analysis-map/index.html">NullAnalysisMap</a></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-451588517%2FFunctions%2F1000453906" anchor-label="newEntryFlow" id="-451588517%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="new-entry-flow.html"><span>new</span><wbr><span>Entry</span><wbr><span><span>Flow</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-451588517%2FFunctions%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="new-entry-flow.html"><span class="token function">newEntryFlow</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-null-analysis-map/index.html">NullAnalysisMap</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1843902415%2FFunctions%2F1000453906" anchor-label="newFlow" id="-1843902415%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="new-flow.html"><span>new</span><wbr><span><span>Flow</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1843902415%2FFunctions%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="new-flow.html"><span class="token function">newFlow</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-null-analysis-map/index.html">NullAnalysisMap</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1217526032%2FFunctions%2F1000453906" anchor-label="outs" id="-1217526032%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1217526032%2FFunctions%2F1000453906"><span><span>outs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1217526032%2FFunctions%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1217526032%2FFunctions%2F1000453906"><span class="token function">outs</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">s<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst/index.html">JcInst</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-null-analysis-map/index.html">NullAnalysisMap</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="658475861%2FFunctions%2F1000453906" anchor-label="run" id="658475861%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../-backward-flow-analysis/run.html"><span><span>run</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="658475861%2FFunctions%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-backward-flow-analysis/run.html"><span class="token function">run</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-757233713%2FFunctions%2F1000453906" anchor-label="runAnalysis" id="-757233713%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-757233713%2FFunctions%2F1000453906"><span>run</span><wbr><span><span>Analysis</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-757233713%2FFunctions%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-757233713%2FFunctions%2F1000453906"><span class="token function">runAnalysis</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">direction<span class="token operator">: </span><a href="../-flow-analysis-direction/index.html">FlowAnalysisDirection</a><span class="token punctuation">, </span></span><span class="parameter ">inFlow<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst/index.html">JcInst</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="../-null-analysis-map/index.html">NullAnalysisMap</a><span class="token operator">?</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">outFlow<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst/index.html">JcInst</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="../-null-analysis-map/index.html">NullAnalysisMap</a><span class="token operator">?</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="92076947%2FProperties%2F1000453906" anchor-label="graph" id="92076947%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../-abstract-flow-analysis/graph.html"><span><span>graph</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="92076947%2FProperties%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><a data-name="92076947%2FProperties%2F1000453906" anchor-label="graph" id="92076947%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../-abstract-flow-analysis/graph.html">graph</a><span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-bytecode-graph/index.html">JcBytecodeGraph</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst/index.html">JcInst</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-717537231%2FProperties%2F1000453906" anchor-label="ins" id="-717537231%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="ins.html"><span><span>ins</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-717537231%2FProperties%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><a data-name="-717537231%2FProperties%2F1000453906" anchor-label="ins" id="-717537231%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="ins.html">ins</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html">MutableMap</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst/index.html">JcInst</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="../-null-analysis-map/index.html">NullAnalysisMap</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="217731941%2FProperties%2F1000453906" anchor-label="isForward" id="217731941%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../-backward-flow-analysis/is-forward.html"><span>is</span><wbr><span><span>Forward</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="217731941%2FProperties%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><a data-name="217731941%2FProperties%2F1000453906" anchor-label="isForward" id="217731941%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="../-backward-flow-analysis/is-forward.html">isForward</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-160461802%2FProperties%2F1000453906" anchor-label="outs" id="-160461802%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="outs.html"><span><span>outs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-160461802%2FProperties%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><a data-name="-160461802%2FProperties%2F1000453906" anchor-label="outs" id="-160461802%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="outs.html">outs</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html">MutableMap</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst/index.html">JcInst</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="../-null-analysis-map/index.html">NullAnalysisMap</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+

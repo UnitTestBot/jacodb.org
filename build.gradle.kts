@@ -1,4 +1,3 @@
-import org.gradle.kotlin.dsl.repositories
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val kotlinVersion: String by rootProject
@@ -32,7 +31,6 @@ plugins {
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.allopen") version kotlinVersion
     kotlin("plugin.serialization") version kotlinVersion
-
 }
 
 subprojects {
@@ -49,7 +47,7 @@ subprojects {
         mavenCentral()
         maven("https://plugins.gradle.org/m2")
         maven("https://plugins.gradle.org/m2")
-        maven{
+        maven {
             url = uri("https://maven.pkg.github.com/UnitTestBot/jacodb")
             credentials {
                 username = GITHUB_USERNAME ?: System.getenv("GITHUB_USERNAME")

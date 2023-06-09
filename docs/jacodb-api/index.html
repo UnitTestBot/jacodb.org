@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>jacodb-api</title>
+<link href="../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../scripts/sourceset_dependencies.js" async></script>
+<link href="../styles/style.css" rel="Stylesheet">
+<link href="../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../styles/main.css" rel="Stylesheet">
+<link href="../styles/prism.css" rel="Stylesheet">
+<link href="../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../scripts/main.js" defer></script>
+<script type="text/javascript" src="../scripts/prism.js" async></script>
+<script type="text/javascript" src="../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../index.html">
+<span>jacodb</span>            </a>    </div>
+    <div>1.1-SNAPSHOT
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="jacodb-api::////PointingToDeclaration//-381265510">
+  <div class="breadcrumbs"></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>jacodb-api</span></span></h1>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><h2 class=""> Settings </h2><p class="paragraph">The <a href="https://jacodb.org/docs/jacodb-core/org.jacodb.impl/-jc-settings/index.html">JcSettings</a> class is used for creating a <a href="https://jacodb.org/docs/jacodb-api/org.jacodb.api/-jc-database/index.html">JcDatabase</a> instance.</p><p class="paragraph">Use custom Java runtime (not the current process) for bytecode analysis.</p><p class="paragraph">There are two shortcuts: <a href="https://jacodb.org/docs/jacodb-core/org.jacodb.impl/-jc-settings/index.html">JcSettings</a>.<a href="https://jacodb.org/docs/jacodb-core/org.jacodb.impl/-jc-settings/use-process-java-runtime.html">useProcessJavaRuntime</a> is for using current process runtime (the default option), and <a href="https://jacodb.org/docs/jacodb-core/org.jacodb.impl/-jc-settings/index.html">JcSettings</a>.<a href="https://jacodb.org/docs/jacodb-core/org.jacodb.impl/-jc-settings/use-java-home-runtime.html">useJavaHomeRuntime</a> is for using Java runtime from the JAVA_HOME environment variable.</p><p class="paragraph"><a href="https://jacodb.org/docs/jacodb-api/org.jacodb.api/-jc-database/index.html">JcDatabase</a> instance is created based on settings. If an instance is not needed, the <code class="lang-kotlin">close</code> method should be called.</p><h2 class=""> Features </h2><p class="paragraph"><a href="https://jacodb.org/docs/jacodb-api/org.jacodb.api/-jc-feature/index.html">JcFeature</a> is an additional feature which can collect data from bytecode, persist it in database and use it to find specific places. <a href="https://jacodb.org/docs/jacodb-api/org.jacodb.api/-jc-feature/index.html">JcFeature</a> has parameterization of request/response types.</p><p class="paragraph">A feature lifecycle:</p><ul><li><p class="paragraph">Pre-indexing — can be used to prepare a database scheme, for example.</p></li><li><p class="paragraph">Indexing.</p></li><li><p class="paragraph">Flushing indexed data to a persistent storage.</p></li><li><p class="paragraph">Post-indexing step — can be used to set up the database-specific indexes.</p></li><li><p class="paragraph">Updating indexes (if a bytecode location is outdated and removed).</p></li></ul><p class="paragraph">Call on each step of a lifecycle with respected signal.</p><table><thead><tr><th>property</th><th>type</th><th>description</th></tr></thead><tbody><tr><td>signal</td><td><a href="https://jacodb.org/docs/jacodb-api/org.jacodb.api/-jc-signal/index.html">JcSignal</a></td><td><a href="https://jacodb.org/docs/jacodb-api/org.jacodb.api/-jc-signal/-before-indexing/index.html">BeforeIndexing</a>, <a href="https://jacodb.org/docs/jacodb-api/org.jacodb.api/-jc-signal/-after-indexing/index.html">AfterIndexing</a>, <a href="https://jacodb.org/docs/jacodb-api/org.jacodb.api/-jc-signal/-location-removed/index.html">LocationRemoved</a>, or <a href="https://jacodb.org/docs/jacodb-api/jacodb-api/org.jacodb.api/-jc-signal/-drop/index.html">Drop</a></td></tr></tbody></table><!-- MODULE jacodb-api --><!-- INDEX org.jacodb.api --></div></div>
+  </div>
+  <h2 class="">Packages</h2>
+  <div class="table"><a data-name="-1481267783%2FPackages%2F-381265510" anchor-label="org.jacodb.api" id="-1481267783%2FPackages%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.api/index.html">org.jacodb.api</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1481267783%2FPackages%2F-381265510"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="2136578677%2FPackages%2F-381265510" anchor-label="org.jacodb.api.analysis" id="2136578677%2FPackages%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.api.analysis/index.html">org.jacodb.api.analysis</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2136578677%2FPackages%2F-381265510"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="2113422383%2FPackages%2F-381265510" anchor-label="org.jacodb.api.cfg" id="2113422383%2FPackages%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.api.cfg/index.html">org.jacodb.api.cfg</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2113422383%2FPackages%2F-381265510"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1469551700%2FPackages%2F-381265510" anchor-label="org.jacodb.api.ext" id="-1469551700%2FPackages%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.api.ext/index.html">org.jacodb.api.ext</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1469551700%2FPackages%2F-381265510"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1155475294%2FPackages%2F-381265510" anchor-label="org.jacodb.api.ext.cfg" id="-1155475294%2FPackages%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.api.ext.cfg/index.html">org.jacodb.api.ext.cfg</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1155475294%2FPackages%2F-381265510"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+

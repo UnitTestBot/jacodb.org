@@ -29,10 +29,14 @@ dependencies {
     annotationProcessor(group = "org.springframework.boot", name = "spring-boot-configuration-processor")
 }
 
-tasks.named<BootJar>("bootJar") {
-//    dependsOn("copySite")
-    from(rootProject.file("frontend/build/generated-resources"))
-    archiveFileName.set("jacodb-site.jar")
+tasks.register<Copy>("buildAndPrepareDocs") {
+    from(rootProject.file("docs"))
+    into("build/generated-resources/static/docs")
 }
 
-tasks
+tasks.named<BootJar>("bootJar") {
+    dependsOn("buildAndPrepareDocs")
+    from(rootProject.file("frontend/build/generated-resources"))
+    from(rootProject.file("backend/build/generated-resources"))
+    archiveFileName.set("jacodb-site.jar")
+}

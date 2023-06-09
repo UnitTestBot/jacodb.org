@@ -1,0 +1,359 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>jacodb-core</title>
+<link href="../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../scripts/sourceset_dependencies.js" async></script>
+<link href="../styles/style.css" rel="Stylesheet">
+<link href="../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../styles/main.css" rel="Stylesheet">
+<link href="../styles/prism.css" rel="Stylesheet">
+<link href="../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../scripts/main.js" defer></script>
+<script type="text/javascript" src="../scripts/prism.js" async></script>
+<script type="text/javascript" src="../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../index.html">
+<span>jacodb</span>            </a>    </div>
+    <div>1.1-SNAPSHOT
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="jacodb-core::////PointingToDeclaration//76530479">
+  <div class="breadcrumbs"></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>jacodb-core</span></span></h1>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><h2 class=""> In-memory hierarchy</h2><p class="paragraph"><a href="https://jacodb.org/docs/jacodb-core/org.jacodb.impl.features/-in-memory-hierarchy/index.html">InMemoryHierarchy</a> bootstrap hierarchy search based on in-memory caching of structures</p><h2 class=""> Usages (aka Call Graph)</h2><p class="paragraph"><a href="https://jacodb.org/docs/jacodb-core/org.jacodb.impl.features/-usages/index.html">Usages</a> allows to find field and method usages:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">    val db = jacodb {<br>        loadByteCode(allClasspath) // all classpath of current process<br>        installFeatures(Usages, InMemoryHierarchy) // without that line memory footprint will be low as well as performance<br>    }<br>    val classpath = db.classpath(allClasspath)<br>    val extension = classpath.usagesExtension()<br>    val runMethod = classpath.findClassOrNull("java.lang.Runnable")!!.declaredMethods.first() // find run method<br>    <br>    extension.findUsages(runMethod) // all implementations of Runnable#run method<br>    val systemOutField = cp.findClass("java.lang.System")!!.declaredFields.first { it.name == "out" }<br>    val result = ext.findUsages(systemOutField, FieldUsageMode.READ).toList()</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><h2 class=""> Builders (experimental)</h2><p class="paragraph"><a href="https://jacodb.org/docs/jacodb-core/org.jacodb.impl.features/-builders/index.html">Builders</a> find and prioritize methods that may be used for a particular class instance. The feature heuristics are:</p><ul><li><p class="paragraph">the method is public</p></li><li><p class="paragraph">the method's return type should correspond to the given class or one of its subclasses</p></li><li><p class="paragraph">method parameters should not reference the given class in any way (i.e., we are looking for <i>class A</i>, then <i>A</i>, <i>ListA</i>, <i>B extends A</i> are prohibited)</p></li></ul><p class="paragraph">Priorities are:</p><ol><li><p class="paragraph">Static class with no parameters</p></li><li><p class="paragraph">Static class with parameters</p></li><li><p class="paragraph">Non-static class with a <code class="lang-kotlin">build</code> name</p></li><li><p class="paragraph">Other</p></li></ol><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">    val extension = classpath.buildersExtension()<br>    // find potential for instantiate DOM DocumentFactory builders<br>    //javax.xml.parsers.DocumentBuilderFactory#newInstance method will be in top of the list<br>    extension.findBuildMethods(classpath.findClass("javax.xml.parsers.DocumentBuilderFactory")).toList()</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><!-- MODULE jacodb-core --><!-- INDEX org.jacodb.core --></div></div>
+  </div>
+  <h2 class="">Packages</h2>
+  <div class="table"><a data-name="-1813177499%2FPackages%2F76530479" anchor-label="org.jacodb.impl" id="-1813177499%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl/index.html">org.jacodb.impl</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1813177499%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="2145102249%2FPackages%2F76530479" anchor-label="org.jacodb.impl.analysis.impl" id="2145102249%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.analysis.impl/index.html">org.jacodb.impl.analysis.impl</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2145102249%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1223720670%2FPackages%2F76530479" anchor-label="org.jacodb.impl.bytecode" id="-1223720670%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.bytecode/index.html">org.jacodb.impl.bytecode</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1223720670%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-253426725%2FPackages%2F76530479" anchor-label="org.jacodb.impl.cfg" id="-253426725%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.cfg/index.html">org.jacodb.impl.cfg</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-253426725%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1990016868%2FPackages%2F76530479" anchor-label="org.jacodb.impl.cfg.graphs" id="-1990016868%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.cfg.graphs/index.html">org.jacodb.impl.cfg.graphs</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1990016868%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1421225657%2FPackages%2F76530479" anchor-label="org.jacodb.impl.cfg.util" id="1421225657%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.cfg.util/index.html">org.jacodb.impl.cfg.util</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1421225657%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1877569430%2FPackages%2F76530479" anchor-label="org.jacodb.impl.features" id="-1877569430%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.features/index.html">org.jacodb.impl.features</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1877569430%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1546454914%2FPackages%2F76530479" anchor-label="org.jacodb.impl.features.classpaths" id="-1546454914%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.features.classpaths/index.html">org.jacodb.impl.features.classpaths</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1546454914%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="108589403%2FPackages%2F76530479" anchor-label="org.jacodb.impl.features.classpaths.virtual" id="108589403%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.features.classpaths.virtual/index.html">org.jacodb.impl.features.classpaths.virtual</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="108589403%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1298732742%2FPackages%2F76530479" anchor-label="org.jacodb.impl.fs" id="-1298732742%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.fs/index.html">org.jacodb.impl.fs</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1298732742%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="385479858%2FPackages%2F76530479" anchor-label="org.jacodb.impl.storage" id="385479858%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.storage/index.html">org.jacodb.impl.storage</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="385479858%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1030105625%2FPackages%2F76530479" anchor-label="org.jacodb.impl.storage.jooq" id="-1030105625%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.storage.jooq/index.html">org.jacodb.impl.storage.jooq</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1030105625%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-910997639%2FPackages%2F76530479" anchor-label="org.jacodb.impl.storage.jooq.indexes" id="-910997639%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.storage.jooq.indexes/index.html">org.jacodb.impl.storage.jooq.indexes</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-910997639%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="227121055%2FPackages%2F76530479" anchor-label="org.jacodb.impl.storage.jooq.keys" id="227121055%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.storage.jooq.keys/index.html">org.jacodb.impl.storage.jooq.keys</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="227121055%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-897335664%2FPackages%2F76530479" anchor-label="org.jacodb.impl.storage.jooq.tables" id="-897335664%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.storage.jooq.tables/index.html">org.jacodb.impl.storage.jooq.tables</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-897335664%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="1785421284%2FPackages%2F76530479" anchor-label="org.jacodb.impl.storage.jooq.tables.records" id="1785421284%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.storage.jooq.tables.records/index.html">org.jacodb.impl.storage.jooq.tables.records</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1785421284%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-54014934%2FPackages%2F76530479" anchor-label="org.jacodb.impl.storage.jooq.tables.references" id="-54014934%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.storage.jooq.tables.references/index.html">org.jacodb.impl.storage.jooq.tables.references</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-54014934%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-479352208%2FPackages%2F76530479" anchor-label="org.jacodb.impl.types" id="-479352208%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.types/index.html">org.jacodb.impl.types</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-479352208%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="255284410%2FPackages%2F76530479" anchor-label="org.jacodb.impl.types.signature" id="255284410%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.types.signature/index.html">org.jacodb.impl.types.signature</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="255284410%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1357244482%2FPackages%2F76530479" anchor-label="org.jacodb.impl.types.substition" id="-1357244482%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.types.substition/index.html">org.jacodb.impl.types.substition</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1357244482%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+<a data-name="-1314930054%2FPackages%2F76530479" anchor-label="org.jacodb.impl.vfs" id="-1314930054%2FPackages%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+    <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+      <div>
+        <div class="main-subrow ">
+          <div class=""><span class="inline-flex">
+              <div><a href="org.jacodb.impl.vfs/index.html">org.jacodb.impl.vfs</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1314930054%2FPackages%2F76530479"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div class="pull-right"></div>
+        </div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+
