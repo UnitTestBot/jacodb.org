@@ -1,5 +1,8 @@
 package org.jacodb.impl.http.resources
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -49,11 +52,11 @@ class SitemapController {
     }
 }
 
-@XmlAccessorType(value = XmlAccessType.NONE)
-@XmlRootElement(name = "urlset", namespace = "https://www.sitemaps.org/schemas/sitemap/0.9")
+@JacksonXmlRootElement(localName = "urlset", namespace = "https://www.sitemaps.org/schemas/sitemap/0.9")
 class XmlUrlSet {
 
-    @XmlElements(XmlElement(name = "url", type = XmlUrl::class))
+    @JacksonXmlProperty(localName = "url")
+    @JacksonXmlElementWrapper(useWrapping = false)
     private val xmlUrls: MutableCollection<XmlUrl> = ArrayList()
 
     fun addUrl(xmlUrl: XmlUrl) {
@@ -65,26 +68,20 @@ class XmlUrlSet {
     }
 }
 
-@XmlAccessorType(value = XmlAccessType.NONE)
-@XmlRootElement(name = "url")
 class XmlUrl {
 
     enum class Priority(val value: String) {
         HIGH("1.0"), MEDIUM("0.5")
     }
 
-    @XmlElement
     var loc: String? = null
         private set
 
-    @XmlElement
     var lastmod: String? = null
         private set
 
-    @XmlElement
     val changefreq = "weakly"
 
-    @XmlElement
     var priority: String? = null
         private set
 
