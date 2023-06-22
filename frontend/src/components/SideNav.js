@@ -165,11 +165,6 @@ class SideNav extends React.Component {
     return (
       <SidePanel {...props}>
         <form className="py-3 d-flex align-items-center justify-content-between">
-          <DocSearch
-            appId="C38ZI55F9H"
-            apiKey="33985ee571397d832ef243988ff4c891"
-            indexName="react_bootstrap_v4"
-          />
           <MenuButton onClick={this.handleCollapse}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

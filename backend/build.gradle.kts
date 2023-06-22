@@ -18,6 +18,8 @@ dependencies {
 
     implementation(group = "org.springframework.boot", name = "spring-boot-starter-web")
     implementation(group = "org.springframework.boot", name = "spring-boot-starter-json")
+    implementation(group = "com.fasterxml.jackson.dataformat", name = "jackson-dataformat-xml")
+
     implementation(group = "org.springframework.boot", name = "spring-boot-starter-webflux")
     implementation(group = "org.glassfish.jersey.media", name = "jersey-media-multipart")
     implementation(group = "org.springdoc", name = "springdoc-openapi-ui", version = "1.6.13")

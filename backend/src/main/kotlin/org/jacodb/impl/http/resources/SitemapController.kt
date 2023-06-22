@@ -2,7 +2,9 @@ package org.jacodb.impl.http.resources
 
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.bind.annotation.RestController
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import javax.xml.bind.annotation.XmlAccessType
@@ -12,7 +14,8 @@ import javax.xml.bind.annotation.XmlElements
 import javax.xml.bind.annotation.XmlRootElement
 
 
-@Controller
+@RestController
+@RequestMapping("/sitemap.xml")
 class SitemapController {
     companion object {
         val urls = listOf(
@@ -32,8 +35,7 @@ class SitemapController {
 
     private val domain = "https://jacodb.org"
 
-    @GetMapping("/sitemap.xml")
-    @ResponseBody
+    @GetMapping(produces = ["application/xml"])
     fun main(): XmlUrlSet {
         val xmlUrlSet = XmlUrlSet()
         for (eachLink in urls) {
