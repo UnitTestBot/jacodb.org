@@ -2,15 +2,16 @@ import * as React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import pkg from '../../package.json';
 
 import withLayout from '../withLayout';
 import classNames from "classnames";
-
+import ReactGA from 'react-ga';
 
 export default withLayout(
     class HomePage extends React.Component {
         render() {
+            ReactGA.initialize('G-43F2VNGSJH');
+            ReactGA.pageview(window.location.pathname + window.location.search);
             return (
                 <main id="jc-docs-content">
                     <div className={classNames('mast-head', 'mb-4')}>

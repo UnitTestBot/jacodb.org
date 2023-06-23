@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import { css } from 'astroturf';
 import SideNav from './SideNav';
 import Toc, {TocProvider} from './Toc';
+import ReactGA from "react-ga";
 
 const styles = css`
   @import '../css/theme.scss';
@@ -64,6 +65,9 @@ const propTypes = {
 };
 
 function Main({ children, ...props }) {
+  ReactGA.initialize('G-43F2VNGSJH');
+  ReactGA.pageview(window.location.pathname + window.location.search);
+
   return (
     <Container fluid>
       <Row className="flex-xl-nowrap">
