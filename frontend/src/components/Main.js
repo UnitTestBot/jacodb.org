@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { css } from 'astroturf';
+import {css} from 'astroturf';
 import SideNav from './SideNav';
 import Toc, {TocProvider} from './Toc';
-import ReactGA from "react-ga";
+import trackPageGA from "./google-analytics";
 
 const styles = css`
   @import '../css/theme.scss';
@@ -65,8 +65,7 @@ const propTypes = {
 };
 
 function Main({ children, ...props }) {
-  ReactGA.initialize('G-43F2VNGSJH');
-  ReactGA.pageview(window.location.pathname + window.location.search);
+  trackPageGA();
 
   return (
     <Container fluid>

@@ -5,13 +5,12 @@ import Col from 'react-bootstrap/Col';
 
 import withLayout from '../withLayout';
 import classNames from "classnames";
-import ReactGA from 'react-ga';
+import trackPageGA from "../components/google-analytics";
 
 export default withLayout(
     class HomePage extends React.Component {
         render() {
-            ReactGA.initialize('G-43F2VNGSJH');
-            ReactGA.pageview(window.location.pathname + window.location.search);
+            trackPageGA();
             return (
                 <main id="jc-docs-content">
                     <div className={classNames('mast-head', 'mb-4')}>
