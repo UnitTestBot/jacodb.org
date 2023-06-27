@@ -319,3 +319,37 @@ code {
   height: auto !important;
   position: initial !important;
 }
+
+.mast-footer {
+  background-color: #282c34;
+  padding: 0;
+  color: rgb(255, 255, 255, 0.55);
+}
+
+ul.no-bullets {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+
+.footer-link {
+  display: inline !important;
+  color: var(--bs-link-color) !important;
+}
+.footer-link:hover {
+  color: var(--bs-link-hover-color) !important;
+}
+
+.footer-copyright {
+  text-align: center;
+}
+
+.styled-footer-card {
+  font-weight: 400;
+  line-height: 1.6;
+
+  ul {
+    display: table;
+    margin: 0 auto;
+  }
+}
