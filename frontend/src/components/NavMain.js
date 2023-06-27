@@ -12,7 +12,7 @@ import pkg from "../../package.json";
 const NAV_LINKS = [
     {
         link: '/',
-        title: 'Home',
+        title: 'Overview',
         exact: true,
         style: {
             color: '#ffc107',
@@ -20,20 +20,16 @@ const NAV_LINKS = [
         }
     },
     {
-        link: '/getting-started/introduction',
-        title: 'Getting Started',
-    },
-    {
-        link: '/docs/index.html',
+        link: '/documentation/getting-started',
         title: 'Documentation',
     },
     {
-        link: '/analysis/overview',
-        title: 'Analysis',
+        link: '/usage-examples/basic',
+        title: 'Usage Examples',
     },
     {
-        link: '/swagger-ui/index.html',
-        title: 'Demo',
+        link: '/about/about',
+        title: 'About',
     },
 ];
 
