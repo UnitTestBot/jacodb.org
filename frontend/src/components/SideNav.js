@@ -102,25 +102,38 @@ const TocSubLink = styled(TocLink)`
   padding-top: 0.25rem;
 `;
 
-const gettingStarted = [
-  'introduction',
+const usageExamples = [
+  'basic',
+  'type-solving',
+  'approximations',
+  'symbolic-execution',
+  'ifds'
+];
+
+const documentation = [
+  'getting-started',
   'types-classes',
+  'classpath-features',
   'database-features',
-  'classpath-features'
+  'instructions-and-graphs',
+  'migration',
+  'api-reference'
 ];
 
-const apiRef = [
-  'api-reference',
-  'instructions-and-graphs'
-];
-
-const analysisRef = [
-  'overview',
+const about = [
+  'about-the-project',
+  'benchmarks',
+  'testing-api'
 ];
 
 
 const nameOverrides = {
-  'types-classes': 'Types and Classes'
+  'types-classes': 'Types and Classes',
+  'instructions-and-graphs': 'Instructions and Graphs',
+  'ifds': 'IFDS',
+  'api-reference': 'API Reference',
+  'about-the-project': 'About the Project',
+  'testing-api': 'Testing API'
 };
 
 function NavSection({ heading, location: { pathname }, items, path }) {
@@ -168,34 +181,22 @@ class SideNav extends React.Component {
           <OverflowWrapper>
             <TableOfContents role="complementary">
               <NavSection
-                heading="Getting started"
-                path="/getting-started"
+                  heading="Documentation"
+                  path="/documentation"
+                  location={location}
+                  items={documentation}
+              /><NavSection
+                heading="Usage Examples"
+                path="/usage-examples"
                 location={location}
-                items={gettingStarted}
+                items={usageExamples}
               />
               <NavSection
-                heading="Documentation"
-                path="/api-ref"
+                heading="About"
+                path="/about"
                 location={location}
-                items={apiRef}
+                items={about}
               />
-              <NavSection
-                heading="Analysis"
-                path="/analysis"
-                location={location}
-                items={analysisRef}
-              />
-              <NavSection
-                heading="Migrating"
-                location={location}
-                path="/migration"
-              />
-              <NavSection
-                heading="Benchmarks"
-                location={location}
-                path="/benchmarks"
-              />
-              <NavSection heading="Maintainers" location={location} path="/about" />
             </TableOfContents>
           </OverflowWrapper>
         </Collapse>
