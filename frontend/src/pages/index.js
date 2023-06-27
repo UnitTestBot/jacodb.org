@@ -11,6 +11,7 @@ import {useState} from "react";
 import {ButtonGroup} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import CodeBlock from "../components/CodeBlock";
+import PageFooter from "../components/PageFooter";
 
 
 const MavenGradleBlock = ({gradleCode, mavenCode, ...props}) => {
@@ -49,7 +50,10 @@ export default withLayout(
                     </div>
 
                     <Container>
-                        <p><h2 className={'styled-card-like-header'}>What is JacoDB?</h2>
+                        <br/>
+                        <h2 className={'styled-card-like-header'}>What is JacoDB?</h2>
+                        <br/>
+                        <p>
                             JacoDB is the Java Compilation Database for <a href="/about/benchmarks">fast and effective</a> JVM bytecode analysis.
                         </p>
                         <p>For any kind of program analysis, you need to know the program structure.
@@ -62,7 +66,9 @@ export default withLayout(
                     </Container>
 
                     <Container>
-                        <p><h2 className={'styled-card-like-header'}>Features</h2></p>
+                        <br/>
+                        <h2 className={'styled-card-like-header'}>Features</h2>
+                        <br/>
                     </Container>
 
                     <Container>
@@ -107,7 +113,10 @@ export default withLayout(
                     </Container>
 
                     <Container>
-                        <p><h2 className={'styled-card-like-header'}>Get started</h2> Check out the <a href="/documentation/getting-started">Getting started</a> guide or just add this to <code>dependencies</code> in <code>build.gradle.kts</code> (for Gradle) or <code>pom.xml</code> (for Maven):</p>
+                        <br/>
+                        <h2 className={'styled-card-like-header'}>Get started</h2>
+                        <br/>
+                        <p> Check out the <a href="/documentation/getting-started">Getting started</a> guide or just add this to <code>dependencies</code> in <code>build.gradle.kts</code> (for Gradle) or <code>pom.xml</code> (for Maven):</p>
                     </Container>
 
                     <Container>
@@ -136,7 +145,9 @@ export default withLayout(
                     </Container>
 
                     <Container>
-                        <p><h2 className={'styled-card-like-header'}>Docs, examples, and more</h2></p>
+                        <br/>
+                        <h2 className={'styled-card-like-header'}>Docs, examples, and more</h2>
+                        <br/>
                     </Container>
 
                     <Container>
@@ -177,7 +188,9 @@ export default withLayout(
                             </Col>
                         </Row>
                     </Container>
-
+                    <br/>
+                    <br/>
+                    <PageFooter />
                 </main>
             );
         }
