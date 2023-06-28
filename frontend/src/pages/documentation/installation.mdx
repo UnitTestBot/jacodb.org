@@ -1,15 +1,21 @@
 import CodeBlock from '../../components/CodeBlock';
 
-## Add JacoDB dependency to your project
+# Installation
 
-Add these lines to the `dependencies` block in `build.gradle.kts`:
+Add JacoDB dependency to your project.
+
+## Gradle
+
+Add this to the `dependencies` block in `build.gradle.kts`:
 ```kotlin
     implementation(group = "org.jacodb", name = "jacodb-api", version = jacodbVersion)
     implementation(group = "org.jacodb", name = "jacodb-core", version = jacodbVersion)
     implementation(group = "org.jacodb", name = "jacodb-analysis", version = jacodbVersion)
 ```
 
-Add these lines to the `dependencies` block in `pom.xml`:
+## Maven
+
+Add this to the `dependencies` block in `pom.xml`:
 ```xml
     <dependencies>
         <dependency>

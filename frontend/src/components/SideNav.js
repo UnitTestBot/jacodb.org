@@ -102,6 +102,18 @@ const TocSubLink = styled(TocLink)`
   padding-top: 0.25rem;
 `;
 
+const documentation = [
+  'installation',
+  'basic-usage',
+  'types-classes',
+  'classpath-features',
+  'database-features',
+  'instructions',
+  'graphs',
+  'migration',
+  '/docs/index.html'
+];
+
 const usageExamples = [
   'basic',
   'type-solving',
@@ -110,30 +122,19 @@ const usageExamples = [
   'ifds'
 ];
 
-const documentation = [
-  'getting-started',
-  'types-classes',
-  'classpath-features',
-  'database-features',
-  'instructions-and-graphs',
-  'migration',
-  'api-reference'
-];
-
 const about = [
   'about-the-project',
   'benchmarks',
-  'testing-api'
+  '/swagger-ui/index.html'
 ];
-
 
 const nameOverrides = {
   'types-classes': 'Types and Classes',
   'instructions-and-graphs': 'Instructions and Graphs',
   'ifds': 'IFDS',
-  'api-reference': 'API Reference',
+  '/docs/index.html': {absolute: true, name: 'API Reference'},
   'about-the-project': 'About the Project',
-  'testing-api': 'Testing API'
+  '/swagger-ui/index.html': {absolute: true, name: 'Testing API'},
 };
 
 function NavSection({ heading, location: { pathname }, items, path }) {
@@ -153,13 +154,19 @@ function NavSection({ heading, location: { pathname }, items, path }) {
 
       {items && (
         <Nav activeKey={pathname} onSelect={() => {}} className="d-block child-nav-item">
-          {items.map((name) => (
-            <Nav.Item key={`${path}/${name}/`}>
-              <TocSubLink href={`${path}/${name}/`}>
-                {nameOverrides[name] || startCase(name.toLowerCase())}
-              </TocSubLink>
-            </Nav.Item>
-          ))}
+          {items.map((name) => {
+            const override = nameOverrides[name];
+            const absolute = (override || {}).absolute;
+            const overrideName = (override || {}).name || override;
+            const targetPath = absolute ? name : `${path}/${name}/`;
+            return (
+                <Nav.Item key={`${path}/${name}/`}>
+                  <TocSubLink href={targetPath}>
+                    {overrideName || startCase(name.toLowerCase())}
+                  </TocSubLink>
+                </Nav.Item>
+            )
+          })}
         </Nav>
       )}
     </>
@@ -185,7 +192,8 @@ class SideNav extends React.Component {
                   path="/documentation"
                   location={location}
                   items={documentation}
-              /><NavSection
+              />
+              <NavSection
                 heading="Usage Examples"
                 path="/usage-examples"
                 location={location}

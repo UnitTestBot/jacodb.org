@@ -1,6 +1,7 @@
 import JavaKotlinCodeBlock from "../../components/JavaKoltinCodeBlock";
 
-## Overview
+
+# What is a feature?
 
 Feature is an interface allowing to store and query additional information based on bytecode. Feature can be installed only upon creating the `JacoDB` instance.
 
@@ -20,7 +21,7 @@ Feature is an interface allowing to store and query additional information based
     }`
     }/>
 
-### InMemoryHierarchy
+## `InMemoryHierarchy`
 
 By default, JacoDB stores information about class hierarchy in an SQL database (the `ClassHierarchies` table with
 the columns: `class_id`, `super_id`, `is_interface`). It allows us to retrieve the hierarchy for a particular class
@@ -31,7 +32,7 @@ with a recursive SQL query. Recursive queries are rather common and rather slow.
 Memory overhead is O(number of classes). For the project with about 50K classes (including runtime) memory
 consumption for such a cache is ~6.5 Mb of heap memory.
 
-### Usages
+## `Usages`
 
 You can find places where methods and fields are used.
 For better performance, install `InMemoryHierarchy`.

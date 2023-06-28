@@ -1,0 +1,210 @@
+import JavaKotlinCodeBlock from "../../components/JavaKoltinCodeBlock";
+
+## Raw instruction list API
+
+`JcRawInstList` represents a raw list representation of three-address Java bytecode instructions. "Raw" means that
+this representation does not depict information about
+types and control flow of the program. This representation is one-to-one
+matching of JVM bytecode instructions to the list of three-address instructions.
+
+The base class of this representation is `JcRawInstList`. It produces a list-like
+collection of instructions, so you can modify this list, iterate over instructions or access them by
+index.
+
+### Three-address instructions
+
+`JcRawInst` is the base interface for the raw instructions. All instructions are identified
+by the object, they are not comparable using `equals`.
+
+Here is the list of `JcRawInst` implementations:
+
+* `JcAssignInst` &mdash; Assignment instruction. Left-hand side of the instruction can only be `JcRawValue`,
+right-hand side can be any expression (`JcRawExpr`).
+* `JcRawEnterMonitorInst`, `JcRawExitMonitorInst` &mdash; Monitor instructions. Correspond
+directly to their existing analogs. The `monitor` property can only be `JcRawSimpleValue`.
+* `JcRawCallInst` &mdash; Call instruction. Represents a method that does not save its return
+variable to any local variable. Method calls that return a value are represented via `JcRawAssignInst`.
+* `JcRawLabelInst` &mdash; Label instruction. Used to mark some program points in the code. Mainly required
+to be used in the branching instructions. A label is identified by name, all the references
+to a label are represented via `JcRawLabelRef` class.
+* `JcRawReturnInst` &mdash; Return instruction. The `returnValue` property is `null` when a method does not
+return anything.
+* `JcRawThrowInst` &mdash; Throw instruction.
+* `JcRawCatchInst` &mdash; Catch instruction. Represents an entry for a `try...catch` block in the
+code. Does not map directly to a bytecode instruction but represents a `TryCatchBlock` of a method.
+Stores a value that corresponds to a caught `throwable` exception and a range of the instructions
+that it catches from `startInclusive until endExclusive`.
+* `JcRawGotoInst` &mdash; Jump instruction.
+* `JcRawIfInst` &mdash; Conditional jump instruction. The condition of the instruction should
+necessarily be `JcRawConditionExpr` because not all the conditional expressions that we use
+in higher-level programming languages can be easily expressed in JVM bytecode.
+* `JcRawSwitchInst` &mdash; Switch instruction. A combined representation of `LookupSwitch` and `TableSwitch`
+bytecode instructions.
+
+### Raw expressions
+
+`JcRawExpr` is a base interface for all the expression types and value types that can be
+expressed in JVM bytecode. `JcRawExpr` stores its type as a `TypeName` object which is just a Java type name
+represented as a string (that's why it is "raw").
+
+Here is the list of `JcRawExpr` implementations:
+
+* `JcRawBinaryExpr` &mdash; Binary expression that allows to implement all the arithmetic
+expressions (e.g. `JcRawAdd`, `JcRawMul`, etc.), conditional expressions (`JcRawEq`, `JcRawGt`, etc.),
+logical expressions (`JcRawAnd`, `JcRawOr`, `JcRawXor`).
+* `JcRawConditionExpr` &mdash; Conditional expressions. Can be used as a condition in `JcRawIfInst`.
+* `JcRawLengthExpr` &mdash; Array length expression.
+* `JcRawNegExpr` &mdash; Negation expression.
+* `JcRawCastExpr` &mdash; Cast expression. Can be used to cast both reference types and primitive types.
+* `JcRawNewExpr` &mdash; New expression. Creates a single object.
+* `JcRawNewArrayExpr` &mdash; New array expression. Creates a (multi)array of a given type.
+* `JcRawInstanceOfExpr` &mdash; `Instanceof` check.
+* `JcRawCallExpr` &mdash; Method call expression.
+* `JcRawDynamicCallExpr` &mdash; An `invokedynamic` instruction representation. Preserves all the info.
+* `JcRawVirtualCallExpr`
+* `JcRawInterfaceCallExpr`
+* `JcRawStaticCallExpr`
+* `JcRawSpecialCallExpr`
+* `JcRawValue` &mdash; Representation of a single value.
+* `JcRawSimpleValue` &mdash; Representation of a simple value that does not have any sub-values.
+* `JcRawThis`
+* `JcRawArgument`
+* `JcRawLocal`
+* `JcRawConstant`
+* `JcRawComplexValue` &mdash; Complex value that has subvalues.
+* `JcRawFieldRef` &mdash; Field reference. Can be used both as a field read access (e.g. `a = x.y`)
+and field store access (e.g. `x.y = a`).
+* `JcRawArrayAccess` &mdash; Array element reference. Can be used both as an array read access (e.g. `a = x[y]`)
+and array store access (e.g. `x[y] = a`)
+
+To get a three-address instruction list representation of a method you need to call `JcMethod::instructionList`.
+Instruction list building requires `JcClasspath` because some stages use subtyping information.
+
+### Constructing the instruction list: implementation details
+
+`RawInstListBuilder` is used to build a `JcRawInstList` from bytecode representation (i.e. from `MethodNode`).
+To build an instruction list representation, `MethodNode` **should** contain frame information (i.e. the `FrameNode`
+instances) and **should not** contain `JSR` (jump subroutine) instructions. Thus, each time a `ClassNode` is
+created, we invoke `ClassNode.computeFrames()` extension function that computes frame information
+for each method. The `computeFrames` function uses ASM functionality for computing frames: it converts
+the `ClassNode` back to bytecode using `ClassWriter` (which actually performs frame computing during
+the conversion) and reads that bytecode again using `ClassReader`. This is not the most effective way of
+doing things, but the easiest one: manually computing frames is quite hard.
+Another thing is inlining `JSR` instructions. We do this by calling `MethodNode.jsrInlined` extension that
+returns a new `MethodNode` instance. It uses ASM `JSRInlinerAdapter` utility to create a new method node with
+inlined JRS instructions.
+
+`RawInstListBuilder` converts JVM bytecode instruction list into a three-address instruction list. Most of
+the conversion process is simple: bytecode instructions map to three-address expressions and instructions.
+The most complex part is frame merging. JVM frame describes the state of the virtual machine at each instruction, i.e.
+the declared local variables and stack state. When an instruction has multiple predecessors, we need to merge several
+incoming frames into one. Sometimes JVM adds a special frame node before an instruction to describe how the
+frame should look like after merging.
+
+Four situations are possible during the frame merging process.
+
+(1) There is only one incoming frame, and it is fully defined (i.e. we have already collected all the frame information)
+when converting the previous stages. In that case, everything is quite simple, and we can just copy the frame info.
+However, we can also refine type information for local variables. Consider following bytecode:
+
+```
+NEW java/lang/ArrayList
+ASTORE 0
+...
+FRAME FULL [ java/lang/List ]
+...
+NEW java/lang/LinkedList
+ASTORE 0
+```
+
+When converting the first two instructions, we created a local variable `%0` for _cell 0_ with `java.lang.ArrayList` type.
+However, when converting frame information, we see that JVM considers the type of _cell 0_ to be `java.lang.List`
+and then uses _cell 0_ to store other implementations of Java `List`. We can refine the type of `%0` to be
+`java.lang.List` and then replace all the occurrences of `%0` with the new version. That is performed by
+using `localTypeRefinement` property of `RawInstListBuilder` and `ExprMapper` utility class.
+
+(2) There is only one incoming frame, and it has not been defined yet. It is a rare case, but it can happen in
+a situation like this:
+
+```
+GOTO L2
+L1
+FRAME FULL [ java/lang/List ]
+...
+GOTO L3
+L2
+...
+GOTO L1
+L3
+RETURN
+```
+
+In this situation, we use frame info to create a new local variable with the defined type and remember to
+add an assignment that will initialize a new variable with a correct value in the predecessor. It is performed in the
+end by using `laterAssignments` and `laterStackAssignments` maps as well as the `buildRequiredAssignments` function.
+The process is similar for both stack variables and local variables.
+
+(3) There are several predecessor frames, and all of them are defined (e.g. when merging after `if...else` block). In
+that case, we create a new local variable with the defined type in the current frame and add necessary assignments
+into the predecessor blocks.
+
+(4) There are several predecessor frames, and not all of them are defined (e.g. when merging in the loop header).In
+that case, we create a new local variable with the defined type in the current frame, add necessary assignments
+into the predecessor blocks, and remember to add the required assignments to undefined predecessor blocks
+in the end.
+
+`RawInstListBuilder` also simplifies the resulting instruction list. It is necessary because the list constructing
+process naturally introduces a lot of redundancy.
+
+The main simplification stages are:
+1. Deleting the repeated assignments inside a basic block.
+2. Deleting declarations of unused variables.
+3. Deleting declarations of mutually dependent unused variables (e.g. `a = b` and `b = a`).
+4. Simple unit propagation.
+5. Type normalization using `JcClasspath`.
+
+## Visitor API
+
+There is a _visitor_ API for traversing and modifying `JcRawInstList`. _Visitors_ have a standard
+interface — they can be invoked using an `accept` method on instructions and expressions:
+```
+val a = jcRawInst.accept(MyInstVisitor())
+val b = jcRawExpr.accept(MyExprVisitor())
+```
+
+We also provide "functional"-like extensions for applying _visitors_ to `JcRawInstList`:
+* `filter(visitor: JcRawInstVisitor<Boolean>): JcRawInstList`
+* `filterNot(visitor: JcRawInstVisitor<Boolean>): JcRawInstList`
+* `map(visitor: JcRawInstVisitor<JcRawInst>): JcRawInstList`
+* `mapNotNull(visitor: JcRawInstVisitor<JcRawInst?>): JcRawInstList`
+* `flatMap(visitor: JcRawInstVisitor<Collection<JcRawInst>>): JcRawInstList`
+* `apply(visitor: JcRawInstVisitor<Unit>): JcRawInstList`
+* `applyAndGet(visitor: T, getter: (T) -> R): R`
+* `collect(visitor: JcRawInstVisitor<T>): Collection<T>`
+
+`jcdb-core` has a number of utility _visitors_ for working with the instruction list:
+* `ExprMapper(val mapping: Map<JcRawExpr, JcRawExpr>)` &mdash; Traverses an instruction list
+and replaces all expression occurrences from `mapping` to the corresponding property.
+* `FullExprSetCollector()` &mdash; Collects **all** the expressions that occur in a given object
+(instruction list, single instruction or an expression).
+* `InstructionFilter(val predicate: (JcRawInst) -> Boolean)` &mdash; Filters the instructions by
+a given predicate.
+
+`JcRawInstList` can be converted back to the ASM `MethodNode` using `MethodNodeBuilder.build()`
+method. The conversion process is pretty straightforward and does not require any additional
+comments.
+
+## Examples
+
+<br></br>
+
+#### Block graph for binary search implementation with `try...catch`<br></br>
+<br></br>
+<img alt="Block graph" src={require('/src/assets/block-graph-IRExamples-runBinarySearchIterativelyTryCatch-3.svg')}/>
+<br></br>
+<br></br>
+
+#### Control flow graph for binary search implementation with `try...catch`
+<br></br>
+<img alt="Block graph" src={require('/src/assets/graph-IRExamples-runBinarySearchIterativelyTryCatch-3.svg')}/>
+

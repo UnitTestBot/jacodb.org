@@ -116,7 +116,7 @@ export default withLayout(
                         <br/>
                         <h2 className={'styled-card-like-header'}>Get started</h2>
                         <br/>
-                        <p> Check out the <a href="/documentation/getting-started">Getting started</a> guide or just add this to <code>dependencies</code> in <code>build.gradle.kts</code> (for Gradle) or <code>pom.xml</code> (for Maven):</p>
+                        <p>Add this to <code>dependencies</code> in <code>build.gradle.kts</code> (for Gradle) or <code>pom.xml</code> (for Maven):</p>
                     </Container>
 
                     <Container>
@@ -157,7 +157,7 @@ export default withLayout(
                     <Container>
                         <Row>
                             <Col md={4} className={classNames('styled-feature-card', 'px-7', 'py-3')}>
-                                <h2>Find detailed documentation</h2>
+                                <h2>Find detailed <a href="/documentation/installation/">documentation</a></h2>
                                 <ul>
                                     <li>Get info on <a href="/documentation/types-classes">types and classes</a>.</li>
                                     <li>Store and query additional information based on bytecode with <a href="/documentation/classpath-features">classpath</a> and <a href="/documentation/database-features">database features</a>.</li>
@@ -168,22 +168,22 @@ export default withLayout(
                             </Col>
 
                             <Col md={4} className={classNames('styled-feature-card', 'px-7', 'py-3')}>
-                                <h2>Get inspired with real examples</h2>
+                                <h2>Get inspired with real <a href="/documentation/examples">examples</a></h2>
                                 <ul>
                                     <li>Try <a href="/usage-examples/basic">basic examples</a> as the building blocks for your scenario.</li>
                                     <li>Find the story about using JacoDB for <a href="/usage-examples/symbolic-execution">symbolic execution</a> based project.</li>
-                                    <li>Learn how to benefit from JacoDB when creating a <a href="/documentation/type-solving">type solver</a>.</li>
-                                    <li>Know how to implement <a href="/documentation/approximations">approximations</a> for program analysis algorithms.</li>
-                                    <li>Check the <a href="/documentation/api-reference">IFDS</a> project example.</li>
+                                    <li>Learn how to benefit from JacoDB when creating a <a href="/usage-examples/type-solving">type solver</a>.</li>
+                                    <li>Know how to implement <a href="/usage-examples/approximations">approximations</a> for program analysis algorithms.</li>
+                                    <li>Check the <a href="/usage-examples/ifds">IFDS</a> project example.</li>
                                 </ul>
                             </Col>
 
                             <Col md={4} className={classNames('styled-feature-card', 'px-7', 'py-3')}>
-                                <h2>Learn more about the project</h2>
+                                <h2>Learn more <a href="/documentation/about">about</a> the project</h2>
                                 <ul>
                                     <li>Find more on <a href="/about/about">maintainers and contributing</a>.</li>
                                     <li>Get information on JacoDB <a href="/about/benchmarks">benchmarking</a>.</li>
-                                    <li>Test JacoDB <a href="/swagger-ui/index">API</a>.</li>
+                                    <li>Test JacoDB <a href="/swagger-ui/index.html">API</a>.</li>
                                 </ul>
                             </Col>
                         </Row>
