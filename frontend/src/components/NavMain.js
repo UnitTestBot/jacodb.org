@@ -20,7 +20,7 @@ const NAV_LINKS = [
         }
     },
     {
-        link: '/documentation/getting-started',
+        link: '/documentation/installation',
         title: 'Documentation',
     },
     {
