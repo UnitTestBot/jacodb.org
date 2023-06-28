@@ -1,1 +1,17 @@
-type solving
+# Testing a type solver
+
+The link to the project repository will be added later, as the project itself has not been announced yet.
+
+## Use case
+
+A multipurpose tool based on symbolic execution has solving type constraints as a part of its core algorithm.
+Usually, this task requires SMT solving, which is rather time-consuming. To make the tool
+work faster, one should implement a separate `TypeSolver`, involving no SMT solver for this task.
+
+To test the `TypeSolver`, one should feed it with information on classes, their parents, interfaces implemented,
+type parameters, and methods, so that the `TypeSolver` could find the proper types.
+
+With JacoDB, you can get this information easily.
+
+## Implementation
+

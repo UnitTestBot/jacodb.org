@@ -24,11 +24,11 @@ const NAV_LINKS = [
         title: 'Documentation',
     },
     {
-        link: '/usage-examples/basic',
+        link: '/usage-examples/type-solving',
         title: 'Usage Examples',
     },
     {
-        link: '/about/about',
+        link: '/about/about-the-project',
         title: 'About',
     },
 ];
