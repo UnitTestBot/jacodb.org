@@ -159,18 +159,18 @@ export default withLayout(
                             <Col md={4} className={classNames('styled-feature-card', 'px-7', 'py-3')}>
                                 <h2>Find detailed <a href="/documentation/installation/">documentation</a></h2>
                                 <ul>
+                                    <li>Learn JacoDB <a href="/documentation/basic-usage">basics</a>.</li>
                                     <li>Get info on <a href="/documentation/types-classes">types and classes</a>.</li>
                                     <li>Store and query additional information based on bytecode with <a href="/documentation/classpath-features">classpath</a> and <a href="/documentation/database-features">database features</a>.</li>
                                     <li>Get use of <a href="/documentation/instructions-and-graphs">raw bytecode instructions and control flow graphs</a>.</li>
                                     <li>Learn how to <a href="/documentation/migration">migrate</a> from <a href="https://github.com/soot-oss/soot">Soot</a>.</li>
-                                    <li>Search through the full <a href="/documentation/api-reference">API reference</a>.</li>
+                                    <li>Search through the full <a href="/docs/index.html">API reference</a>.</li>
                                 </ul>
                             </Col>
 
                             <Col md={4} className={classNames('styled-feature-card', 'px-7', 'py-3')}>
-                                <h2>Get inspired with real <a href="/documentation/examples">examples</a></h2>
+                                <h2>Get inspired with real <a href="/usage-examples/type-solving">examples</a></h2>
                                 <ul>
-                                    <li>Try <a href="/usage-examples/basic">basic examples</a> as the building blocks for your scenario.</li>
                                     <li>Find the story about using JacoDB for <a href="/usage-examples/symbolic-execution">symbolic execution</a> based project.</li>
                                     <li>Learn how to benefit from JacoDB when creating a <a href="/usage-examples/type-solving">type solver</a>.</li>
                                     <li>Know how to implement <a href="/usage-examples/approximations">approximations</a> for program analysis algorithms.</li>

@@ -115,7 +115,6 @@ const documentation = [
 ];
 
 const usageExamples = [
-  'basic',
   'type-solving',
   'approximations',
   'symbolic-execution',
@@ -205,6 +204,7 @@ class SideNav extends React.Component {
                 location={location}
                 items={about}
               />
+
             </TableOfContents>
           </OverflowWrapper>
         </Collapse>

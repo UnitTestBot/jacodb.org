@@ -1,1 +1,17 @@
-approximations
+# Implementing approximations
+
+The link to the project repository will be added later, as the project has not been announced yet.
+
+## Use case
+
+Many processes in the real code are optimized: these optimizations help during real execution but inhibit program
+analysis. Approximations substitute actual method implementations with the kind of "mocks", which return the
+necessary values while providing us with the implementation of the required type.
+
+For example, for a multipurpose tool based on symbolic execution, it is important to approximate some methods:
+* Approximations help to simplify method implementations, which are too complex for symbolic execution based analysis.
+* Native methods may sometimes have no implementation in the standard library at all. Approximations allow us to
+"write the source code" for such methods.
+
+## Implementation
+
