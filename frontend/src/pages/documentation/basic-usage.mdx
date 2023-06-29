@@ -3,26 +3,55 @@ import Examples from "../../components/examples";
 
 # Basic usage
 
-JacoDB API has two levels: the one representing in filesystem (bytecode and classes), and the one appearing at runtime
-(types).
+JacoDB API has two levels:
+* the one provides you with information represented in filesystem, i.e., with `bytecode` and `classes`;
+* the other one provides you with information appearing at runtime, i.e., with `types`.
 
-* bytecode and classes — represent data from `class` files: class with methods, fields, etc.
-* types — represent types that can be nullable, parameterized, etc.
+`bytecode` and `classes` represent data from `.class` files: class with methods, fields, etc.<br></br>
+`types` represent types that can be nullable, parameterized, etc.
+
+<details>
+    <summary><code>Classes</code> diagram</summary>
+    <img src={require('/src/assets/classes-diagram.svg')} alt={'Classes diagram'}/>
+</details>
+
+<details>
+    <summary><code>Types</code> diagram</summary>
+    <img src={require('/src/assets/types-diagram.svg')} alt={'Types diagram'}/>
+</details>
+
+<br></br>
 
 Both levels are connected to `JcClasspath`. You can't modify classes retrieved from pure bytecode.
-types may be constructed manually by generic substitution.
+`types` may be constructed manually by generic substitution.
 
-## Get declared methods (example)
+`JcClasspath` is an entry point for both classes and types.
+
+`JcClassOrInterface` represents a class file. An array or a primitive gets no `JcClassOrInterface`.
+
+`JcType` represents a type from JVM runtime.
+
+`JcClassType#methods` contains:
+
+* all the public/protected/private methods of an enclosing class
+* all the ancestor methods visible at compile time
+* only constructor methods from the declaring class
+
+`JcClassType#fields` contains:
+
+* all the public/protected/private fields of an enclosing class
+* all the ancestor fields visible at compile time
+
+## Get declared methods
 
 <JavaKotlinCodeBlock
     javaCode={Examples.getDeclaredMethods.java}
     kotlinCode={Examples.getDeclaredMethods.kotlin}
 />
 
-Note: the `body` method returns `null` if the to-be-processed JAR-file is changed or removed. Class could be in
-incomplete environment (i.e super class, interface, return type or parameter of method is not found in classpath)
-then api will
-throw `NoClassInClasspathException` at runtime.
+Note: the `body` method returns `null` if the to-be-processed JAR-file is changed or removed. If the class
+environment is incomplete (i.e., a superclass, an interface, a return type or a parameter of a method is not found
+in classpath), then the API throws `NoClassInClasspathException` at runtime.
 
 ## Watch for file system changes
 
@@ -35,14 +64,13 @@ The database can watch for file system changes in the background and refresh the
 
 ## Get type information
 
-**type** can be represented as one of
+The represented `types` include
+* primitives,
+* classes,
+* arrays,
+* bounded and unbounded wildcards.
 
-* primitives
-* classes
-* arrays
-* bounded and unbounded wildcards
-
-It represents runtime behavior according to parameter substitution in the given generic type:
+The `types` level represents runtime behavior according to parameter substitution in the given generic type.
 
 <JavaKotlinCodeBlock
     javaCode={Examples.getTypeInformation.java}
@@ -62,7 +90,7 @@ all snapshots and cleans up the persisted data if some libraries are outdated.
     kotlinCode={Examples.refreshDatabase.kotlin}
 />
 
-If there is a request for a `JcClasspath` instance containing the libraries, which haven't been indexed yet,
+If a request for a `JcClasspath` instance contains the libraries, which haven't been indexed yet,
 the indexing process is triggered and the new instance of the `JcClasspath` set is returned.
 
 <JavaKotlinCodeBlock
@@ -72,7 +100,8 @@ the indexing process is triggered and the new instance of the `JcClasspath` set 
 
 `JacoDB` is thread-safe. If one requests `JcClasspath` instance while loading JAR-files from another thread,
 `JcClasspath` can represent only a consistent state of the JAR-files being loaded. It is the completely loaded
-JAR-file that appears in `JcClasspath`. Please note: there is no guarantee that all the JAR-files, submitted for loading, will be actually loaded.
+JAR-file that appears in `JcClasspath`. Please note: it is not guaranteed that all the JAR-files, submitted for loading,
+will be actually loaded.
 
 <JavaKotlinCodeBlock
     javaCode={Examples.newThread.java}
@@ -83,9 +112,10 @@ JAR-file that appears in `JcClasspath`. Please note: there is no guarantee that 
 
 Bytecode loading consists of two steps:
 
-* retrieving information about the class names from the JAR-files or build directories
-* reading **classes** bytecode from the JAR-files or build directories and processing it (persisting data, setting up `JcFeature` implementations, etc.)
+* retrieving information about the class names from the JAR-files or build directories,
+* reading `classes` bytecode from the JAR-files or build directories and processing it (persisting data, setting
+up `JcFeature` implementations, etc.).
 
 `JacoDB` or `JcClasspath` instances are returned right after the first step is performed. You retrieve the final representation
-of **classes** during the second step. It is possible that the `.class` files undergo changes at some moment between the first step
-and the second, and **classes** representation is affected accordingly.
+of `classes` during the second step. The `.class` files may undergo changes at some moment between
+these two steps, and the `classes` representation is affected accordingly.

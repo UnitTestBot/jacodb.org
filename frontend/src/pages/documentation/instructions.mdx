@@ -1,6 +1,6 @@
 import JavaKotlinCodeBlock from "../../components/JavaKoltinCodeBlock";
 
-## Raw instruction list API
+# Raw instruction list API
 
 `JcRawInstList` represents a raw list representation of three-address Java bytecode instructions. "Raw" means that
 this representation does not depict information about
@@ -11,7 +11,7 @@ The base class of this representation is `JcRawInstList`. It produces a list-lik
 collection of instructions, so you can modify this list, iterate over instructions or access them by
 index.
 
-### Three-address instructions
+## Three-address instructions
 
 `JcRawInst` is the base interface for the raw instructions. All instructions are identified
 by the object, they are not comparable using `equals`.
@@ -41,7 +41,7 @@ in higher-level programming languages can be easily expressed in JVM bytecode.
 * `JcRawSwitchInst` &mdash; Switch instruction. A combined representation of `LookupSwitch` and `TableSwitch`
 bytecode instructions.
 
-### Raw expressions
+## Raw expressions
 
 `JcRawExpr` is a base interface for all the expression types and value types that can be
 expressed in JVM bytecode. `JcRawExpr` stores its type as a `TypeName` object which is just a Java type name
@@ -80,7 +80,7 @@ and array store access (e.g. `x[y] = a`)
 To get a three-address instruction list representation of a method you need to call `JcMethod::instructionList`.
 Instruction list building requires `JcClasspath` because some stages use subtyping information.
 
-### Constructing the instruction list: implementation details
+## Constructing the instruction list: implementation details
 
 `RawInstListBuilder` is used to build a `JcRawInstList` from bytecode representation (i.e. from `MethodNode`).
 To build an instruction list representation, `MethodNode` **should** contain frame information (i.e. the `FrameNode`

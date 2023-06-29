@@ -160,7 +160,6 @@ export default withLayout(
                                 <h2>Find detailed <a href="/documentation/installation/">documentation</a></h2>
                                 <ul>
                                     <li>Learn JacoDB <a href="/documentation/basic-usage">basics</a>.</li>
-                                    <li>Get info on <a href="/documentation/types-classes">types and classes</a>.</li>
                                     <li>Store and query additional information based on bytecode with <a href="/documentation/classpath-features">classpath</a> and <a href="/documentation/database-features">database features</a>.</li>
                                     <li>Get use of <a href="/documentation/instructions">raw bytecode instructions</a> and <a href="/documentation/graphs">control flow graphs</a>.</li>
                                     <li>Learn how to <a href="/documentation/migration">migrate</a> from <a href="https://github.com/soot-oss/soot">Soot</a>.</li>
@@ -182,7 +181,7 @@ export default withLayout(
                                 <h2>Learn more <a href="/documentation/about">about</a> the project</h2>
                                 <ul>
                                     <li>Find more on <a href="/about/about">maintainers and contributing</a>.</li>
-                                    <li>Get information on JacoDB <a href="/about/benchmarks">benchmarking</a>.</li>
+                                    <li>Get information on JacoDB <a href="/about/benchmarking">benchmarking</a>.</li>
                                     <li>Test JacoDB <a href="/swagger-ui/index.html">API</a>.</li>
                                 </ul>
                             </Col>
