@@ -1,14 +1,6 @@
 import CodeBlock from '../../components/CodeBlock';
 
-
-### Environment
-
-|           |                                                 |
-|-----------|-------------------------------------------------|
-| OS        | Windows 10 Pro                                  |
-| Processor | 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80 GHz |
-| RAM       | 16 GB                                           |
-| Storage   | SSD                                             |
+# Benchmarking
 
 Benchmark runs across different scopes of Java bytecode:
 - _runtime_ — Java runtime with no additional dependencies
@@ -18,12 +10,22 @@ Benchmark runs across different scopes of Java bytecode:
 
 JacoDB benchmarks also include a scheme with the `Usages` feature installed.
 
-### JacoDB
+## Environment
+
+|   |                                                 |
+|-----------|-------------------------------------------------|
+| OS        | Windows 10 Pro                                  |
+| Processor | 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80 GHz |
+| RAM       | 16 GB                                           |
+| Storage   | SSD                                             |
+
+## JacoDB benchmarking results
+
+Run command:
 
 <CodeBlock codeText={`
     ./gradlew jcdbBenchmark
 `}/>
-
 
 | Benchmark                                                                                                                                                                     | Repeats  | Avg time per operation  |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------------|
@@ -36,9 +38,10 @@ JacoDB benchmarks also include a scheme with the `Usages` feature installed.
 | [runtime + project dependencies + Usages](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L65)   | 5        | 2915 ms                 |
 | [runtime + IDEA community + Usages](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/JcdbBenchmarks.kt#L114)        | 5        | 9798 ms                 |
 
-### Soot
+### Soot benchmarking results
 
-Run
+Run command:
+
 <CodeBlock codeText={`
 ./gradlew sootBenchmark
 `}/>
@@ -50,9 +53,12 @@ Run
 | [runtime + project dependencies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L71)       | 5        | 24027 ms               |
 | [runtime + IDEA community dependecies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootBenchmarks.kt#L76) | 5        | 30286 ms               |
 
-### SootUp
+### SootUp benchmarking results
 
-Runs with `createInDemandView`
+#### Runs with `createInDemandView`
+
+Run command:
+
 <CodeBlock codeText={`
 ./gradlew sootupBenchmark
 `}/>
@@ -64,7 +70,9 @@ Runs with `createInDemandView`
 | [runtime + project dependencies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L49)         | 5        | 60 ms                 |
 | [runtime + IDEA community dependecies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L54)   | 5        | 167 ms                |
 
-Runs with `createFullView` consumed almost all of 16 GB RAM memory (failed with the OOM error on 12 GB).
+#### Runs with `createFullView`
+
+Consumed almost all of 16 GB RAM memory (failed with the OOM error on 12 GB).
 
 | Benchmark                                                                                                                                                                    | Repeats  | Avg time per operation    |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|---------------------------|
@@ -73,23 +81,23 @@ Runs with `createFullView` consumed almost all of 16 GB RAM memory (failed with 
 | [runtime + project dependencies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L49)         | 5        | 4247 ms                   |
 | [runtime + IDEA community dependecies](https://github.com/UnitTestBot/jacodb/tree/main/jacodb-core/src/test/kotlin/org/jacodb/testing/performance/SootupBenchmarks.kt#L54)   | 5        | 114 723 ms (fails on 12Gb)|
 
+## Comparison
 
+### Soot
 
-### Comparison and differences
-
-##### Soot
 The [Soot](https://github.com/soot-oss/soot) framework just reads all the JAR files and stores bytecode in memory.
-Unlike Soot, JacoDB reads the available `.class` from the JAR files and builds folders in parallel. As a result, it is faster when
+Unlike Soot, JacoDB reads the available `.class` files from the JAR files and builds folders in parallel. As a result,
+it is faster when
 dealing with multiple JAR files (due to parallel execution). Note, that JacoDB performs a lot of tasks in
-background while almost all the API is ready for use (hierarchy and usages require the background activity to be
+background while almost all the API is ready for use (`Hierarchy` and `Usages` require the background activity to be
 finished).
 
-##### SootUp
+### SootUp
 
 The [SootUp](https://github.com/soot-oss/SootUp) framework ignores runtime libraries. That is why the startup time
 for the “runtime only” condition is almost equal to zero.
 
-##### JacoDB
+### JacoDB
 
 JacoDB performs tasks in background while almost all the API is ready for use. Here are the results for performing
 the background activities without the `Usages` feature:
@@ -97,7 +105,6 @@ the background activities without the `Usages` feature:
 <CodeBlock codeText={`
     ./gradlew awaitBackgroundBenchmark
 `}/>
-
 
 | Benchmark                                                                                                                                                                                                          | Repeats  | Avg time per operation |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|------------------------|

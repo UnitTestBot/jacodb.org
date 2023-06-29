@@ -1,35 +1,40 @@
-import SootComparison from "../../components/SootComparison";
+import SootComparison from "../../components/SootComparison"
 
-Terminology:
+# How to migrate from Soot
 
-|                                                                                                                                      | Soot                     | JacoDB             |
-|--------------------------------------------------------------------------------------------------------------------------------------|--------------------------|--------------------|
+## Terminology
+
+
+
+| Term                                                                        | Soot                     | JacoDB             |
+|-----------------------------------------------------------------------------|--------------------------|--------------------|
 | [bytecode storage](#create-storage)                                         | -                        | JacoDB             |
 | [scope of visible classes](#create-storage)                                 | Scene                    | JcClasspath        |
 | [class](#find-class)                                                        | SootClass                | JcClassOrInterface |
-| class method                                                                                                                         | SootMethod               | JcMethod           |
-| class field                                                                                                                          | SootField                | JcField            |
-| type (with generics substitution)                                                                                                    | -                        | JcJvmType          |
+| class method                                                                | SootMethod               | JcMethod           |
+| class field                                                                 | SootField                | JcField            |
+| type (with generic  substitution)                                           | -                        | JcJvmType          |
 | [3-address bytecode representation](#get-3-address-bytecode-representation) | JimpleBody               | JcRawInstList      |
 | [control flow graph](#get-control-flow-graph)                               | ClassicCompleteUnitGraph | JcGraph            |
-| [class hierarchy](#hierarchy)                                               | Hierarchy                | HierarchyExt       |
-| [call graph](#call-graphusages)                                             | CallGraph                | UsagesExt          |
+| [class hierarchy](#get-hierarchy)                                           | Hierarchy                | HierarchyExt       |
+| [call graph](#get-call-graphusages)                                         | CallGraph                | UsagesExt          |
 
-# Recommendations
+## Recommendations
 
 1. Remember to close the resource: `JcClasspath`, `JacoDB`.
 2. Creating classpath is a heavy operation involving I/O. All the JAR files or folders passed to a classpath are checked. We check:
 * whether they have been processed already,
 * whether they have been changed since having been processed before,
 * whether they are being processed right now as they have not been processed already.
-As a result, the code should try to reuse a classpath instance. After that, we recommend to call the `close` method as JacoDB is able to delete the processed resources which seem to be out of date with regard to the file system.
+As a result, the code should try to reuse a classpath instance. After that, we recommend to call the `close` method
+as JacoDB is able to delete the processed resources, which seem to be out of date with regard to the file system.
 3. If there is a chance that the code calls for class hierarchies, then it is better to install the `InMemoryHierarchy` feature.
 4. Use persisted data in the file system if your code base is huge enough or if living upon the process restart is possible.
 5. Install only those features that are required for this database.
 
-# Operations
+## Operations
 
-### create storage
+### Create storage
 
 <SootComparison
     sootCode={`
@@ -64,7 +69,7 @@ As a result, the code should try to reuse a classpath instance. After that, we r
 `}
 />
 
-### find class
+### Find class
 
 <SootComparison
     sootCode={`
@@ -109,7 +114,7 @@ As a result, the code should try to reuse a classpath instance. After that, we r
 `}
 />
 
-### Hierarchy
+### Get hierarchy
 
 <SootComparison
     sootCode={`
@@ -136,7 +141,7 @@ As a result, the code should try to reuse a classpath instance. After that, we r
 `}
 />
 
-### Call graph/Usages
+### Get `CallGraph`/`Usages`
 
 <SootComparison
     sootCode={`

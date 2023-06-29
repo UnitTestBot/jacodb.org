@@ -1,9 +1,10 @@
 import CodeBlock from '../../components/CodeBlock';
 import JavaKotlinCodeBlock from "../../components/JavaKoltinCodeBlock";
 
-# Features
+# Classpath features
 
-Features are used for building view based on real-world `JcClasspath` bytecode. All features should be passed for creating classpath
+Features are used for building representations based on `JcClasspath` bytecode. One should pass the features
+when creating a classpath.
 
 <JavaKotlinCodeBlock javaCode={`
     JcClasspath cp = db.asyncClasspath(files,
@@ -13,40 +14,38 @@ Features are used for building view based on real-world `JcClasspath` bytecode. 
     val cp = db.classpath(files, AppendMainMethodToAllClasses())
 `}/>
 
-## JcClasspathFeature
+## `JcClasspathFeature`
 
-Based class for all features. There are only two methods:
-- `on(event)` feature can implement custom logic receiving events from other features
-- `event(result, input)` produces event for other features.
+This class is a base class for all the features. It has two methods:
+- `on(event)` lets one receive events from the other features;
+- `event(result, input)` produces events for the other features.
 
-Basic scenario is caching when one extension found something and cache can handle this
+The basic scenario is caching: when an extension gets information on a code structure, this information can be
+cached for further usage.
 
-## JcClasspathExtFeature
+## `JcClasspathExtFeature`
 
-Could be used for mocking or caching
+Can be used for mocking or caching:
 - `tryFindClass(classpath, name): Optional<JcClassOrInterface>?`
 - `tryFindType(classpath, name): Optional<JcType>?`
 
-Returned values should conform this logic:
+Returned values should conform to this logic:
+- not empty `Optional` for the found class or type;
+- empty `Optional` for a class or type that does not exist in the classpath;
+- `null` when we do not know if a class or type exists or not.
 
-- not empty `Optional` for founded class/type
-- empty `Optional` for class/type that is not exist in classpath
-- null for case when we do not know
+## `JcClassExtFeature`
 
-## JcClassExtFeature
+Can be used for patching classes with new fields or methods:
+- `fieldsOf(clazz)` returns a list of additional fields for a particular class; `null` by default.
+- `methodsOf(clazz)` returns a list of additional methods for a particular class. `null` by default.
+- `extensionValuesOf(clazz)` returns a map of additional information for a particular class.
 
-Could be used for patching classes with new fields/methods
-- `fieldsOf(clazz)` - return list of additional fields for particular class. null by default
-- `methodsOf(clazz)`- return list of additional methods for particular class. null by default
-- `extensionValuesOf(clazz)`- return map of addiotnal information for particular class.
+`extensionValuesOf` can expose specific information about the classes, for example, from Kotlin or Scala compilers.
 
-`extensionValuesOf` could expose specific information about classes. For example some specific information from Kotlin
-or Scala compilers
+## `JcInstExtFeature`
 
-## JcInstExtFeature
+- `transformRawInstList(method: JcMethod, list)` transforms a raw instruction list.
+- `transformInstList(method, list)` transforms an instruction list — raw instructions remain the same.
 
-- `transformRawInstList(method: JcMethod, list)` - transforming raw instruction list
-- `transformInstList(method, list)` - transforming instruction list. Raw instructions will remain the same in this case
-
-
-## JcMethodExtFeature
+[//]: # (## `JcMethodExtFeature`)

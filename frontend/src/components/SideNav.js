@@ -105,9 +105,8 @@ const TocSubLink = styled(TocLink)`
 const documentation = [
   'installation',
   'basic-usage',
-  'types-classes',
-  'classpath-features',
   'database-features',
+  'classpath-features',
   'instructions',
   'graphs',
   'migration',
@@ -123,7 +122,7 @@ const usageExamples = [
 
 const about = [
   'about-the-project',
-  'benchmarks',
+  'benchmarking',
   '/swagger-ui/index.html'
 ];
 
