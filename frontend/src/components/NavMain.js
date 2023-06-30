@@ -8,6 +8,8 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGithub} from '@fortawesome/free-brands-svg-icons/faGithub';
 import pkg from "../../package.json";
+import SearchBar from "./SearchBar";
+
 
 const NAV_LINKS = [
     {
@@ -58,23 +60,26 @@ function NavMain({activePage}) {
                                     {title}
                                 </Nav.Link>
                             ))}
-                            <OverlayTrigger
-                                placement="bottom"
-                                delay={{show: 200}}
-                                overlay={<Tooltip id="t-github">Github</Tooltip>}
-                            >
-                                <Nav.Link
-                                    href={`https://github.com/UnitTestBot/jacodb/releases/tag/v${pkg.version}`}
-                                    target="_blank"
-                                    className={"styled-nav-link version-number-link"}
-                                    rel="noopener noreferrer"
-                                >
-                                    <span className={"version-number"}>version: {pkg.version}</span>
-                                    <FontAwesomeIcon icon={faGithub} size="lg"/>
-                                    <span className="visually-hidden">Github</span>
-                                </Nav.Link>
-                            </OverlayTrigger>
                         </Nav>
+                    </Navbar.Collapse>
+                    <Navbar.Collapse className="justify-content-end">
+                        <SearchBar/>
+                        <OverlayTrigger
+                            placement="bottom"
+                            delay={{show: 200}}
+                            overlay={<Tooltip id="t-github">Github</Tooltip>}
+                        >
+                            <Nav.Link
+                                href={`https://github.com/UnitTestBot/jacodb/releases/tag/v${pkg.version}`}
+                                target="_blank"
+                                className={"styled-nav-link version-number-link"}
+                                rel="noopener noreferrer"
+                            >
+                                <span className={"version-number"}>version: {pkg.version}</span>
+                                <FontAwesomeIcon icon={faGithub} size="lg"/>
+                                <span className="visually-hidden">Github</span>
+                            </Nav.Link>
+                        </OverlayTrigger>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

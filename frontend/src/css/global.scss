@@ -1,6 +1,4 @@
 @import './theme.scss';
-@import './algolia.scss';
-@import './carbonads.scss';
 @import 'prism.module';
 
 html {
@@ -148,6 +146,8 @@ code {
 
 .styled-nav-link {
   @import '../css/theme.scss';
+
+  color: rgba(255, 255, 255, 0.55) !important;
 
   & + & {
     margin-left: $spacer;
