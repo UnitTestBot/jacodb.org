@@ -9,6 +9,7 @@ import LinkedHeading from '../components/LinkedHeading';
 import PageHeader from '../components/PageHeader';
 import SEO from '../seo';
 import ThemeProvider from 'react-bootstrap/ThemeProvider';
+import Table from "react-bootstrap/Table";
 
 const getMode = (className = '') => {
   const [, mode] = className.match(/language-(\w+)/) || [];
@@ -22,6 +23,7 @@ const components = {
   h3: (props) => <LinkedHeading h="3" {...props} />,
   h4: (props) => <LinkedHeading h="4" {...props} />,
   h5: (props) => <LinkedHeading h="5" {...props} />,
+  table: (props) => <Table striped bordered hover {...props}/>,
   pre: (props) =>
     React.isValidElement(props.children) ? (
       <CodeBlock
