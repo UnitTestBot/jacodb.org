@@ -9,24 +9,35 @@ import org.springframework.web.bind.annotation.RestController
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-
 @RestController
 @RequestMapping("/sitemap.xml")
 class SitemapController {
     companion object {
-        val urls = listOf(
-            "/",
-            "/migration",
-            "/about",
-            "/getting-started/introduction",
-            "/getting-started/control-flow-graph",
-            "/getting-started/available-features",
-            "/getting-started/benchmarks",
-            "/getting-started/types-classes",
-            "/api-ref/api-reference",
-            "/api-ref/instructions-and-graphs",
-            "/analysis/overview",
-        )
+        private val documentation = listOf(
+            "installation",
+            "basic-usage",
+            "database-features",
+            "classpath-features",
+            "instructions",
+            "graphs",
+            "migration"
+        ).map { "/documentation/$it" }
+
+
+        private val usageExamples = listOf(
+            "type-solving",
+            "approximations",
+            "symbolic-execution",
+            "ifds"
+        ).map { "/usage-examples/$it" }
+
+        private val about = listOf(
+            "about-the-project",
+            "benchmarking"
+        ).map { "/about/$it" }
+
+
+        val urls = documentation + about + usageExamples
     }
 
     private val domain = "https://jacodb.org"
