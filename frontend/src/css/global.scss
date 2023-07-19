@@ -299,10 +299,7 @@ code {
 }
 
 .version-number-link {
-  @media (min-width: 1000px) {
-    position: absolute;
-    right: 100px;
-  }
+  margin-left: 24px;
 }
 
 .styled-header-toggler {
