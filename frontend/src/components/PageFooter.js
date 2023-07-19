@@ -47,7 +47,7 @@ class PageFooter extends React.Component {
                 <li>
                   Code licensed under{' '}
                   <Nav.Link className={"footer-link"}
-                      href="https://github.com/UniteTestBot/jacodb/blob/master/LICENSE"
+                      href="https://github.com/UnitTestBot/jacodb/blob/master/LICENSE"
                       rel="noopener noreferrer"
                       target="_blank"
                   >
@@ -56,7 +56,7 @@ class PageFooter extends React.Component {
                 </li>
                 <li>
                   Source code on {' '}
-                  <Nav.Link className={"footer-link"} href="https://github.com/UniteTestBot/jacodb/">
+                  <Nav.Link className={"footer-link"} href="https://github.com/UnitTestBot/jacodb/">
                     GitHub
                   </Nav.Link>
                 </li>
@@ -72,12 +72,12 @@ class PageFooter extends React.Component {
             <Col md={4} className={classNames('styled-footer-card', 'px-7', 'py-3')}>
               <ul className={'no-bullets'}>
                 <li>
-                  <Nav.Link className={"footer-link"} href="https://github.com/UniteTestBot/jacodb/issues?state=open">
+                  <Nav.Link className={"footer-link"} href="https://github.com/UnitTestBot/jacodb/issues?state=open">
                     Issues
                   </Nav.Link>
                 </li>
                 <li>
-                  <Nav.Link className={"footer-link"} href="https://github.com/UniteTestBot/jacodb/releases">
+                  <Nav.Link className={"footer-link"} href="https://github.com/UnitTestBot/jacodb/releases">
                     Releases
                   </Nav.Link>
                 </li>
