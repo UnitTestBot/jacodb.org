@@ -209,4 +209,56 @@ export default {
             
             `},
 
+
+    customApplicationGraph: {
+        java: `
+            List\<String\> bannedPackages = new ArrayList\<\>();
+            bannedPackages.addAll(ApplicationGraphFactory.getDefaultBannedPackagePrefixes());
+            bannedPackages.add("my.package.that.wont.be.analyzed");
+            
+            JcApplicationGraph customGraph = ApplicationGraphFactory
+                .asyncNewApplicationGraphForAnalysis(classpath, bannedPackages)
+                .get();
+               
+            // Launch some analysis using customGraph...
+            `,
+        kotlin: `
+            val bannedPackages = defaultBannedPackagePrefixes
+                .plus("my.package.that.wont.be.analyzed")
+                
+            val customGraph = runBlocking {
+                classpath.newApplicationGraphForAnalysis(bannedPackages)
+            }
+            
+            // Launch some analysis using customGraph...
+        `},
+
+    runAnalysisExample: {
+        java: `
+            List\<JcMethod\> methodsToAnalyze = analyzedClass.getDeclaredMethods();
+            JcApplicationGraph applicationGraph = ApplicationGraphFactory
+                    .asyncNewApplicationGraphForAnalysis(classpath, null)
+                    .get();
+            UnitResolver\<\?\> resolver = UnitResolversLibrary.getMethodUnitResolver();
+            IfdsUnitRunner runner = RunnersLibrary.getUnusedVariableRunner();
+    
+            AnalysisMain.runAnalysis(
+                    applicationGraph,
+                    resolver,
+                    runner,
+                    methodsToAnalyze,
+                    Integer.MAX_VALUE
+            );
+            `,
+        kotlin: `
+            val applicationGraph = runBlocking { 
+                classpath.newApplicationGraphForAnalysis()
+            }
+            
+            val methodsToAnalyze = analyzedClass.declaredMethods
+            val unitResolver = MethodUnitResolver
+            val runner = UnusedVariableRunner
+
+            runAnalysis(applicationGraph, unitResolver, runner, methodsToAnalyze)
+        `},
 }
