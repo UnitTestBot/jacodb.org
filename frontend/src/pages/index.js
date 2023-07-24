@@ -39,7 +39,7 @@ export default withLayout(
             return (
                 <main id="jc-docs-content">
                     <div className={classNames('mast-head', 'mb-4')}>
-                        <div className={classNames('styled-content')}>
+                        <div className={'styled-content'}>
                             <h1 className={'styled-heading'}>
                                 <img src={require('/src/assets/logo.svg')} alt={'JacoDB'} className={'logo-class'}/>
                             </h1>
