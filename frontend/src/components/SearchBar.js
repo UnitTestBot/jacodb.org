@@ -47,7 +47,7 @@ const SearchBar = () => {
     const handleShow = () => setShow(true);
 
     return (
-        <div>
+        <div className={'search-bar-wrapper'}>
             <Form>
                 <InputGroup>
                     <Button variant="outline-secondary" id="button-addon1"

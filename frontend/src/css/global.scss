@@ -299,7 +299,14 @@ code {
 }
 
 .version-number-link {
-  margin-left: 24px;
+  margin-left: 16px;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+.search-bar-wrapper{
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .styled-header-toggler {

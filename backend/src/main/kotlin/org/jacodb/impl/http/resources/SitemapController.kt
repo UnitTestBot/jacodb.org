@@ -46,13 +46,13 @@ class SitemapController {
     fun main(): XmlUrlSet {
         val xmlUrlSet = XmlUrlSet()
         for (eachLink in urls) {
-            create(xmlUrlSet, eachLink, XmlUrl.Priority.HIGH)
+            create(xmlUrlSet, eachLink)
         }
         return xmlUrlSet
     }
 
-    private fun create(xmlUrlSet: XmlUrlSet, link: String, priority: XmlUrl.Priority) {
-        xmlUrlSet.addUrl(XmlUrl(domain + link, priority))
+    private fun create(xmlUrlSet: XmlUrlSet, link: String) {
+        xmlUrlSet.addUrl(XmlUrl(domain + link))
     }
 }
 
@@ -74,24 +74,14 @@ class XmlUrlSet {
 
 class XmlUrl {
 
-    enum class Priority(val value: String) {
-        HIGH("1.0"), MEDIUM("0.5")
-    }
-
     var loc: String? = null
         private set
 
     var lastmod: String? = null
         private set
 
-    val changefreq = "weakly"
-
-    var priority: String? = null
-        private set
-
-    constructor(loc: String?, priority: Priority) {
+    constructor(loc: String?) {
         this.loc = loc
-        this.priority = priority.value
         setLastmod()
     }
 
