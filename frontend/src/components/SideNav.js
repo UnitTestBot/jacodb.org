@@ -1,19 +1,11 @@
-import { DocSearch } from '@docsearch/react';
 import startCase from 'lodash/startCase';
 import classNames from 'classnames';
 import * as React from 'react';
 import Nav from 'react-bootstrap/Nav';
 
 import styled from 'astroturf';
-import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
-
-const MenuButton = styled(Button).attrs({ variant: 'link' })`
-  composes: p-0 d-md-none ms-3 from global;
-
-  line-height: 1;
-  color: #212529;
-`;
+import Navbar from "react-bootstrap/Navbar";
 
 const SidePanel = styled('div')`
   @import '../css/theme';
@@ -182,31 +174,29 @@ class SideNav extends React.Component {
     const { location, ...props } = this.props;
     return (
       <SidePanel {...props}>
-        <Collapse in={this.state.collapsed}>
-          <OverflowWrapper>
-            <TableOfContents role="complementary">
-              <NavSection
-                  heading="Documentation"
-                  path="/documentation"
-                  location={location}
-                  items={documentation}
-              />
-              <NavSection
-                heading="Usage Examples"
-                path="/usage-examples"
+        <OverflowWrapper>
+          <TableOfContents role="complementary">
+            <NavSection
+                heading="Documentation"
+                path="/documentation"
                 location={location}
-                items={usageExamples}
-              />
-              <NavSection
-                heading="About"
-                path="/about"
-                location={location}
-                items={about}
-              />
+                items={documentation}
+            />
+            <NavSection
+              heading="Usage Examples"
+              path="/usage-examples"
+              location={location}
+              items={usageExamples}
+            />
+            <NavSection
+              heading="About"
+              path="/about"
+              location={location}
+              items={about}
+            />
 
-            </TableOfContents>
-          </OverflowWrapper>
-        </Collapse>
+          </TableOfContents>
+        </OverflowWrapper>
       </SidePanel>
     );
   }
