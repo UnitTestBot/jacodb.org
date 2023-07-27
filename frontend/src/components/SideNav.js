@@ -101,6 +101,7 @@ const documentation = [
   'classpath-features',
   'instructions',
   'graphs',
+  'static-dataflow-analysis',
   'migration',
   '/docs/index.html'
 ];
@@ -109,7 +110,6 @@ const usageExamples = [
   'type-solving',
   'approximations',
   'symbolic-execution',
-  'ifds'
 ];
 
 const about = [
@@ -121,7 +121,7 @@ const about = [
 const nameOverrides = {
   'types-classes': 'Types and Classes',
   'instructions-and-graphs': 'Instructions and Graphs',
-  'ifds': 'IFDS',
+  'static-dataflow-analysis': 'Static Dataflow Analysis',
   '/docs/index.html': {absolute: true, name: 'API Reference'},
   'about-the-project': 'About the Project',
   '/swagger-ui/index.html': {absolute: true, name: 'Testing API'},

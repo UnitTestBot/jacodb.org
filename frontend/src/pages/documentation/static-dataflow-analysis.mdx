@@ -1,0 +1,156 @@
+import JavaKotlinCodeBlock from "../../components/JavaKotlinCodeBlock";
+import Examples from "../../components/examples";
+
+# Static dataflow analysis
+
+With the `jacodb-analysis` module, one can perform static dataflow analysis based on the three-address code intermediate representation.
+It implements the IFDS solver, described in the <a href="https://dx.doi.org/10.1145/199448.199462">Reps, Horwitz, and Sagiv (1995)</a> paper.
+IFDS is the acronym for the class of the _interprocedural_, _finite_, _distributive_, _subset_ problems.
+
+The `jacodb-analysis` module provides you with several ready-to-use analyses along with an API to build your own analyses.
+
+Current implementation splits code into `Units`, so that the IFDS framework can analyse them concurrently.
+Information is shared between the units via `Summaries`, but the lifecycle of each unit is controlled
+separately. This makes the implementation highly scalable and still precise.
+
+## Basic usage
+
+You can perform analysis right from your code or via command-line interface.
+
+### Calling from your code
+
+The analysis entry point is the `runAnalysis` method called from `AnalysisMain`.
+It takes the following parameters:
+* `graph` — an application graph that is used for analysis, the _supergraph_ in terms of the <a href="https://dx.doi.
+org/10.1145/199448.199462">original paper</a>.
+To obtain this graph, one should call the `newApplicationGraphForAnalysis` method from `ApplicationGraphFactory`.
+* `unitResolver` — an object that groups methods into units. Find more about <a href="#unit-resolvers">unit resolvers</a>.
+* `ifdsUnitRunner` — a runner instance, which is used to analyze each unit. This is what defines concrete analysis.
+Ready-to-use runners are located in `RunnersLibrary`.
+* `methods` — a list of methods to analyze.
+* `timeoutMillis` — an optional timeout (in milliseconds).
+
+For example, to detect the unused variables in the given `analyzedClass` methods, you may run the following code
+(assuming that `classpath` is an instance of `JcClasspath`):
+
+<JavaKotlinCodeBlock
+    javaCode={Examples.runAnalysisExample.java}
+    kotlinCode={Examples.runAnalysisExample.kotlin}
+/>
+
+### Using command-line interface
+
+To perform analyses, one can use command-line interface (CLI) from the `jacodb-cli` module.
+Specify the following arguments:
+* `—analysisConf, -a` — a path to a file with the analyses configuration in the JSON format (find detailed description below).
+* `—start, -s` — classes to start the analyses from.
+* `—classpath, -cp` — a classpath necessary for JacoDB analyses.
+* `[optional] —dbLocation, -l` — location of SQLite database to store bytecode data.
+If not specified, no data will be stored in the database.
+* `[optional] —output, -o` — a file to store the analysis report. It defaults to `report.json`.
+
+The analyses configuration file should declare an `analyses` object, where each key is a name of analysis,
+and each value is an object with the custom settings.
+For a specified analysis, `runAnalysis` is executed once.
+By now, the only thing you can specify in settings is the unit resolver. It defaults to `MethodUnitResolver`.
+
+An example of a configuration file:
+```
+{
+  "analyses": {
+    "NPE": {},
+    "Unused": {
+      "UnitResolver": "class"
+    },
+    "SQL": {}
+  }
+}
+```
+## Unit resolvers
+
+`UnitResolver` is a simple interface with a `resolve` function mapping `JcMethod` to a custom `UnitType` domain.
+It splits all methods into groups, or _units_, that can be analyzed concurrently.
+In general, larger units mean more precise but also more resource-consuming analysis, so `UnitResolver` allows you
+to reach compromise.
+You can create your own `UnitResolver`, but usually you can use the predefined one from the `UnitResolversLibrary`
+class,
+e.g., `methodUnitResolver` and `singletonUnitResolver`. Below is the list of predefined resolvers:
+* `methodUnitResolver` — each unit contains exactly one method. This resolver gives you the fastest
+but also the least precise analysis. Use it if you analyze a large amount of code,
+like big projects or libraries.
+* `classUnitResolver` — each unit corresponds to a class: all methods from one class belong to one unit.
+* `packageUnitResolver` — same as previous, but each unit corresponds to a package it is declared in.
+* `singletonUnitResolver` — all existing methods belong to the same unit. Using this resolver gives you the most precise
+but also the most resource-consuming analysis. Use it when you analyze a small amount of code, like
+one class or a small project.
+
+## Application graph
+
+Source code information is provided through a `JcApplicationGraph` instance during analysis.
+This interface combines a control-flow graph (CFG) with a call graph of a program, thus providing a so-called
+_supergraph_.
+The easiest way to create the instance is to call `newApplicationGraphForAnalysis` from `ApplicationGraphFactory`.
+
+It has a `bannedPackagePrefixes` parameter, which is a list of strings.
+If some method is declared in a package, which name starts with one of these strings, this method is not included
+in the application graph, and therefore is not analyzed.
+If `null` is passed, then the `defaultBannedPackagePrefixes` value is used, which prevents most of
+the Java and Kotlin standard library methods from being analyzed.
+Below is the code that allows to additionally ban a custom package
+(assuming we already have a `classpath` as an instantiation of `JcClasspath`):
+
+<JavaKotlinCodeBlock
+    javaCode={Examples.customApplicationGraph.java}
+    kotlinCode={Examples.customApplicationGraph.kotlin}
+/>
+
+## `Runners` library
+
+Below is the list of implemented runners located in `RunnersLibrary`:
+
+* `NpeRunner` — finds places where `NullPointerException` may occur.
+* `UnusedVariableRunner` — finds all statements where unused variables are declared.
+* `TaintRunner` — a runner that provides generic taint analysis. To build it, you need to provide
+`sourceMethods` (i.e., methods that produce taints),
+`sinkMethods` (i.e., methods that should not take tainted value as a parameter or receiver)
+and `sanitizeMethods` (i.e., methods that transform a tainted value into the untainted one).
+If there is a trace between the source and the sink (without passing sanitizing methods),
+it is reported as a vulnerability.
+* `SqlInjectionRunner` — performs concrete taint analysis that finds places where an SQL injection is possible.
+
+## Writing custom runners
+
+Specifying your own analysis is harder than using the predefined ones.
+To do it, you should be familiar with dataflow analysis, IFDS framework, and flow functions.
+
+### One-pass runner
+
+To implement a simple one-pass analyzer, use `IfdsBaseUnitRunner`.
+To instantiate it, you need an `AnalyzerFactory` instance, which is an object that can create `Analyzer` via
+`JcApplicationGraph`.
+The `Analyzer` interface contains the following methods that have to be implemented
+(please note that this interface is **EXPERIMENTAL** and **LIKELY TO BE CHANGED SOON**):
+* `getFlowFunctions()` — should return a `FlowFunctionsSpace` object, describing the four kinds of flow functions,
+as defined in the <a href="https://dx.doi.org/10.1145/199448.199462">original paper</a>
+* `List<SummaryFact> getSummaryFacts(IfdsEdge edge)` — this method is called by `IfdsBaseUnitRunner` each time
+a new path edge is found. The method should return all `SummaryFact` elements that are produced by this edge.
+If some vulnerability is detected, it should be returned as `VulnerabilityLocation`. When the analysis finishes,
+a `TraceGraph` for this location is resolved, and `VulnerabilityInstance` is added to results. This is the preferred
+method to return summary facts.
+* `List<SummaryFact> getSummaryFacts(IfdsResults ifdsResults)` — same as above, but this method is called only once
+by `IfdsBaseUnitRunner` when the propagation of facts is finished (normally or due to cancellation). It should not
+return facts that have been already returned by the previous method.
+* `getSaveSummaryEdgesAndCrossUnitCalls()` — when `true`, summary edges and `CrossUnitCalleeFact` elements are automatically
+added to the summary. This is needed for forward analyses to improve precision and restore traces, but this can
+usually be set to `false` for backward analyses.
+
+#### Composite runners
+
+For higher precision, bidirectional analysis is usually performed.
+To implement this, you can create backward and forward runners as described above
+and join them using one of the existing composite runners:
+
+* `SequentialBidiIfdsUnitRunner` — takes two runners, the `forward` and `backward` ones, and runs them sequentially:
+first it runs
+`backward` analysis on a reversed graph, then it runs `forward` analysis on a normal graph.
+* `ParallelBidiIfdsUnitRunner` — same as previous, but it launches both runners concurrently.

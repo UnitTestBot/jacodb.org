@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import withLayout from '../withLayout';
 import classNames from "classnames";
 import trackPageGA from "../components/google-analytics";
-import JavaKotlinCodeBlock from "../components/JavaKoltinCodeBlock";
+import JavaKotlinCodeBlock from "../components/JavaKotlinCodeBlock";
 import {useState} from "react";
 import {ButtonGroup} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
@@ -162,6 +162,7 @@ export default withLayout(
                                     <li>Learn JacoDB <a href="/documentation/basic-usage">basics</a>.</li>
                                     <li>Store and query additional information based on bytecode with <a href="/documentation/classpath-features">classpath</a> and <a href="/documentation/database-features">database features</a>.</li>
                                     <li>Get use of <a href="/documentation/instructions">raw bytecode instructions</a> and <a href="/documentation/graphs">control flow graphs</a>.</li>
+                                    <li>Perform <a href="/documentation/static-dataflow-analysis">static dataflow analysis</a>.</li>
                                     <li>Learn how to <a href="/documentation/migration">migrate</a> from <a href="https://github.com/soot-oss/soot">Soot</a>.</li>
                                     <li>Search through the full <a href="/docs/index.html">API reference</a>.</li>
                                 </ul>
@@ -173,7 +174,6 @@ export default withLayout(
                                     <li>Find the story about using JacoDB for a <a href="/usage-examples/symbolic-execution">symbolic execution</a> based project.</li>
                                     <li>Learn how to benefit from JacoDB when creating a <a href="/usage-examples/type-solving">type solver</a>.</li>
                                     <li>Know how to implement <a href="/usage-examples/approximations">approximations</a> for program analysis algorithms.</li>
-                                    <li>Check the <a href="/usage-examples/ifds">IFDS</a> project example.</li>
                                 </ul>
                             </Col>
 
