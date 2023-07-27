@@ -75,7 +75,7 @@ function NavMain({activePage}) {
                                 className={"styled-nav-link version-number-link"}
                                 rel="noopener noreferrer"
                             >
-                                <span className={"version-number"}>version: {pkg.version}</span>
+                                <span className={"version-number"}>Version: {pkg.version}</span>
                                 <FontAwesomeIcon icon={faGithub} size="lg"/>
                                 <span className="visually-hidden">Github</span>
                             </Nav.Link>
