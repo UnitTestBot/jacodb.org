@@ -3,12 +3,12 @@ $dokka.linkExtension:html
 
 module:jacodb-analysis
 org.jacodb.analysis
-org.jacodb.analysis.analyzers
 org.jacodb.analysis.engine
 org.jacodb.analysis.graph
 org.jacodb.analysis.impl.custom
+org.jacodb.analysis.library
+org.jacodb.analysis.library.analyzers
 org.jacodb.analysis.paths
-org.jacodb.analysis.points2
 module:jacodb-api
 org.jacodb.api
 org.jacodb.api.analysis

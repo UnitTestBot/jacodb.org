@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Approximations</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>jacodb</span>            </a>    </div>
+    <div>1.1.5</div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="jacodb-approximations::org.jacodb.approximation/Approximations///PointingToDeclaration//-831526958">
+  <div class="breadcrumbs"><a href="../../index.html">jacodb-approximations</a><span class="delimiter">/</span><a href="../index.html">org.jacodb.approximation</a><span class="delimiter">/</span><span class="current">Approximations</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Approximations</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-approximations:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">Approximations</a> : <a href="../../../jacodb-api/org.jacodb.api/-jc-feature/index.html">JcFeature</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span><span class="token punctuation">, </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span><span class="token operator">&gt; </span>, <a href="../../../jacodb-api/org.jacodb.api/-jc-class-ext-feature/index.html">JcClassExtFeature</a>, <a href="../../../jacodb-api/org.jacodb.api/-jc-inst-ext-feature/index.html">JcInstExtFeature</a></div><p class="paragraph">A feature building mapping between so-called approximations and their targets. Other features like ClassContentApproximationFeature and ApproximationsInstructionsFeature uses it for modifying source code of target classes with information from the corresponding approximations.</p><p class="paragraph">Note: for correct work of the feature, you must wait till the whole processing of classpath is finished, otherwise you might get incomplete mapping. See <a href="../../../jacodb-api/org.jacodb.api/-jc-database/await-background-jobs.html">JcDatabase.awaitBackgroundJobs</a>.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="-1691211127%2FFunctions%2F-831526958" anchor-label="event" id="-1691211127%2FFunctions%2F-831526958" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-approximations:dokkaHtmlPartial/main" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1691211127%2FFunctions%2F-831526958"><span><span>event</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1691211127%2FFunctions%2F-831526958"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-approximations:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1691211127%2FFunctions%2F-831526958"><span class="token function">event</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">result<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api/-jc-feature-event/index.html">JcFeatureEvent</a><span class="token operator">?</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1354243964%2FFunctions%2F-831526958" anchor-label="extensionValuesOf" id="1354243964%2FFunctions%2F-831526958" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-approximations:dokkaHtmlPartial/main" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1354243964%2FFunctions%2F-831526958"><span>extension</span><wbr><span>Values</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1354243964%2FFunctions%2F-831526958"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-approximations:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#1354243964%2FFunctions%2F-831526958"><span class="token function">extensionValuesOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">clazz<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api/-jc-class-or-interface/index.html">JcClassOrInterface</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token operator">?</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1384611444%2FFunctions%2F-831526958" anchor-label="fieldsOf" id="1384611444%2FFunctions%2F-831526958" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-approximations:dokkaHtmlPartial/main" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="fields-of.html"><span>fields</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1384611444%2FFunctions%2F-831526958"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-approximations:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="fields-of.html"><span class="token function">fieldsOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">clazz<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api/-jc-class-or-interface/index.html">JcClassOrInterface</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api/-jc-field/index.html">JcField</a><span class="token operator">&gt;</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Returns a list of <a href="../-jc-enriched-virtual-field/index.html">JcEnrichedVirtualField</a> if there is an approximation for <a href="fields-of.html">clazz</a> and null otherwise.</p></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#1491608257%2FFunctions%2F-831526958"><span class="token function">fieldsOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">clazz<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api/-jc-class-or-interface/index.html">JcClassOrInterface</a><span class="token punctuation">, </span></span><span class="parameter ">originalFields<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api/-jc-field/index.html">JcField</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api/-jc-field/index.html">JcField</a><span class="token operator">&gt;</span><span class="token operator">?</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1435109672%2FFunctions%2F-831526958" anchor-label="findApproximationByOriginOrNull" id="-1435109672%2FFunctions%2F-831526958" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-approximations:dokkaHtmlPartial/main" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="find-approximation-by-origin-or-null.html"><span>find</span><wbr><span>Approximation</span><wbr><span>By</span><wbr><span>Origin</span><wbr><span>Or</span><wbr><span><span>Null</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1435109672%2FFunctions%2F-831526958"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-approximations:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="find-approximation-by-origin-or-null.html"><span class="token function">findApproximationByOriginOrNull</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">className<span class="token operator">: </span><a href="../-original-class-name/index.html">OriginalClassName</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Returns a name of the approximation class for <a href="find-approximation-by-origin-or-null.html">className</a> if it exists and null otherwise.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1922984121%2FFunctions%2F-831526958" anchor-label="findOriginalByApproximationOrNull" id="-1922984121%2FFunctions%2F-831526958" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-approximations:dokkaHtmlPartial/main" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="find-original-by-approximation-or-null.html"><span>find</span><wbr><span>Original</span><wbr><span>By</span><wbr><span>Approximation</span><wbr><span>Or</span><wbr><span><span>Null</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1922984121%2FFunctions%2F-831526958"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-approximations:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="find-original-by-approximation-or-null.html"><span class="token function">findOriginalByApproximationOrNull</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">className<span class="token operator">: </span><a href="../-approximation-class-name/index.html">ApproximationClassName</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Returns a name of the target class for <a href="find-original-by-approximation-or-null.html">className</a> approximation if it exists and null otherwise.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1195527205%2FFunctions%2F-831526958" anchor-label="methodsOf" id="1195527205%2FFunctions%2F-831526958" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-approximations:dokkaHtmlPartial/main" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="methods-of.html"><span>methods</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1195527205%2FFunctions%2F-831526958"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-approximations:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="methods-of.html"><span class="token function">methodsOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">clazz<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api/-jc-class-or-interface/index.html">JcClassOrInterface</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api/-jc-method/index.html">JcMethod</a><span class="token operator">&gt;</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Returns a list of <a href="../-jc-enriched-virtual-method/index.html">JcEnrichedVirtualMethod</a> if there is an approximation for <a href="methods-of.html">clazz</a> and null otherwise.</p></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#457844943%2FFunctions%2F-831526958"><span class="token function">methodsOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">clazz<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api/-jc-class-or-interface/index.html">JcClassOrInterface</a><span class="token punctuation">, </span></span><span class="parameter ">originalMethods<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api/-jc-method/index.html">JcMethod</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api/-jc-method/index.html">JcMethod</a><span class="token operator">&gt;</span><span class="token operator">?</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-341949210%2FFunctions%2F-831526958" anchor-label="newIndexer" id="-341949210%2FFunctions%2F-831526958" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-approximations:dokkaHtmlPartial/main" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="new-indexer.html"><span>new</span><wbr><span><span>Indexer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-341949210%2FFunctions%2F-831526958"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-approximations:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="new-indexer.html"><span class="token function">newIndexer</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">jcdb<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api/-jc-database/index.html">JcDatabase</a><span class="token punctuation">, </span></span><span class="parameter ">location<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api/-registered-location/index.html">RegisteredLocation</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api/-byte-code-indexer/index.html">ByteCodeIndexer</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1437101963%2FFunctions%2F-831526958" anchor-label="on" id="-1437101963%2FFunctions%2F-831526958" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-approximations:dokkaHtmlPartial/main" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1437101963%2FFunctions%2F-831526958"><span><span>on</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1437101963%2FFunctions%2F-831526958"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-approximations:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1437101963%2FFunctions%2F-831526958"><span class="token function">on</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">event<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api/-jc-feature-event/index.html">JcFeatureEvent</a></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1129667380%2FFunctions%2F-831526958" anchor-label="onSignal" id="-1129667380%2FFunctions%2F-831526958" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-approximations:dokkaHtmlPartial/main" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="on-signal.html"><span>on</span><wbr><span><span>Signal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1129667380%2FFunctions%2F-831526958"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-approximations:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="on-signal.html"><span class="token function">onSignal</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">signal<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api/-jc-signal/index.html">JcSignal</a></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1384388451%2FFunctions%2F-831526958" anchor-label="query" id="1384388451%2FFunctions%2F-831526958" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-approximations:dokkaHtmlPartial/main" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="query.html"><span><span>query</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1384388451%2FFunctions%2F-831526958"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-approximations:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend override </span><span class="token keyword">fun </span><a href="query.html"><span class="token function">query</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">classpath<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api/-jc-classpath/index.html">JcClasspath</a><span class="token punctuation">, </span></span><span class="parameter ">req<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/index.html">Sequence</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2032679620%2FFunctions%2F-831526958" anchor-label="transformInstList" id="2032679620%2FFunctions%2F-831526958" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-approximations:dokkaHtmlPartial/main" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#2032679620%2FFunctions%2F-831526958"><span>transform</span><wbr><span>Inst</span><wbr><span><span>List</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2032679620%2FFunctions%2F-831526958"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-approximations:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#2032679620%2FFunctions%2F-831526958"><span class="token function">transformInstList</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">method<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api/-jc-method/index.html">JcMethod</a><span class="token punctuation">, </span></span><span class="parameter ">list<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst-list/index.html">JcInstList</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst/index.html">JcInst</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst-list/index.html">JcInstList</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst/index.html">JcInst</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="611138083%2FFunctions%2F-831526958" anchor-label="transformRawInstList" id="611138083%2FFunctions%2F-831526958" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-approximations:dokkaHtmlPartial/main" data-filterable-set=":jacodb-approximations:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="transform-raw-inst-list.html"><span>transform</span><wbr><span>Raw</span><wbr><span>Inst</span><wbr><span><span>List</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="611138083%2FFunctions%2F-831526958"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-approximations:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="transform-raw-inst-list.html"><span class="token function">transformRawInstList</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">method<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api/-jc-method/index.html">JcMethod</a><span class="token punctuation">, </span></span><span class="parameter ">list<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst-list/index.html">JcInstList</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-raw-inst/index.html">JcRawInst</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst-list/index.html">JcInstList</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-raw-inst/index.html">JcRawInst</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+

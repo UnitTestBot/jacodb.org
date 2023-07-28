@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>IfdsResult</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>jacodb</span>            </a>    </div>
+    <div>1.1.5</div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="jacodb-analysis::org.jacodb.analysis.engine/IfdsResult///PointingToDeclaration//1000453906">
+  <div class="breadcrumbs"><a href="../../index.html">jacodb-analysis</a><span class="delimiter">/</span><a href="../index.html">org.jacodb.analysis.engine</a><span class="delimiter">/</span><span class="current">IfdsResult</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Ifds</span><wbr><span><span>Result</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">IfdsResult</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>pathEdges<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-ifds-edge/index.html">IfdsEdge</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>resultFacts<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst/index.html">JcInst</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-domain-fact/index.html">DomainFact</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>pathEdgesPreds<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-ifds-edge/index.html">IfdsEdge</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-path-edge-predecessor/index.html">PathEdgePredecessor</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><p class="paragraph">Aggregates all facts and edges found by tabulation algorithm</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section-body">
+      <h2 class="tabbedcontent">Constructors</h2>
+      <div class="table" data-togglable="Constructors"><a data-name="-350777729%2FConstructors%2F1000453906" anchor-label="IfdsResult" id="-350777729%2FConstructors%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue TabbedContent">
+            <div class=""><span class="inline-flex">
+                <div><a href="-ifds-result.html"><span>Ifds</span><wbr><span><span>Result</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-350777729%2FConstructors%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-ifds-result.html"><span class="token function">IfdsResult</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">pathEdges<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-ifds-edge/index.html">IfdsEdge</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">resultFacts<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst/index.html">JcInst</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-domain-fact/index.html">DomainFact</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">pathEdgesPreds<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-ifds-edge/index.html">IfdsEdge</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-path-edge-predecessor/index.html">PathEdgePredecessor</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="-326554683%2FFunctions%2F1000453906" anchor-label="resolveTraceGraph" id="-326554683%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="resolve-trace-graph.html"><span>resolve</span><wbr><span>Trace</span><wbr><span><span>Graph</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-326554683%2FFunctions%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="resolve-trace-graph.html"><span class="token function">resolveTraceGraph</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">vertex<span class="token operator">: </span><a href="../-ifds-vertex/index.html">IfdsVertex</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-trace-graph/index.html">TraceGraph</a></div><div class="brief "><p class="paragraph">Builds a graph with traces to given <a href="resolve-trace-graph.html">vertex</a>.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="254717876%2FProperties%2F1000453906" anchor-label="pathEdges" id="254717876%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="path-edges.html"><span>path</span><wbr><span><span>Edges</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="254717876%2FProperties%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><a data-name="254717876%2FProperties%2F1000453906" anchor-label="pathEdges" id="254717876%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="path-edges.html">pathEdges</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-ifds-edge/index.html">IfdsEdge</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1275549676%2FProperties%2F1000453906" anchor-label="pathEdgesPreds" id="-1275549676%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="path-edges-preds.html"><span>path</span><wbr><span>Edges</span><wbr><span><span>Preds</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1275549676%2FProperties%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><a data-name="-1275549676%2FProperties%2F1000453906" anchor-label="pathEdgesPreds" id="-1275549676%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="path-edges-preds.html">pathEdgesPreds</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-ifds-edge/index.html">IfdsEdge</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-path-edge-predecessor/index.html">PathEdgePredecessor</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-754857061%2FProperties%2F1000453906" anchor-label="resultFacts" id="-754857061%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="result-facts.html"><span>result</span><wbr><span><span>Facts</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-754857061%2FProperties%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><a data-name="-754857061%2FProperties%2F1000453906" anchor-label="resultFacts" id="-754857061%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="result-facts.html">resultFacts</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-inst/index.html">JcInst</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-domain-fact/index.html">DomainFact</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+
