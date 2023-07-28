@@ -1,7 +1,7 @@
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 val coroutinesVersion: String by rootProject
-val jacodbVersion: String = "1.0.0"
+val jacodbVersion: String = "1.1.5"
 
 plugins {
     id("org.springframework.boot") version "2.7.5"

@@ -117,7 +117,7 @@ open class Application {
 open class WebConfig : WebMvcConfigurer {
 
     override fun addViewControllers(registry: ViewControllerRegistry) {
-        SitemapController.urls.forEach {
+        Navigation.urls.forEach {
             registry.addViewController(it).setViewName("forward:$it/index.html")
         }
         registry.addViewController("/404").setViewName("forward:/404/index.html")

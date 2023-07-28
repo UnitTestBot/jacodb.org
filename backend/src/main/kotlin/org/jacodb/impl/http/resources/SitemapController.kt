@@ -12,40 +12,13 @@ import java.time.format.DateTimeFormatter
 @RestController
 @RequestMapping("/sitemap.xml")
 class SitemapController {
-    companion object {
-        private val documentation = listOf(
-            "installation",
-            "basic-usage",
-            "database-features",
-            "classpath-features",
-            "instructions",
-            "graphs",
-            "migration"
-        ).map { "/documentation/$it" }
-
-
-        private val usageExamples = listOf(
-            "type-solving",
-            "approximations",
-            "symbolic-execution",
-            "ifds"
-        ).map { "/usage-examples/$it" }
-
-        private val about = listOf(
-            "about-the-project",
-            "benchmarking"
-        ).map { "/about/$it" }
-
-
-        val urls = documentation + about + usageExamples
-    }
 
     private val domain = "https://jacodb.org"
 
     @GetMapping(produces = ["application/xml"])
     fun main(): XmlUrlSet {
         val xmlUrlSet = XmlUrlSet()
-        for (eachLink in urls) {
+        for (eachLink in Navigation.urls) {
             create(xmlUrlSet, eachLink)
         }
         return xmlUrlSet
