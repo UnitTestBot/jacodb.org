@@ -19,7 +19,7 @@ You can perform analysis right from your code or via command-line interface.
 
 ### Calling from your code
 
-The analysis entry point is the `runAnalysis` method called from `AnalysisMain`.
+The analysis entry point is the `runAnalysis` method declared in `AnalysisMain`.
 It takes the following parameters:
 * `graph` — an application graph that is used for analysis, the _supergraph_ in terms of the <a href="https://dx.doi.
 org/10.1145/199448.199462">original paper</a>.
@@ -42,12 +42,13 @@ For example, to detect the unused variables in the given `analyzedClass` methods
 
 To perform analyses, one can use command-line interface (CLI) from the `jacodb-cli` module.
 Specify the following arguments:
-* `—analysisConf, -a` — a path to a file with the analyses configuration in the JSON format (find detailed description below).
-* `—start, -s` — classes to start the analyses from.
-* `—classpath, -cp` — a classpath necessary for JacoDB analyses.
-* `[optional] —dbLocation, -l` — location of SQLite database to store bytecode data.
+* `--analysisConf, -a` — a path to a file with the analyses configuration in the JSON format (find detailed
+description below).
+* `--start, -s` — classes to start the analyses from.
+* `--classpath, -cp` — a classpath necessary for JacoDB analyses.
+* `[optional] --dbLocation, -l` — location of SQLite database to store bytecode data.
 If not specified, no data will be stored in the database.
-* `[optional] —output, -o` — a file to store the analysis report. It defaults to `report.json`.
+* `[optional] --output, -o` — a file to store the analysis report. It defaults to `report.json`.
 
 The analyses configuration file should declare an `analyses` object, where each key is a name of analysis,
 and each value is an object with the custom settings.
