@@ -1,4 +1,3 @@
-import CodeBlock from '../../components/CodeBlock';
 import JavaKotlinCodeBlock from "../../components/JavaKotlinCodeBlock";
 
 # Classpath features
@@ -48,4 +47,38 @@ Can be used for patching classes with new fields or methods:
 - `transformRawInstList(method: JcMethod, list)` transforms a raw instruction list.
 - `transformInstList(method, list)` transforms an instruction list — raw instructions remain the same.
 
-[//]: # (## `JcMethodExtFeature`)
+# UnknownClass
+
+Can be used to gracefully handle situation that some classes are nor preserved in classpath. i.e.
+
+```java
+class Bar {
+
+    int x = 0;
+
+    public void run() {
+       System.out.println("Hello world");
+    }
+}
+
+class Foo extends Bar {
+
+    Bar f = new Bar();
+
+    public void call() {
+       System.out.println(f.x);
+       run();
+    }
+}
+  ```
+
+Let's assume that we have classpath that contains class `Foo` and doesn't contain `Bar`. Default behavior for
+classpath is to fail on trying to access class that doesn't exist. i.e parsing method instructions will fail, reading
+class hierarchy will fail, resolving method will fail.
+
+UnknownClasses feature fix this behaviour. All references pointing to nowhere will be resolved as special implementation
+of `JcClassOrInterface` instance. Such instance will have **empty** `JcClassOrInterface.declaredFields` and
+`JcClassOrInterface.declaredMethods` but all resolutions done through `JcClassOrInterface.lookup` interface will return
+mocked instances.
+
+[//]  # (## `JcMethodExtFeature`)
