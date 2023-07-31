@@ -25,6 +25,7 @@ import io.swagger.v3.oas.models.servers.Server
 import org.jacodb.api.Hook
 import org.jacodb.api.JcDatabase
 import org.jacodb.impl.JcSettings
+import org.jacodb.impl.http.resources.Navigation
 import org.jacodb.impl.http.resources.SitemapController
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
