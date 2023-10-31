@@ -9,6 +9,7 @@ org.jacodb.analysis.impl.custom
 org.jacodb.analysis.library
 org.jacodb.analysis.library.analyzers
 org.jacodb.analysis.paths
+org.jacodb.analysis.sarif
 module:jacodb-api
 org.jacodb.api
 org.jacodb.api.analysis

@@ -34,7 +34,7 @@
     <div class="library-name">
 <a href="../../../index.html">
 <span>jacodb</span>            </a>    </div>
-    <div>1.2.0
+    <div>1.4.0
     </div>
     <div class="pull-right d-flex">
         <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
@@ -50,23 +50,23 @@
   <div class="breadcrumbs"><a href="../../index.html">jacodb-api</a><span class="delimiter">/</span><a href="../index.html">org.jacodb.api.cfg</a><span class="delimiter">/</span><span class="current">JcLambdaExpr</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Jc</span><wbr><span>Lambda</span><wbr><span><span>Expr</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">JcLambdaExpr</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">methodRef<span class="token operator">: </span><a href="../-typed-method-ref/index.html">TypedMethodRef</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>args<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-jc-value/index.html">JcValue</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <a href="../-jc-call-expr/index.html">JcCallExpr</a></div><p class="paragraph">JcLambdaExpr is created when we can resolve the <code class="lang-kotlin">invokedynamic</code> instruction. When Java or Kotlin compiles a code with the lambda call, it generates an <code class="lang-kotlin">invokedynamic</code> instruction which returns a call cite object. When we can resolve the lambda call, we create <code class="lang-kotlin">JcLambdaExpr</code> that returns a similar call cite object, but stores a reference to the actual method</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">JcLambdaExpr</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">bsmRef<span class="token operator">: </span><a href="../-typed-method-ref/index.html">TypedMethodRef</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>actualMethod<span class="token operator">: </span><a href="../-typed-method-ref/index.html">TypedMethodRef</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>interfaceMethodType<span class="token operator">: </span><a href="../-bsm-method-type-arg/index.html">BsmMethodTypeArg</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>dynamicMethodType<span class="token operator">: </span><a href="../-bsm-method-type-arg/index.html">BsmMethodTypeArg</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>callSiteMethodName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>callSiteArgTypes<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../org.jacodb.api/-jc-type/index.html">JcType</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>callSiteReturnType<span class="token operator">: </span><a href="../../org.jacodb.api/-jc-type/index.html">JcType</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>callSiteArgs<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-jc-value/index.html">JcValue</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <a href="../-jc-call-expr/index.html">JcCallExpr</a></div><p class="paragraph">JcLambdaExpr is created when we can resolve the <code class="lang-kotlin">invokedynamic</code> instruction. When Java or Kotlin compiles a code with the lambda call, it generates an <code class="lang-kotlin">invokedynamic</code> instruction which returns a call cite object. When we can resolve the lambda call, we create <code class="lang-kotlin">JcLambdaExpr</code> that returns a similar call cite object, but stores a reference to the actual method</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button><button class="section-tab" data-togglable="Extensions">Extensions</button></div>
     <div class="tabs-section-body">
       <h2 class="tabbedcontent">Constructors</h2>
-      <div class="table" data-togglable="Constructors"><a data-name="-1280665859%2FConstructors%2F-381265510" anchor-label="JcLambdaExpr" id="-1280665859%2FConstructors%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+      <div class="table" data-togglable="Constructors"><a data-name="-496581132%2FConstructors%2F-381265510" anchor-label="JcLambdaExpr" id="-496581132%2FConstructors%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
         <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
           <div class="main-subrow keyValue TabbedContent">
             <div class=""><span class="inline-flex">
                 <div><a href="-jc-lambda-expr.html"><span>Jc</span><wbr><span>Lambda</span><wbr><span><span>Expr</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1280665859%2FConstructors%2F-381265510"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-496581132%2FConstructors%2F-381265510"></span>
                   <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-jc-lambda-expr.html"><span class="token function">JcLambdaExpr</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">methodRef<span class="token operator">: </span><a href="../-typed-method-ref/index.html">TypedMethodRef</a><span class="token punctuation">, </span></span><span class="parameter ">args<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-jc-value/index.html">JcValue</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-jc-lambda-expr.html"><span class="token function">JcLambdaExpr</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">bsmRef<span class="token operator">: </span><a href="../-typed-method-ref/index.html">TypedMethodRef</a><span class="token punctuation">, </span></span><span class="parameter ">actualMethod<span class="token operator">: </span><a href="../-typed-method-ref/index.html">TypedMethodRef</a><span class="token punctuation">, </span></span><span class="parameter ">interfaceMethodType<span class="token operator">: </span><a href="../-bsm-method-type-arg/index.html">BsmMethodTypeArg</a><span class="token punctuation">, </span></span><span class="parameter ">dynamicMethodType<span class="token operator">: </span><a href="../-bsm-method-type-arg/index.html">BsmMethodTypeArg</a><span class="token punctuation">, </span></span><span class="parameter ">callSiteMethodName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">callSiteArgTypes<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../org.jacodb.api/-jc-type/index.html">JcType</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">callSiteReturnType<span class="token operator">: </span><a href="../../org.jacodb.api/-jc-type/index.html">JcType</a><span class="token punctuation">, </span></span><span class="parameter ">callSiteArgs<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-jc-value/index.html">JcValue</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
               </div>
             </div>
           </div>
@@ -90,7 +90,22 @@
         </div>
       </div>
       <h2 class="">Properties</h2>
-      <div class="table" data-togglable="Properties"><a data-name="1324532552%2FProperties%2F-381265510" anchor-label="args" id="1324532552%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+      <div class="table" data-togglable="Properties"><a data-name="-2088803242%2FProperties%2F-381265510" anchor-label="actualMethod" id="-2088803242%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="actual-method.html"><span>actual</span><wbr><span><span>Method</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2088803242%2FProperties%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><a data-name="-2088803242%2FProperties%2F-381265510" anchor-label="actualMethod" id="-2088803242%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="actual-method.html">actualMethod</a><span class="token operator">: </span><a href="../-typed-method-ref/index.html">TypedMethodRef</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1324532552%2FProperties%2F-381265510" anchor-label="args" id="1324532552%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
         <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
           <div class="main-subrow keyValue ">
             <div class=""><span class="inline-flex">
@@ -101,6 +116,96 @@
             <div>
               <div class="title">
                 <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><a data-name="1324532552%2FProperties%2F-381265510" anchor-label="args" id="1324532552%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="args.html">args</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-jc-value/index.html">JcValue</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1728491901%2FProperties%2F-381265510" anchor-label="callSiteArgs" id="-1728491901%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="call-site-args.html"><span>call</span><wbr><span>Site</span><wbr><span><span>Args</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1728491901%2FProperties%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><a data-name="-1728491901%2FProperties%2F-381265510" anchor-label="callSiteArgs" id="-1728491901%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="call-site-args.html">callSiteArgs</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-jc-value/index.html">JcValue</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-974921507%2FProperties%2F-381265510" anchor-label="callSiteArgTypes" id="-974921507%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="call-site-arg-types.html"><span>call</span><wbr><span>Site</span><wbr><span>Arg</span><wbr><span><span>Types</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-974921507%2FProperties%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><a data-name="-974921507%2FProperties%2F-381265510" anchor-label="callSiteArgTypes" id="-974921507%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="call-site-arg-types.html">callSiteArgTypes</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../org.jacodb.api/-jc-type/index.html">JcType</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1463856372%2FProperties%2F-381265510" anchor-label="callSiteMethodName" id="1463856372%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="call-site-method-name.html"><span>call</span><wbr><span>Site</span><wbr><span>Method</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1463856372%2FProperties%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><a data-name="1463856372%2FProperties%2F-381265510" anchor-label="callSiteMethodName" id="1463856372%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="call-site-method-name.html">callSiteMethodName</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1059850954%2FProperties%2F-381265510" anchor-label="callSiteReturnType" id="-1059850954%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="call-site-return-type.html"><span>call</span><wbr><span>Site</span><wbr><span>Return</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1059850954%2FProperties%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><a data-name="-1059850954%2FProperties%2F-381265510" anchor-label="callSiteReturnType" id="-1059850954%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="call-site-return-type.html">callSiteReturnType</a><span class="token operator">: </span><a href="../../org.jacodb.api/-jc-type/index.html">JcType</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-471253285%2FProperties%2F-381265510" anchor-label="dynamicMethodType" id="-471253285%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="dynamic-method-type.html"><span>dynamic</span><wbr><span>Method</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-471253285%2FProperties%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><a data-name="-471253285%2FProperties%2F-381265510" anchor-label="dynamicMethodType" id="-471253285%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="dynamic-method-type.html">dynamicMethodType</a><span class="token operator">: </span><a href="../-bsm-method-type-arg/index.html">BsmMethodTypeArg</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1279667807%2FProperties%2F-381265510" anchor-label="interfaceMethodType" id="-1279667807%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="interface-method-type.html"><span>interface</span><wbr><span>Method</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1279667807%2FProperties%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><a data-name="-1279667807%2FProperties%2F-381265510" anchor-label="interfaceMethodType" id="-1279667807%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="interface-method-type.html">interfaceMethodType</a><span class="token operator">: </span><a href="../-bsm-method-type-arg/index.html">BsmMethodTypeArg</a></div></div></div>
               </div>
             </div>
           </div>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>IfdsUnitRunnerFactory</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>jacodb</span>            </a>    </div>
+    <div>1.4.0
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="jacodb-analysis::org.jacodb.analysis.engine/IfdsUnitRunnerFactory///PointingToDeclaration//1000453906">
+  <div class="breadcrumbs"><a href="../../index.html">jacodb-analysis</a><span class="delimiter">/</span><a href="../index.html">org.jacodb.analysis.engine</a><span class="delimiter">/</span><span class="current">IfdsUnitRunnerFactory</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Ifds</span><wbr><span>Unit</span><wbr><span>Runner</span><wbr><span><span>Factory</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">IfdsUnitRunnerFactory</a></div><p class="paragraph">Produces a runner for any given unit.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Inheritors">Inheritors</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="1649996728%2FFunctions%2F1000453906" anchor-label="newRunner" id="1649996728%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="new-runner.html"><span>new</span><wbr><span><span>Runner</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1649996728%2FFunctions%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="new-runner.html">UnitType</a><span class="token operator">&gt; </span><a href="new-runner.html"><span class="token function">newRunner</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">graph<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.analysis/-jc-application-graph/index.html">JcApplicationGraph</a><span class="token punctuation">, </span></span><span class="parameter ">manager<span class="token operator">: </span><a href="../-ifds-unit-manager/index.html">IfdsUnitManager</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="new-runner.html">UnitType</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">unitResolver<span class="token operator">: </span><a href="../-unit-resolver/index.html">UnitResolver</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="new-runner.html">UnitType</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">unit<span class="token operator">: </span><a href="new-runner.html">UnitType</a><span class="token punctuation">, </span></span><span class="parameter ">startMethods<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api/-jc-method/index.html">JcMethod</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-ifds-unit-runner/index.html">IfdsUnitRunner</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="new-runner.html">UnitType</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Produces a runner for given <a href="new-runner.html">unit</a>, using given <a href="new-runner.html">startMethods</a> as entry points. All start methods should belong to the <a href="new-runner.html">unit</a>. Note that this method DOES NOT START runner's job.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Inheritors</h2>
+      <div class="table" data-togglable="Inheritors"><a data-name="-515900810%2FInheritors%2F1000453906" anchor-label="BaseIfdsUnitRunnerFactory" id="-515900810%2FInheritors%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../-base-ifds-unit-runner-factory/index.html">BaseIfdsUnitRunnerFactory</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-515900810%2FInheritors%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div></div>
+          </div>
+        </div>
+<a data-name="1352001393%2FInheritors%2F1000453906" anchor-label="BidiIfdsUnitRunnerFactory" id="1352001393%2FInheritors%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../-bidi-ifds-unit-runner-factory/index.html">BidiIfdsUnitRunnerFactory</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1352001393%2FInheritors%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+

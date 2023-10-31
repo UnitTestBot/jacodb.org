@@ -34,7 +34,7 @@
     <div class="library-name">
 <a href="../../../index.html">
 <span>jacodb</span>            </a>    </div>
-    <div>1.2.0
+    <div>1.4.0
     </div>
     <div class="pull-right d-flex">
         <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
@@ -50,42 +50,38 @@
   <div class="breadcrumbs"><a href="../../index.html">jacodb-analysis</a><span class="delimiter">/</span><a href="../index.html">org.jacodb.analysis.engine</a><span class="delimiter">/</span><span class="current">IfdsUnitManager</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Ifds</span><wbr><span>Unit</span><wbr><span><span>Manager</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">IfdsUnitManager</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">UnitType</a><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">graph<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.analysis/-jc-application-graph/index.html">JcApplicationGraph</a><span class="token punctuation">, </span></span><span class="parameter ">unitResolver<span class="token operator">: </span><a href="../-unit-resolver/index.html">UnitResolver</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">UnitType</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">ifdsUnitRunner<span class="token operator">: </span><a href="../-ifds-unit-runner/index.html">IfdsUnitRunner</a><span class="token punctuation">, </span></span><span class="parameter ">startMethods<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api/-jc-method/index.html">JcMethod</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">timeoutMillis<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span></div><p class="paragraph">Used to launch and manage <a href="../../../jacodb-analysis/org.jacodb.analysis.engine/-ifds-unit-manager/ifds-unit-runner.html">ifdsUnitRunner</a> jobs for units, reachable from <a href="../../../jacodb-analysis/org.jacodb.analysis.engine/-ifds-unit-manager/start-methods.html">startMethods</a>. See <a href="../../org.jacodb.analysis/run-analysis.html">runAnalysis</a> for more info.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">IfdsUnitManager</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">UnitType</a><span class="token operator">&gt;</span></div><p class="paragraph">Implementations of this interface manage one or more runners and should be responsible for:</p><ul><li><p class="paragraph">communication between different runners, i.e. they should submit received <a href="../-edge-for-other-runner-query/index.html">EdgeForOtherRunnerQuery</a> to proper runners via <a href="../-ifds-unit-runner/submit-new-edge.html">IfdsUnitRunner.submitNewEdge</a> call</p></li><li><p class="paragraph">providing runners with summaries for other units</p></li><li><p class="paragraph">saving the <a href="../-new-summary-fact/index.html">NewSummaryFact</a>s produced by runners</p></li><li><p class="paragraph">managing lifecycles of the launched runners</p></li></ul></div></div>
   </div>
   <div class="tabbedcontent">
-    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button></div>
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Inheritors">Inheritors</button></div>
     <div class="tabs-section-body">
-      <h2 class="tabbedcontent">Constructors</h2>
-      <div class="table" data-togglable="Constructors"><a data-name="1120535036%2FConstructors%2F1000453906" anchor-label="IfdsUnitManager" id="1120535036%2FConstructors%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="181278762%2FFunctions%2F1000453906" anchor-label="handleEvent" id="181278762%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
         <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue TabbedContent">
+          <div class="main-subrow keyValue ">
             <div class=""><span class="inline-flex">
-                <div><a href="-ifds-unit-manager.html"><span>Ifds</span><wbr><span>Unit</span><wbr><span><span>Manager</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1120535036%2FConstructors%2F1000453906"></span>
+                <div><a href="handle-event.html"><span>handle</span><wbr><span><span>Event</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="181278762%2FFunctions%2F1000453906"></span>
                   <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">UnitType</a><span class="token operator">&gt; </span><a href="-ifds-unit-manager.html"><span class="token function">IfdsUnitManager</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">graph<span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.analysis/-jc-application-graph/index.html">JcApplicationGraph</a><span class="token punctuation">, </span></span><span class="parameter ">unitResolver<span class="token operator">: </span><a href="../-unit-resolver/index.html">UnitResolver</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">UnitType</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">ifdsUnitRunner<span class="token operator">: </span><a href="../-ifds-unit-runner/index.html">IfdsUnitRunner</a><span class="token punctuation">, </span></span><span class="parameter ">startMethods<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jacodb-api/org.jacodb.api/-jc-method/index.html">JcMethod</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">timeoutMillis<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="handle-event.html"><span class="token function">handleEvent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">event<span class="token operator">: </span><a href="../-ifds-unit-runner-event/index.html">IfdsUnitRunnerEvent</a><span class="token punctuation">, </span></span><span class="parameter ">runner<span class="token operator">: </span><a href="../-ifds-unit-runner/index.html">IfdsUnitRunner</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">UnitType</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <h2 class="">Functions</h2>
-      <div class="table" data-togglable="Functions"><a data-name="-160552159%2FFunctions%2F1000453906" anchor-label="analyze" id="-160552159%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+      <h2 class="">Inheritors</h2>
+      <div class="table" data-togglable="Inheritors"><a data-name="-1025878005%2FInheritors%2F1000453906" anchor-label="MainIfdsUnitManager" id="-1025878005%2FInheritors%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
         <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
           <div class="main-subrow keyValue ">
             <div class=""><span class="inline-flex">
-                <div><a href="analyze.html"><span><span>analyze</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-160552159%2FFunctions%2F1000453906"></span>
+                <div><a href="../-main-ifds-unit-manager/index.html">MainIfdsUnitManager</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1025878005%2FInheritors%2F1000453906"></span>
                   <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                 </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="analyze.html"><span class="token function">analyze</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-vulnerability-instance/index.html">VulnerabilityInstance</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Launches <a href="../../../jacodb-analysis/org.jacodb.analysis.engine/-ifds-unit-manager/ifds-unit-runner.html">ifdsUnitRunner</a> for each observed unit, handles respective jobs, and gathers results into list of vulnerabilities, restoring full traces</p></div></div></div>
-              </div>
-            </div>
+            <div></div>
           </div>
         </div>
       </div>

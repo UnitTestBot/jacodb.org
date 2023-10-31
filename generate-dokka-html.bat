@@ -8,7 +8,7 @@ cd jacodb-temp
 echo "Checking out develop branch"
 git checkout origin/develop
 echo "Building site"
-call ./gradlew dokkaHtmlMultiModule -PsemVer=1.2.0
+call ./gradlew dokkaHtmlMultiModule -PsemVer=1.4.0
 echo "Site is ready"
 cd ..
 mkdir "docs"

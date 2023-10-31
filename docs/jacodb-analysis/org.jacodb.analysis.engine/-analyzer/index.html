@@ -34,7 +34,7 @@
     <div class="library-name">
 <a href="../../../index.html">
 <span>jacodb</span>            </a>    </div>
-    <div>1.2.0
+    <div>1.4.0
     </div>
     <div class="pull-right d-flex">
         <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
@@ -50,38 +50,53 @@
   <div class="breadcrumbs"><a href="../../index.html">jacodb-analysis</a><span class="delimiter">/</span><a href="../index.html">org.jacodb.analysis.engine</a><span class="delimiter">/</span><span class="current">Analyzer</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>Analyzer</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">Analyzer</a></div><p class="paragraph"><a href="index.html">Analyzer</a> interface describes how facts are propagated and how vulnerabilities are produced by these facts during the run of tabulation algorithm by <a href="../-ifds-base-unit-runner/index.html">IfdsBaseUnitRunner</a>.</p><p class="paragraph">There are two methods that can turn facts into vulnerabilities or other <a href="../-summary-fact/index.html">SummaryFact</a>s: <a href="get-summary-facts.html">getSummaryFacts</a> and <a href="get-summary-facts-post-ifds.html">getSummaryFactsPostIfds</a>. First is called during the analysis, each time a new path edge is found, and second is called only after all path edges were found. While some analyses really need full set of facts to find vulnerabilities, most analyses can report <a href="../-summary-fact/index.html">SummaryFact</a>s right after some fact is reached, so <a href="get-summary-facts.html">getSummaryFacts</a> is a recommended way to report vulnerabilities when possible.</p><p class="paragraph">Note that methods and properties of this interface may be accessed concurrently from different threads, so the implementations should be thread-safe.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">Analyzer</a></div><p class="paragraph"><a href="index.html">Analyzer</a> interface describes how facts are propagated and how <a href="../-analysis-dependent-event/index.html">AnalysisDependentEvent</a>s are produced by these facts during the run of tabulation algorithm by <a href="../../../jacodb-analysis/org.jacodb.analysis.engine/-base-ifds-unit-runner/index.html">BaseIfdsUnitRunner</a>.</p><p class="paragraph">Note that methods and properties of this interface may be accessed concurrently from different threads, so the implementations should be thread-safe.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button><button class="section-tab" data-togglable="Inheritors">Inheritors</button></div>
     <div class="tabs-section-body">
       <h2 class="">Functions</h2>
-      <div class="table" data-togglable="Functions"><a data-name="1115119467%2FFunctions%2F1000453906" anchor-label="getSummaryFacts" id="1115119467%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+      <div class="table" data-togglable="Functions"><a data-name="1095487227%2FFunctions%2F1000453906" anchor-label="handleIfdsResult" id="1095487227%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
         <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
           <div class="main-subrow keyValue ">
             <div class=""><span class="inline-flex">
-                <div><a href="get-summary-facts.html"><span>get</span><wbr><span>Summary</span><wbr><span><span>Facts</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1115119467%2FFunctions%2F1000453906"></span>
+                <div><a href="handle-ifds-result.html"><span>handle</span><wbr><span>Ifds</span><wbr><span><span>Result</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1095487227%2FFunctions%2F1000453906"></span>
                   <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-summary-facts.html"><span class="token function">getSummaryFacts</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">edge<span class="token operator">: </span><a href="../-ifds-edge/index.html">IfdsEdge</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-summary-fact/index.html">SummaryFact</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">This method is called by <a href="../-ifds-base-unit-runner/index.html">IfdsBaseUnitRunner</a> each time a new path edge is found.</p></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="handle-ifds-result.html"><span class="token function">handleIfdsResult</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">ifdsResult<span class="token operator">: </span><a href="../-ifds-result/index.html">IfdsResult</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-analysis-dependent-event/index.html">AnalysisDependentEvent</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">This method is called once by <a href="../../../jacodb-analysis/org.jacodb.analysis.engine/-base-ifds-unit-runner/index.html">BaseIfdsUnitRunner</a> when the propagation of facts is finished (normally or due to cancellation).</p></div></div></div>
               </div>
             </div>
           </div>
         </div>
-<a data-name="262407575%2FFunctions%2F1000453906" anchor-label="getSummaryFactsPostIfds" id="262407575%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+<a data-name="-1121671881%2FFunctions%2F1000453906" anchor-label="handleNewCrossUnitCall" id="-1121671881%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
         <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
           <div class="main-subrow keyValue ">
             <div class=""><span class="inline-flex">
-                <div><a href="get-summary-facts-post-ifds.html"><span>get</span><wbr><span>Summary</span><wbr><span>Facts</span><wbr><span>Post</span><wbr><span><span>Ifds</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="262407575%2FFunctions%2F1000453906"></span>
+                <div><a href="handle-new-cross-unit-call.html"><span>handle</span><wbr><span>New</span><wbr><span>Cross</span><wbr><span>Unit</span><wbr><span><span>Call</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1121671881%2FFunctions%2F1000453906"></span>
                   <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-summary-facts-post-ifds.html"><span class="token function">getSummaryFactsPostIfds</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">ifdsResult<span class="token operator">: </span><a href="../-ifds-result/index.html">IfdsResult</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-summary-fact/index.html">SummaryFact</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">This method is called once by <a href="../-ifds-base-unit-runner/index.html">IfdsBaseUnitRunner</a> when the propagation of facts is finished (normally or due to cancellation).</p></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="handle-new-cross-unit-call.html"><span class="token function">handleNewCrossUnitCall</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">fact<span class="token operator">: </span><a href="../-cross-unit-call-fact/index.html">CrossUnitCallFact</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-analysis-dependent-event/index.html">AnalysisDependentEvent</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">This method is called by <a href="../../../jacodb-analysis/org.jacodb.analysis.engine/-base-ifds-unit-runner/index.html">BaseIfdsUnitRunner</a> each time a new cross-unit called is observed.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-373025303%2FFunctions%2F1000453906" anchor-label="handleNewEdge" id="-373025303%2FFunctions%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="handle-new-edge.html"><span>handle</span><wbr><span>New</span><wbr><span><span>Edge</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-373025303%2FFunctions%2F1000453906"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="handle-new-edge.html"><span class="token function">handleNewEdge</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">edge<span class="token operator">: </span><a href="../-ifds-edge/index.html">IfdsEdge</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-analysis-dependent-event/index.html">AnalysisDependentEvent</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">This method is called by <a href="../../../jacodb-analysis/org.jacodb.analysis.engine/-base-ifds-unit-runner/index.html">BaseIfdsUnitRunner</a> each time a new path edge is found.</p></div></div></div>
               </div>
             </div>
           </div>
@@ -103,51 +118,14 @@
             </div>
           </div>
         </div>
-<a data-name="1096600685%2FProperties%2F1000453906" anchor-label="saveSummaryEdgesAndCrossUnitCalls" id="1096600685%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="save-summary-edges-and-cross-unit-calls.html"><span>save</span><wbr><span>Summary</span><wbr><span>Edges</span><wbr><span>And</span><wbr><span>Cross</span><wbr><span>Unit</span><wbr><span><span>Calls</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1096600685%2FProperties%2F1000453906"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-analysis:dokkaHtmlPartial/main"><a data-name="1096600685%2FProperties%2F1000453906" anchor-label="saveSummaryEdgesAndCrossUnitCalls" id="1096600685%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="save-summary-edges-and-cross-unit-calls.html">saveSummaryEdgesAndCrossUnitCalls</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><a data-name="1096600685%2FProperties%2F1000453906" anchor-label="saveSummaryEdgesAndCrossUnitCalls" id="1096600685%2FProperties%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a><p class="paragraph">when true, summary edges and cross-unit calls will be automatically saved to summary (usually this property is true for forward analyzers and false for backward analyzers).</p></div></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       <h2 class="">Inheritors</h2>
-      <div class="table" data-togglable="Inheritors"><a data-name="1371673324%2FInheritors%2F1000453906" anchor-label="NpeAnalyzer" id="1371673324%2FInheritors%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
+      <div class="table" data-togglable="Inheritors"><a data-name="1740456747%2FInheritors%2F1000453906" anchor-label="AbstractAnalyzer" id="1740456747%2FInheritors%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
         <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
           <div class="main-subrow keyValue ">
             <div class=""><span class="inline-flex">
-                <div><a href="../../org.jacodb.analysis.library.analyzers/-npe-analyzer/index.html">NpeAnalyzer</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1371673324%2FInheritors%2F1000453906"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div></div>
-          </div>
-        </div>
-<a data-name="-1235037619%2FInheritors%2F1000453906" anchor-label="TaintAnalyzer" id="-1235037619%2FInheritors%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="../../org.jacodb.analysis.library.analyzers/-taint-analyzer/index.html">TaintAnalyzer</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1235037619%2FInheritors%2F1000453906"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div></div>
-          </div>
-        </div>
-<a data-name="1205217333%2FInheritors%2F1000453906" anchor-label="UnusedVariableAnalyzer" id="1205217333%2FInheritors%2F1000453906" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":jacodb-analysis:dokkaHtmlPartial/main" data-filterable-set=":jacodb-analysis:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="../../org.jacodb.analysis.library.analyzers/-unused-variable-analyzer/index.html">UnusedVariableAnalyzer</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1205217333%2FInheritors%2F1000453906"></span>
+                <div><a href="../-abstract-analyzer/index.html">AbstractAnalyzer</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1740456747%2FInheritors%2F1000453906"></span>
                   <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                 </span></span></div>
             <div></div>
