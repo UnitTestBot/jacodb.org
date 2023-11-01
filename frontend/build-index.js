@@ -36,8 +36,7 @@ function findHtml(folder) {
                 recursed[j] = path.join(files[i], recursed[j]).replace(/\\/g, "/");
             }
             htmls.push.apply(htmls, recursed);
-        }
-        else if (isHtml(filename) && !EXCLUDE_FILES.includes(files[i])) {
+        } else if (isHtml(filename) && !EXCLUDE_FILES.includes(files[i])) {
             htmls.push(files[i]);
         }
     }
@@ -115,8 +114,8 @@ function main() {
             PREVIEW_LOOKUP: ${JSON.stringify(previews)}
         };
     `;
-    fs.writeFile(OUTPUT_INDEX, js, function(err) {
-        if(err) {
+    fs.writeFile(OUTPUT_INDEX, js, function (err) {
+        if (err) {
             return console.log(err);
         }
         console.log("Index saved as " + OUTPUT_INDEX);
