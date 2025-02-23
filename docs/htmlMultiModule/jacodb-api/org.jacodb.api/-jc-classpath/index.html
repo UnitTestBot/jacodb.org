@@ -1,0 +1,599 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>JcClasspath</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>jacodb</span>            </a>    </div>
+    <div>1.4.5
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="jacodb-api::org.jacodb.api/JcClasspath///PointingToDeclaration//-381265510">
+  <div class="breadcrumbs"><a href="../../index.html">jacodb-api</a><span class="delimiter">/</span><a href="../index.html">org.jacodb.api</a><span class="delimiter">/</span><span class="current">JcClasspath</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Jc</span><wbr><span><span>Classpath</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">JcClasspath</a> : <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html">Closeable</a></div><p class="paragraph">Represents classpath, i.e. number of locations of byte code.</p><p class="paragraph">Classpath <strong>must be</strong> closed when it's not needed anymore. This will release references from database to possibly outdated libraries</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button><button class="section-tab" data-togglable="Extensions">Extensions</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="6489737%2FFunctions%2F-381265510" anchor-label="arrayTypeOf" id="6489737%2FFunctions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="array-type-of.html"><span>array</span><wbr><span>Type</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="6489737%2FFunctions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="array-type-of.html"><span class="token function">arrayTypeOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">elementType<span class="token operator">: </span><a href="../-jc-type/index.html">JcType</a><span class="token punctuation">, </span></span><span class="parameter ">nullability<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">annotations<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-jc-annotation/index.html">JcAnnotation</a><span class="token operator">&gt;</span><span class="token operator"> = </span>listOf()</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-jc-array-type/index.html">JcArrayType</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2032562401%2FFunctions%2F-381265510" anchor-label="asyncRefreshed" id="2032562401%2FFunctions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="async-refreshed.html"><span>async</span><wbr><span><span>Refreshed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2032562401%2FFunctions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="async-refreshed.html"><span class="token function">asyncRefreshed</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">closeOld<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html">CompletableFuture</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">JcClasspath</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="358956095%2FFunctions%2F-381265510" anchor-label="close" id="358956095%2FFunctions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#358956095%2FFunctions%2F-381265510"><span><span>close</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="358956095%2FFunctions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#358956095%2FFunctions%2F-381265510"><span class="token function">close</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1191111845%2FFunctions%2F-381265510" anchor-label="execute" id="1191111845%2FFunctions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="execute.html"><span><span>execute</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1191111845%2FFunctions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="execute.html">T</a><span class="token operator"> : </span><a href="../-jc-classpath-task/index.html">JcClasspathTask</a><span class="token operator">&gt; </span><a href="execute.html"><span class="token function">execute</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">task<span class="token operator">: </span><a href="execute.html">T</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="execute.html">T</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2068831341%2FFunctions%2F-381265510" anchor-label="executeAsync" id="2068831341%2FFunctions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="execute-async.html"><span>execute</span><wbr><span><span>Async</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2068831341%2FFunctions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="execute-async.html">T</a><span class="token operator"> : </span><a href="../-jc-classpath-task/index.html">JcClasspathTask</a><span class="token operator">&gt; </span><a href="execute-async.html"><span class="token function">executeAsync</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">task<span class="token operator">: </span><a href="execute-async.html">T</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html">Future</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="execute-async.html">T</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="560330065%2FFunctions%2F-381265510" anchor-label="findClasses" id="560330065%2FFunctions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="find-classes.html"><span>find</span><wbr><span><span>Classes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="560330065%2FFunctions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="find-classes.html"><span class="token function">findClasses</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-jc-class-or-interface/index.html">JcClassOrInterface</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">in case of jar-hell there could be few classes with same name inside classpath</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1249724467%2FFunctions%2F-381265510" anchor-label="findClassOrNull" id="-1249724467%2FFunctions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="find-class-or-null.html"><span>find</span><wbr><span>Class</span><wbr><span>Or</span><wbr><span><span>Null</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1249724467%2FFunctions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="find-class-or-null.html"><span class="token function">findClassOrNull</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-jc-class-or-interface/index.html">JcClassOrInterface</a><span class="token operator">?</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1734915193%2FFunctions%2F-381265510" anchor-label="findTypeOrNull" id="-1734915193%2FFunctions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="find-type-or-null.html"><span>find</span><wbr><span>Type</span><wbr><span>Or</span><wbr><span><span>Null</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1734915193%2FFunctions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="find-type-or-null.html"><span class="token function">findTypeOrNull</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-jc-type/index.html">JcType</a><span class="token operator">?</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="969556329%2FFunctions%2F-381265510" anchor-label="isInstalled" id="969556329%2FFunctions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="is-installed.html"><span>is</span><wbr><span><span>Installed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="969556329%2FFunctions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-installed.html"><span class="token function">isInstalled</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">feature<span class="token operator">: </span><a href="../-jc-classpath-feature/index.html">JcClasspathFeature</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1183123413%2FFunctions%2F-381265510" anchor-label="refreshed" id="-1183123413%2FFunctions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="refreshed.html"><span><span>refreshed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1183123413%2FFunctions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="refreshed.html"><span class="token function">refreshed</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">closeOld<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JcClasspath</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-783667296%2FFunctions%2F-381265510" anchor-label="toJcClass" id="-783667296%2FFunctions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="to-jc-class.html"><span>to</span><wbr><span>Jc</span><wbr><span><span>Class</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-783667296%2FFunctions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="to-jc-class.html"><span class="token function">toJcClass</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">source<span class="token operator">: </span><a href="../-class-source/index.html">ClassSource</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-jc-class-or-interface/index.html">JcClassOrInterface</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1708776576%2FFunctions%2F-381265510" anchor-label="typeOf" id="1708776576%2FFunctions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="type-of.html"><span>type</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1708776576%2FFunctions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="type-of.html"><span class="token function">typeOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">jcClass<span class="token operator">: </span><a href="../-jc-class-or-interface/index.html">JcClassOrInterface</a><span class="token punctuation">, </span></span><span class="parameter ">nullability<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">annotations<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-jc-annotation/index.html">JcAnnotation</a><span class="token operator">&gt;</span><span class="token operator"> = </span>listOf()</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-jc-ref-type/index.html">JcRefType</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="-1809994948%2FProperties%2F-381265510" anchor-label="db" id="-1809994948%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="db.html"><span><span>db</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1809994948%2FProperties%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><a data-name="-1809994948%2FProperties%2F-381265510" anchor-label="db" id="-1809994948%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="db.html">db</a><span class="token operator">: </span><a href="../-jc-database/index.html">JcDatabase</a></div><div class="brief "><a data-name="-1809994948%2FProperties%2F-381265510" anchor-label="db" id="-1809994948%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a><p class="paragraph">locations of this classpath</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="811226781%2FProperties%2F-381265510" anchor-label="features" id="811226781%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="features.html"><span><span>features</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="811226781%2FProperties%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><a data-name="811226781%2FProperties%2F-381265510" anchor-label="features" id="811226781%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="features.html">features</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-jc-classpath-feature/index.html">JcClasspathFeature</a><span class="token operator">&gt;</span><span class="token operator">?</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-374703806%2FProperties%2F-381265510" anchor-label="locations" id="-374703806%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="locations.html"><span><span>locations</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-374703806%2FProperties%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><a data-name="-374703806%2FProperties%2F-381265510" anchor-label="locations" id="-374703806%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="locations.html">locations</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-jc-byte-code-location/index.html">JcByteCodeLocation</a><span class="token operator">&gt;</span></div><div class="brief "><a data-name="-374703806%2FProperties%2F-381265510" anchor-label="locations" id="-374703806%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a><p class="paragraph">locations of this classpath</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1715559516%2FProperties%2F-381265510" anchor-label="registeredLocations" id="-1715559516%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="registered-locations.html"><span>registered</span><wbr><span><span>Locations</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1715559516%2FProperties%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><a data-name="-1715559516%2FProperties%2F-381265510" anchor-label="registeredLocations" id="-1715559516%2FProperties%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="registered-locations.html">registeredLocations</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-registered-location/index.html">RegisteredLocation</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="tabbedcontent">Extensions</h2>
+      <div class="table" data-togglable="Extensions"><a data-name="690001260%2FExtensions%2F-381265510" anchor-label="boolean" id="690001260%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/boolean.html"><span><span>boolean</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="690001260%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/boolean.html">boolean</a><span class="token operator">: </span><a href="../-jc-primitive-type/index.html">JcPrimitiveType</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-316549000%2FExtensions%2F-381265510" anchor-label="byte" id="-316549000%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/byte.html"><span><span>byte</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-316549000%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/byte.html">byte</a><span class="token operator">: </span><a href="../-jc-primitive-type/index.html">JcPrimitiveType</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="860319594%2FExtensions%2F-381265510" anchor-label="char" id="860319594%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/char.html"><span><span>char</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="860319594%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/char.html">char</a><span class="token operator">: </span><a href="../-jc-primitive-type/index.html">JcPrimitiveType</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-2073754145%2FExtensions%2F-381265510" anchor-label="cloneableClass" id="-2073754145%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/cloneable-class.html"><span>cloneable</span><wbr><span><span>Class</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2073754145%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/cloneable-class.html">cloneableClass</a><span class="token operator">: </span><a href="../-jc-class-or-interface/index.html">JcClassOrInterface</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1131644303%2FExtensions%2F-381265510" anchor-label="double" id="1131644303%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/double.html"><span><span>double</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1131644303%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/double.html">double</a><span class="token operator">: </span><a href="../-jc-primitive-type/index.html">JcPrimitiveType</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-528174426%2FExtensions%2F-381265510" anchor-label="findClass" id="-528174426%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/find-class.html"><span>find</span><wbr><span><span>Class</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-528174426%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/find-class.html"><span class="token function">findClass</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-jc-class-or-interface/index.html">JcClassOrInterface</a></div><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../org.jacodb.api.ext/find-class.html">T</a><span class="token operator">&gt; </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/find-class.html"><span class="token function">findClass</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-jc-class-or-interface/index.html">JcClassOrInterface</a></div><div class="brief "><p class="paragraph">find class. Tf there are none then throws <code class="lang-kotlin">NoClassInClasspathException</code></p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-188660789%2FExtensions%2F-381265510" anchor-label="findClassOrNull" id="-188660789%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/find-class-or-null.html"><span>find</span><wbr><span>Class</span><wbr><span>Or</span><wbr><span><span>Null</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-188660789%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../org.jacodb.api.ext/find-class-or-null.html">T</a><span class="token operator">&gt; </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/find-class-or-null.html"><span class="token function">findClassOrNull</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-jc-class-or-interface/index.html">JcClassOrInterface</a><span class="token operator">?</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1101468183%2FExtensions%2F-381265510" anchor-label="findType" id="1101468183%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/find-type.html"><span>find</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1101468183%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/find-type.html"><span class="token function">findType</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-jc-type/index.html">JcType</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1121940198%2FExtensions%2F-381265510" anchor-label="findTypeOrNull" id="-1121940198%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/find-type-or-null.html"><span>find</span><wbr><span>Type</span><wbr><span>Or</span><wbr><span><span>Null</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1121940198%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../org.jacodb.api.ext/find-type-or-null.html">T</a><span class="token operator">&gt; </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/find-type-or-null.html"><span class="token function">findTypeOrNull</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-jc-type/index.html">JcType</a><span class="token operator">?</span></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/find-type-or-null.html"><span class="token function">findTypeOrNull</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">typeName<span class="token operator">: </span><a href="../-type-name/index.html">TypeName</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-jc-type/index.html">JcType</a><span class="token operator">?</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1810693432%2FExtensions%2F-381265510" anchor-label="float" id="1810693432%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/float.html"><span><span>float</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1810693432%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/float.html">float</a><span class="token operator">: </span><a href="../-jc-primitive-type/index.html">JcPrimitiveType</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1124740933%2FExtensions%2F-381265510" anchor-label="int" id="1124740933%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/int.html"><span><span>int</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1124740933%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/int.html">int</a><span class="token operator">: </span><a href="../-jc-primitive-type/index.html">JcPrimitiveType</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1851046268%2FExtensions%2F-381265510" anchor-label="long" id="-1851046268%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/long.html"><span><span>long</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1851046268%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/long.html">long</a><span class="token operator">: </span><a href="../-jc-primitive-type/index.html">JcPrimitiveType</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1069530239%2FExtensions%2F-381265510" anchor-label="nullType" id="1069530239%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/null-type.html"><span>null</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1069530239%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/null-type.html">nullType</a><span class="token operator">: </span><a href="../-jc-primitive-type/index.html">JcPrimitiveType</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-775434373%2FExtensions%2F-381265510" anchor-label="objectClass" id="-775434373%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/object-class.html"><span>object</span><wbr><span><span>Class</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-775434373%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/object-class.html">objectClass</a><span class="token operator">: </span><a href="../-jc-class-or-interface/index.html">JcClassOrInterface</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2144887367%2FExtensions%2F-381265510" anchor-label="objectType" id="2144887367%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/object-type.html"><span>object</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2144887367%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/object-type.html">objectType</a><span class="token operator">: </span><a href="../-jc-class-type/index.html">JcClassType</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="935079250%2FExtensions%2F-381265510" anchor-label="query" id="935079250%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../query.html"><span><span>query</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="935079250%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../query.html">REQ</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="../query.html">RES</a><span class="token operator">&gt; </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../query.html"><span class="token function">query</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">feature<span class="token operator">: </span><a href="../-jc-feature/index.html">JcFeature</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../query.html">REQ</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="../query.html">RES</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">req<span class="token operator">: </span><a href="../query.html">REQ</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.sequences/-sequence/index.html">Sequence</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../query.html">RES</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-401588805%2FExtensions%2F-381265510" anchor-label="serializableClass" id="-401588805%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/serializable-class.html"><span>serializable</span><wbr><span><span>Class</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-401588805%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/serializable-class.html">serializableClass</a><span class="token operator">: </span><a href="../-jc-class-or-interface/index.html">JcClassOrInterface</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="927180568%2FExtensions%2F-381265510" anchor-label="short" id="927180568%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/short.html"><span><span>short</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="927180568%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/short.html">short</a><span class="token operator">: </span><a href="../-jc-primitive-type/index.html">JcPrimitiveType</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-481864596%2FExtensions%2F-381265510" anchor-label="void" id="-481864596%2FExtensions%2F-381265510" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-api:dokkaHtmlPartial/main" data-filterable-set=":jacodb-api:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../../org.jacodb.api.ext/void.html"><span><span>void</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-481864596%2FExtensions%2F-381265510"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-api:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html">JcClasspath</a><span class="token punctuation">.</span><a href="../../org.jacodb.api.ext/void.html">void</a><span class="token operator">: </span><a href="../-jc-primitive-type/index.html">JcPrimitiveType</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+

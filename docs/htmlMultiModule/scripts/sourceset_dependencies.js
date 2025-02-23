@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":jacodb-api:dokkaHtmlPartial/main":[],":jacodb-analysis:dokkaHtmlPartial/main":[],":jacodb-core:dokkaHtmlPartial/main":[],":jacodb-taint-configuration:dokkaHtmlPartial/main":[],":jacodb-approximations:dokkaHtmlPartial/main":[]}'

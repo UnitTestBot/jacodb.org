@@ -1,0 +1,314 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>DominatorsTree</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>jacodb</span>            </a>    </div>
+    <div>1.4.5
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="jacodb-core::org.jacodb.impl.cfg.graphs/DominatorsTree///PointingToDeclaration//76530479">
+  <div class="breadcrumbs"><a href="../../index.html">jacodb-core</a><span class="delimiter">/</span><a href="../index.html">org.jacodb.impl.cfg.graphs</a><span class="delimiter">/</span><span class="current">DominatorsTree</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Dominators</span><wbr><span><span>Tree</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">DominatorsTree</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">dominators<span class="token operator">: </span><a href="../-graph-dominators/index.html">GraphDominators</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterable/index.html">Iterable</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span><span class="token operator">&gt; </span></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section-body">
+      <h2 class="tabbedcontent">Constructors</h2>
+      <div class="table" data-togglable="Constructors"><a data-name="1284026043%2FConstructors%2F76530479" anchor-label="DominatorsTree" id="1284026043%2FConstructors%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue TabbedContent">
+            <div class=""><span class="inline-flex">
+                <div><a href="-dominators-tree.html"><span>Dominators</span><wbr><span><span>Tree</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1284026043%2FConstructors%2F76530479"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt; </span><a href="-dominators-tree.html"><span class="token function">DominatorsTree</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">dominators<span class="token operator">: </span><a href="../-graph-dominators/index.html">GraphDominators</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="252044080%2FFunctions%2F76530479" anchor-label="childsOf" id="252044080%2FFunctions%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="childs-of.html"><span>childs</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="252044080%2FFunctions%2F76530479"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="childs-of.html"><span class="token function">childsOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">node<span class="token operator">: </span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.collections.immutable/PersistentList///PointingToDeclaration/">PersistentList</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1840364353%2FFunctions%2F76530479" anchor-label="findOrNewChild" id="-1840364353%2FFunctions%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="find-or-new-child.html"><span>find</span><wbr><span>Or</span><wbr><span>New</span><wbr><span><span>Child</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1840364353%2FFunctions%2F76530479"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="find-or-new-child.html"><span class="token function">findOrNewChild</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inst<span class="token operator">: </span><a href="index.html">NODE</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-754903706%2FFunctions%2F76530479" anchor-label="forEach" id="-754903706%2FFunctions%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-754903706%2FFunctions%2F76530479"><span>for</span><wbr><span><span>Each</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-754903706%2FFunctions%2F76530479"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-754903706%2FFunctions%2F76530479"><span class="token function">forEach</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html">Consumer</a><span class="token operator">&lt;</span><span class="token keyword">in </span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-671018886%2FFunctions%2F76530479" anchor-label="isDominatorOf" id="-671018886%2FFunctions%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="is-dominator-of.html"><span>is</span><wbr><span>Dominator</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-671018886%2FFunctions%2F76530479"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-dominator-of.html"><span class="token function">isDominatorOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">dom<span class="token operator">: </span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">node<span class="token operator">: </span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1945349737%2FFunctions%2F76530479" anchor-label="isImmediateDominatorOf" id="1945349737%2FFunctions%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="is-immediate-dominator-of.html"><span>is</span><wbr><span>Immediate</span><wbr><span>Dominator</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1945349737%2FFunctions%2F76530479"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-immediate-dominator-of.html"><span class="token function">isImmediateDominatorOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">idom<span class="token operator">: </span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">node<span class="token operator">: </span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-2141008343%2FFunctions%2F76530479" anchor-label="iterator" id="-2141008343%2FFunctions%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="iterator.html"><span><span>iterator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2141008343%2FFunctions%2F76530479"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">operator override </span><span class="token keyword">fun </span><a href="iterator.html"><span class="token function">iterator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-iterator/index.html">Iterator</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1514575424%2FFunctions%2F76530479" anchor-label="nodeOf" id="1514575424%2FFunctions%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="node-of.html"><span>node</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1514575424%2FFunctions%2F76530479"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="node-of.html"><span class="token function">nodeOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inst<span class="token operator">: </span><a href="index.html">NODE</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1315239811%2FFunctions%2F76530479" anchor-label="parentOf" id="1315239811%2FFunctions%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="parent-of.html"><span>parent</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1315239811%2FFunctions%2F76530479"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="parent-of.html"><span class="token function">parentOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">node<span class="token operator">: </span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span><span class="token operator">?</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1805464404%2FFunctions%2F76530479" anchor-label="predecessors" id="-1805464404%2FFunctions%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="predecessors.html"><span><span>predecessors</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1805464404%2FFunctions%2F76530479"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="predecessors.html"><span class="token function">predecessors</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">node<span class="token operator">: </span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1387152138%2FFunctions%2F76530479" anchor-label="spliterator" id="-1387152138%2FFunctions%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1387152138%2FFunctions%2F76530479"><span><span>spliterator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1387152138%2FFunctions%2F76530479"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1387152138%2FFunctions%2F76530479"><span class="token function">spliterator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Spliterator.html">Spliterator</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1906304751%2FFunctions%2F76530479" anchor-label="successors" id="1906304751%2FFunctions%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="successors.html"><span><span>successors</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1906304751%2FFunctions%2F76530479"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="successors.html"><span class="token function">successors</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">node<span class="token operator">: </span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="-1070448299%2FProperties%2F76530479" anchor-label="graph" id="-1070448299%2FProperties%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="graph.html"><span><span>graph</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1070448299%2FProperties%2F76530479"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><a data-name="-1070448299%2FProperties%2F76530479" anchor-label="graph" id="-1070448299%2FProperties%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="graph.html">graph</a><span class="token operator">: </span><a href="../../../jacodb-api/org.jacodb.api.cfg/-jc-bytecode-graph/index.html">JcBytecodeGraph</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1706407433%2FProperties%2F76530479" anchor-label="head" id="-1706407433%2FProperties%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="head.html"><span><span>head</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1706407433%2FProperties%2F76530479"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><a data-name="-1706407433%2FProperties%2F76530479" anchor-label="head" id="-1706407433%2FProperties%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="head.html">head</a><span class="token operator">: </span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span><span class="token operator">?</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="207231920%2FProperties%2F76530479" anchor-label="heads" id="207231920%2FProperties%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="heads.html"><span><span>heads</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="207231920%2FProperties%2F76530479"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><a data-name="207231920%2FProperties%2F76530479" anchor-label="heads" id="207231920%2FProperties%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="heads.html">heads</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.collections.immutable/PersistentList///PointingToDeclaration/">PersistentList</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1069328864%2FProperties%2F76530479" anchor-label="tails" id="-1069328864%2FProperties%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":jacodb-core:dokkaHtmlPartial/main" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="tails.html"><span><span>tails</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1069328864%2FProperties%2F76530479"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jacodb-core:dokkaHtmlPartial/main"><a data-name="-1069328864%2FProperties%2F76530479" anchor-label="tails" id="-1069328864%2FProperties%2F76530479" data-filterable-set=":jacodb-core:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="tails.html">tails</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.collections.immutable/PersistentList///PointingToDeclaration/">PersistentList</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../-dominator-node/index.html">DominatorNode</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">NODE</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+
