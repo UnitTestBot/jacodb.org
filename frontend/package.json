@@ -71,7 +71,8 @@
     "remark-slug": "^6.1.0",
     "sass": "^1.58.0",
     "shakespeare-data": "^3.0.0",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "sharp": "0.29.3"
   },
   "dependencies": {
     "@babel/runtime": "^7.17.2",

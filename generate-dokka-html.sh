@@ -7,7 +7,7 @@ git clone https://github.com/UnitTestBot/jacodb.git jacodb-temp
 cd jacodb-temp
 echo "Checking out develop branch"
 echo "Building site"
-./gradlew dokkaHtmlMultiModule -PsemVer=1.4.0
+./gradlew dokkaHtmlMultiModule -PsemVer=1.4.5
 echo "Site is ready"
 cd ..
 mkdir "docs"
